@@ -17,6 +17,11 @@ public class MapDataServerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args){
-        assetRepo.findAll().forEach(System.out::println);
+
+//        assetRepo.findAll().forEach(System.out::println);
+
+        assetRepo.findByassetType("HVAC").forEach(x -> System.out.println(x));
+
+
     }
 }
