@@ -3,15 +3,13 @@ package edu.oswegofs.mapdataserver;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.weaver.patterns.HasThisTypePatternTriedToSneakInSomeGenericOrParameterizedTypePatternMatchingStuffAnywhereVisitor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/assets")
 public class AssetController {
 
@@ -25,6 +23,7 @@ public class AssetController {
     // Get All Assets from the Database
     @GetMapping("/")
     public Iterable<Assets> getAllAssets() {
+        System.out.println("Getting Assets");
         return assetRepository.findAll();
     }
 

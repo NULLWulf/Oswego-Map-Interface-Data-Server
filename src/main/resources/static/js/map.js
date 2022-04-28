@@ -5,7 +5,6 @@ const _bounds = 0.5;
 const flyToZoom = 18; // maximum zoom level after FlyToZoom is initialized when interacting with building icons
 const defaultStyle = "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j";
 const satelliteStyle = "mapbox://styles/mapbox/satellite-v9";
-
 let currentStyle = 0;
 
 const map = new mapboxgl.Map({
@@ -130,17 +129,17 @@ function ensureClose(id) {
   }
 }
 
-function toggleMapStyle() {
-  if (currentStyle == 0) {
-    map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
-    document.getElementById("style-toggle").innerHTML = "Default View";
-    currentStyle = 1;
-  } else {
-    map.setLayoutProperty("mapbox-satellite", "visibility", "none");
-    document.getElementById("style-toggle").innerHTML = "Satellite View";
-    currentStyle = 0;
-  }
-}
+// function toggleMapStyle() {
+//   if (currentStyle == 0) {
+//     map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
+//     document.getElementById("style-toggle").innerHTML = "Default View";
+//     currentStyle = 1;
+//   } else {
+//     map.setLayoutProperty("mapbox-satellite", "visibility", "none");
+//     document.getElementById("style-toggle").innerHTML = "Satellite View";
+//     currentStyle = 0;
+//   }
+// }
 
 const regions = [
   {
