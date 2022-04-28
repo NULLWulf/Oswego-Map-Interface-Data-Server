@@ -6,14 +6,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MapDataServerApplication implements CommandLineRunner {
+public class MapDataServerApplication
+//        implements CommandLineRunner
+{
 
     public static void main(String[] args)  {
         SpringApplication.run(MapDataServerApplication.class, args);
     }
 
-    @Override
-    public void run(String... args){
-
-    }
+//    @Override
+//    public void run(String... args){
+//
+//    }
 }

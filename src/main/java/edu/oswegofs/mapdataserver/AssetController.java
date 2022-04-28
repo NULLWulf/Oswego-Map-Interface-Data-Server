@@ -1,9 +1,13 @@
 package edu.oswegofs.mapdataserver;
 
+import org.apache.logging.log4j.Logger;
+import org.aspectj.weaver.patterns.HasThisTypePatternTriedToSneakInSomeGenericOrParameterizedTypePatternMatchingStuffAnywhereVisitor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
@@ -37,8 +41,11 @@ public class AssetController {
     }
 
     // Get Singular Asset by Asset Id
-    @GetMapping("/{id}")
-    public Optional<Assets> getId(@PathVariable Long id){
-        return assetRepository.findByid(id);
-    }
+//    @GetMapping("/{id}")
+//    public Optional<Assets> getId(@PathVariable Long id){
+//        Optional<Assets> asset = assetRepository.findByid(id);
+//        if(asset.isPresent()) {
+//            return asset;
+//        }
+
 }
