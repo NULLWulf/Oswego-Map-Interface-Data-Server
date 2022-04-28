@@ -23,12 +23,12 @@ public class AssetController {
     }
 
     // Get All Assets from the Database
-    @GetMapping("/all")
+    @GetMapping("/")
     public Iterable<Assets> getAllAssets() {
         return assetRepository.findAll();
     }
 
-    // Get Distinct pair liss of Types and Categories
+    // Get Distinct pair lists of Types and Categories
     @GetMapping("/cat_type_list")
     public Iterable<String> getTypeCategoryList(){
         return assetRepository.findAssetIdAndCategory();
@@ -40,12 +40,28 @@ public class AssetController {
         return assetRepository.count();
     }
 
-    // Get Singular Asset by Asset Id
-//    @GetMapping("/{id}")
-//    public Optional<Assets> getId(@PathVariable Long id){
-//        Optional<Assets> asset = assetRepository.findByid(id);
-//        if(asset.isPresent()) {
-//            return asset;
-//        }
+    // Get by Asset Id
+    @GetMapping("/{id}")
+    public Optional<Assets> getId(@PathVariable Long id) {
+        return assetRepository.findByid(id);
+    }
 
+    // Get Assets by Property #
+    @GetMapping("/property/{propertyId}")
+    public Iterable<Assets> getByPropertyId(@PathVariable String propertyId){
+        return assetRepository.findByProperty(propertyId);
+    }
+
+    @GetMapping("/property/{propertyId}/{assetType}")
+    public Iterable<Assets> getByPropertyIdAssetType(@PathVariable String propertyId,
+                                                     @PathVariable String assetType){
+        return assetRepository.findByPropType(propertyId,assetType);
+    }
+
+    @GetMapping("/property/{propertyId}/{assetType}/{assetGroup}")
+    public Iterable<Assets> getByPropertyIdAssetTypeGroup(@PathVariable String propertyId,
+                                                          @PathVariable String assetType,
+                                                          @PathVariable String assetGroup){
+        return assetRepository.findByPropTypeGroup(propertyId, assetType, assetGroup);
+    }
 }

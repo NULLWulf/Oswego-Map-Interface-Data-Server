@@ -14,8 +14,4 @@ public class MapDataServerApplication
         SpringApplication.run(MapDataServerApplication.class, args);
     }
 
-//    @Override
-//    public void run(String... args){
-//
-//    }
 }
