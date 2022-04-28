@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MapDataServerApplication implements CommandLineRunner {
 
     @Autowired
-    AssetInterface assetRepo;
+    AssetRepository assetRepo;
 
     public static void main(String[] args)  {
         SpringApplication.run(MapDataServerApplication.class, args);
@@ -20,8 +20,12 @@ public class MapDataServerApplication implements CommandLineRunner {
 
 //        assetRepo.findAll().forEach(System.out::println);
 
-        assetRepo.findByassetType("HVAC").forEach(x -> System.out.println(x));
+//        assetRepo.findByassetType("HVAC").forEach(x -> System.out.println(x));
 
+//        assetRepo.findAssetIdAndCategory().forEach(
+//                x -> x.keySet().forEach(k -> System.out.println(x))
+//        );
 
+        assetRepo.findAssetIdAndCategory().forEach(System.out::println);
     }
 }

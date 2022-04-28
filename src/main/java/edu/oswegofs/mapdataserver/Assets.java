@@ -13,7 +13,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @Entity
 @Table(name = "assets")
-public class assets {
+public class Assets {
 
     @Id
     Long id;
