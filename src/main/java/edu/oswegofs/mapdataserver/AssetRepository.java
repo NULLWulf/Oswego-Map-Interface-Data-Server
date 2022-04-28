@@ -11,6 +11,7 @@ public interface AssetRepository extends JpaRepository<Assets,Long> {
     // Find All Assets in Database
     List<Assets> findByAssetType(String assetType);
 
+    // By Asset by Id
     Optional<Assets> findByid(Long id);
 
     // Find All Asset Type and Category Pairs
