@@ -133,27 +133,27 @@ function ensureClose(id) {
 }
 
 function toggleMapStyle() {
-  // if (currentStyle == 0) {
-  //   map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
-  //   document.getElementById("style-toggle").innerHTML = "Default View";
-  //   currentStyle = 1;
-  // } else {
-  //   map.setLayoutProperty("mapbox-satellite", "visibility", "none");
-  //   document.getElementById("style-toggle").innerHTML = "Satellite View";
-  //   currentStyle = 0;
-  // }
+  if (currentStyle == 0) {
+    map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
+    document.getElementById("style-toggle").innerHTML = "Default View";
+    currentStyle = 1;
+  } else {
+    map.setLayoutProperty("mapbox-satellite", "visibility", "none");
+    document.getElementById("style-toggle").innerHTML = "Satellite View";
+    currentStyle = 0;
+  }
 
-  fetch(ASSETS_API, { mode: "no-cors" })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (json) {
-      let query = json;
-      console.log(query);
-    })
-    .catch(function (err) {
-      console.log("Fetch problem: " + err.message);
-    });
+  // fetch(ASSETS_API, { mode: "no-cors" })
+  //   .then(function (response) {
+  //     return response.json();
+  //   })
+  //   .then(function (json) {
+  //     let query = json;
+  //     console.log(query);
+  //   })
+  //   .catch(function (err) {
+  //     console.log("Fetch problem: " + err.message);
+  //   });
 }
 
 // mark your function as async
