@@ -33,3 +33,16 @@ build/
 
 ### VS Code ###
 .vscode/
+
+fsMapDataServer/HELP.md
+
+### STS ###
+
+### IntelliJ IDEA ###
+
+### NetBeans ###
+
+### VS Code ###
+sbu.js
+src/main/resources/static/node_modules
+mysql.txt
