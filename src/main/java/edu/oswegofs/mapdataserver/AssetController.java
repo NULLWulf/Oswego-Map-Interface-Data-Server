@@ -10,13 +10,10 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/assets")
 public class AssetController {
 
     private final AssetRepository assetRepository;
-
-
 
     // Assigns Asset Repo to this Controller
     public AssetController(AssetRepository assetRepository) {
