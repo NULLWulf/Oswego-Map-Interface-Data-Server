@@ -11,6 +11,7 @@ public class WebController {
     public ModelAndView mapPage(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index.html");
+        System.out.println("----- Setting Mapview -----");
         return modelAndView;
     }
 }

@@ -23,9 +23,15 @@
   </head>
   <body>
     <script>
-      if (screen.width <= 700) {
-        window.location = "mobile.html";
-      }
+      const width = $(window).width();
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const mobileOverride = urlParams.get('mobile');
+      console.log(mobileOverride);
+
+      // if (screen.width <= 700) {
+      //   window.location = "mobile.html";
+      // }
     </script>
     <div id="map"></div>
     <div id="left" class="sidebar flex-center left collapsed">
