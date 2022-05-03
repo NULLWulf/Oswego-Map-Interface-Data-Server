@@ -143,7 +143,7 @@ function toggleMapStyle() {
     currentStyle = 0;
   }
 
-  fetch(ASSETS_API, { mode: "no-cors" })
+  fetch(ASSETS_API)
     .then(function (response) {
       return response.json();
     })
