@@ -25,4 +25,3 @@ jobs:
         heroku_email: ${{secrets.HEROKU_APP}}
         # The appname to use for deploying/updating
         heroku_app_name: ${{secrets.HEROKU_EMAIL}}
-    
