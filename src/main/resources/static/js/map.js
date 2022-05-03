@@ -8,7 +8,7 @@ const satelliteStyle = "mapbox://styles/mapbox/satellite-v9";
 
 let currentStyle = 0;
 
-const ASSETS_API = "http://localhost:8080/assets/cat_type_list";
+const ASSETS_API = "assets/cat_type_list";
 
 const map = new mapboxgl.Map({
   // creates Mapbox object
@@ -143,17 +143,17 @@ function toggleMapStyle() {
     currentStyle = 0;
   }
 
-  // fetch(ASSETS_API, { mode: "no-cors" })
-  //   .then(function (response) {
-  //     return response.json();
-  //   })
-  //   .then(function (json) {
-  //     let query = json;
-  //     console.log(query);
-  //   })
-  //   .catch(function (err) {
-  //     console.log("Fetch problem: " + err.message);
-  //   });
+  fetch(ASSETS_API, { mode: "no-cors" })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (json) {
+      let query = json;
+      console.log(query);
+    })
+    .catch(function (err) {
+      console.log("Fetch problem: " + err.message);
+    });
 }
 
 // mark your function as async
