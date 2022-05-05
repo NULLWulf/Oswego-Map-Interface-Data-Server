@@ -236,7 +236,7 @@ async function populateDropDown(data) {
   const assetData = data;
   console.log(assetData);
   let select = document.createElement("select");
-  select.innerHTML = `${data.length} Assets`;
+  select.textContent = `${data.length} Assets`;
   select.className = "assetDropdown";
   for (let i = 0; i < data.length; i++) {
     let assetOption =
