@@ -6,6 +6,7 @@ const flyToZoom = 18; // maximum zoom level after FlyToZoom is initialized when 
 const defaultStyle = "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j";
 const satelliteStyle = "mapbox://styles/mapbox/satellite-v9";
 
+let currentBuilding;
 let currentStyle = 0;
 
 const ASSETS_API = "assets/cat_type_list";
@@ -38,23 +39,10 @@ map.on("click", (event) => {
   // ensureClose("right"); // ensures right sidebar collapses
 
   if (features.length == 1) {
-    // will trigger if any features exist under point and open side bar.
-    // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
-    // Populates building data as html
-    const contextBox = `
-    <div><h2 class="header">${features[0].properties.name}</h2></div>
-    <div class="smalltext">
-    <div><strong>Building No: </strong>${features[0].properties.buildingNo}</div>
-    <div><strong>Ft<sup>2</sup>: </strong>${features[0].properties.squareFt}</div>
-    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank"><strong>AIM Asset View</strong></a></div>
-    </div>
-    `;
-    document.getElementsByClassName("context-box")[0].innerHTML = contextBox; // inserts into sidebar
-    document.getElementsByClassName("fs-logo-building")[0].src = `
-    images/building-images/${features[0].properties.buildingNo}.jpg
-    `;
-    console.log(features[0].properties);
+    currentBuilding = features[0].properties.buildingNo;
+    populateBuildingContext(features[0].properties);
   } else {
+    currentBuilding = "NaN";
     document.getElementsByClassName("fs-logo-building")[0].src =
       "./images/branding/inverted_fs.png";
     const noContext = `
@@ -142,21 +130,7 @@ function toggleMapStyle() {
     document.getElementById("style-toggle").innerHTML = "Satellite View";
     currentStyle = 0;
   }
-
-  fetch(ASSETS_API)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (json) {
-      let query = json;
-      console.log(query);
-    })
-    .catch(function (err) {
-      console.log("Fetch problem: " + err.message);
-    });
 }
-
-// mark your function as async
 
 const regions = [
   {
@@ -225,3 +199,45 @@ const nav = new mapboxgl.NavigationControl({
   compass: true,
 });
 map.addControl(nav, "bottom-left");
+
+// mark your function as async
+async function getAssetsByBuildingNo(buildingNo) {
+  (async () => {
+    const buildingAssets = await getAssetsByBuildingNo(buildingNo);
+    console.log(buildingAssets);
+  })();
+  const url = `/assets/property/${buildingNo}`;
+
+  const response = await fetch(url);
+  const repositories = await response.json();
+
+  return repositories;
+}
+
+function populateBuildingContext(property) {
+  // will trigger if any features exist under point and open side bar.
+  // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
+  // Populates building data as html
+  const contextBox = `
+    <div><h2 class="header">${property.name}</h2></div>
+    <div class="smalltext">
+    <div><strong>Building No: </strong>${property.buildingNo}</div>
+    <div><strong>Ft<sup>2</sup>: </strong>${property.squareFt}</div>
+    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.assetID}" target="_blank"><strong>AIM Asset View</strong></a></div>
+    </div>
+    `;
+  document.getElementsByClassName("context-box")[0].innerHTML = contextBox; // inserts into sidebar
+  document.getElementsByClassName("fs-logo-building")[0].src = `
+    images/building-images/${property.buildingNo}.jpg
+    `;
+  let assetTblButton = document.createElement("button");
+  assetTblButton.id = "assetTableButton";
+  assetTblButton.innerHTML = "Assets Table";
+  document.getElementsByClassName("context-box")[0].appendChild(assetTblButton);
+}
+
+$(document).ready(function () {
+  $(document).on("click", "#assetTableButton", function () {
+    getAssetsByBuildingNo(currentBuilding);
+  });
+});
