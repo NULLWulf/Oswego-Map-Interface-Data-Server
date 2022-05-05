@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class WebController {
 
     @RequestMapping("/")
-    public ModelAndView mapPage(){
+    public ModelAndView serveMainPage(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index.html");
         System.out.println("----- Setting Mapview -----");

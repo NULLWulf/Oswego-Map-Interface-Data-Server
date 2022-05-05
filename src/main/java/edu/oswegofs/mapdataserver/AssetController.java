@@ -47,14 +47,14 @@ public class AssetController {
     // Get by Asset Id
     @GetMapping("/{id}")
     public Optional<Assets> getId(@PathVariable Long id) {
-        log.info("Getting Asset: " + id + ".");
+        log.info("Getting Asset: " + id);
         return assetRepository.findByid(id);
     }
 
     // Get Assets by Property #
     @GetMapping("/property/{propertyId}")
     public Iterable<Assets> getByPropertyId(@PathVariable String propertyId){
-        log.info("Getting Assets from Building No: " + propertyId + ".");
+        log.info("Getting Assets from Building No: " + propertyId);
 
         return assetRepository.findByProperty(propertyId);
     }
@@ -62,7 +62,7 @@ public class AssetController {
     @GetMapping("/property/{propertyId}/{assetType}")
     public Iterable<Assets> getByPropertyIdAssetType(@PathVariable String propertyId,
                                                      @PathVariable String assetType){
-        log.info("Getting Assets from Building No: " + propertyId + ". that is Asset Type: " + assetType + " .");
+        log.info("Getting Assets from Building No: " + propertyId + " where Asset Type = " + assetType);
         return assetRepository.findByPropType(propertyId,assetType);
     }
 
@@ -70,11 +70,7 @@ public class AssetController {
     public Iterable<Assets> getByPropertyIdAssetTypeGroup(@PathVariable String propertyId,
                                                           @PathVariable String assetType,
                                                           @PathVariable String assetGroup){
-        System.out.printf("""
-                ----- Getting Assets from Building No: %s  -----
-                -----              that is Asset Type: %s  -----
-                -----              that is Asset Group: %s -----
-                """, propertyId,assetType,assetGroup);
+        log.info("Getting Assets from Building No: " + propertyId + " where Asset Type = " + assetType + " & Asset Group = " + assetGroup);
         return assetRepository.findByPropTypeGroup(propertyId, assetType, assetGroup);
     }
 }

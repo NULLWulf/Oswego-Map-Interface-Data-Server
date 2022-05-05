@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface AssetRepository extends JpaRepository<Assets,Long> {
 
-    // Find All Assets in Database
+    // Find by Asset Type
     List<Assets> findByAssetType(String assetType);
 
     // Get asset by Primary key (id)
