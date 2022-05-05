@@ -198,17 +198,6 @@ const nav = new mapboxgl.NavigationControl({
 });
 map.addControl(nav, "bottom-left");
 
-// mark your function as async
-// async function getAssetsByBuildingNo(buildingNo) {
-//   const url = `/assets/property/${buildingNo}`;
-
-//   const response = await fetch(url);
-//   const repositories = await response.json();
-//   console.log(repositories);
-
-//   return response.data;
-// }
-
 function populateBuildingContext(property) {
   // will trigger if any features exist under point and open side bar.
   // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
@@ -247,8 +236,8 @@ async function populateDropDown(data) {
   const assetData = data;
   console.log(assetData);
   let select = document.createElement("select");
-  select.name = "Assets";
-  select.className = "dropdown";
+  select.innerHTML = `${data.length} Assets`;
+  select.className = "assetDropdown";
   for (let i = 0; i < data.length; i++) {
     let assetOption =
       data[i].id +
@@ -263,5 +252,6 @@ async function populateDropDown(data) {
     assetElement.value = assetOption;
     select.appendChild(assetElement);
   }
+
   document.getElementsByClassName("context-box")[0].appendChild(select);
 }
