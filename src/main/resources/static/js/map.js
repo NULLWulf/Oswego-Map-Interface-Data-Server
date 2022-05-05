@@ -202,14 +202,11 @@ map.addControl(nav, "bottom-left");
 
 // mark your function as async
 async function getAssetsByBuildingNo(buildingNo) {
-  (async () => {
-    const buildingAssets = await getAssetsByBuildingNo(buildingNo);
-    console.log(buildingAssets);
-  })();
   const url = `/assets/property/${buildingNo}`;
 
   const response = await fetch(url);
   const repositories = await response.json();
+  console.log(repositories);
 
   return repositories;
 }
@@ -237,7 +234,10 @@ function populateBuildingContext(property) {
 }
 
 $(document).ready(function () {
-  $(document).on("click", "#assetTableButton", function () {
-    getAssetsByBuildingNo(currentBuilding);
-  });
+  $(document)
+    .off()
+    .on("click", "#assetTableButton", function () {
+      console.log("Test");
+      const data = getAssetsByBuildingNo(currentBuilding);
+    });
 });
