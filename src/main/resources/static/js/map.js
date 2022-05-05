@@ -9,8 +9,6 @@ const satelliteStyle = "mapbox://styles/mapbox/satellite-v9";
 let currentBuilding;
 let currentStyle = 0;
 
-const ASSETS_API = "assets/cat_type_list";
-
 const map = new mapboxgl.Map({
   // creates Mapbox object
   container: "map", // container ID
@@ -201,15 +199,15 @@ const nav = new mapboxgl.NavigationControl({
 map.addControl(nav, "bottom-left");
 
 // mark your function as async
-async function getAssetsByBuildingNo(buildingNo) {
-  const url = `/assets/property/${buildingNo}`;
+// async function getAssetsByBuildingNo(buildingNo) {
+//   const url = `/assets/property/${buildingNo}`;
 
-  const response = await fetch(url);
-  const repositories = await response.json();
-  console.log(repositories);
+//   const response = await fetch(url);
+//   const repositories = await response.json();
+//   console.log(repositories);
 
-  return repositories;
-}
+//   return response.data;
+// }
 
 function populateBuildingContext(property) {
   // will trigger if any features exist under point and open side bar.
@@ -227,17 +225,43 @@ function populateBuildingContext(property) {
   document.getElementsByClassName("fs-logo-building")[0].src = `
     images/building-images/${property.buildingNo}.jpg
     `;
+
   let assetTblButton = document.createElement("button");
   assetTblButton.id = "assetTableButton";
   assetTblButton.innerHTML = "Assets Table";
   document.getElementsByClassName("context-box")[0].appendChild(assetTblButton);
+  fetch(`/assets/property/${property.buildingNo}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (json) {
+      let query = json;
+      populateDropDown(query);
+    })
+    .catch(function (err) {
+      console.log("Fetch problem: " + err.message);
+    });
 }
 
-$(document).ready(function () {
-  $(document)
-    .off()
-    .on("click", "#assetTableButton", function () {
-      console.log("Test");
-      const data = getAssetsByBuildingNo(currentBuilding);
-    });
-});
+async function populateDropDown(data) {
+  const assetData = data;
+  console.log(assetData);
+  let select = document.createElement("select");
+  select.name = "Assets";
+  select.className = "dropdown";
+  for (let i = 0; i < data.length; i++) {
+    let assetOption =
+      data[i].id +
+      " : " +
+      data[i].description +
+      " : " +
+      data[i].assetType +
+      " : " +
+      data[i].assetGroup;
+    let assetElement = document.createElement("option");
+    assetElement.textContent = assetOption;
+    assetElement.value = assetOption;
+    select.appendChild(assetElement);
+  }
+  document.getElementsByClassName("context-box")[0].appendChild(select);
+}
