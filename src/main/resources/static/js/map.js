@@ -44,7 +44,7 @@ map.on("click", (event) => {
         })
         .catch(function (err) {
           console.log("Fetch problem: " + err.message);
-          document.getElementsByClassName("context-box")[0].innerHTML = `<div><h2>Error Retrieving Building Data</h2</div>`; // inserts into sidebar
+          populateBuildingContext(null, features[0].properties);
         });
   } else {
     document.getElementsByClassName("fs-logo-building")[0].src =
@@ -203,12 +203,15 @@ map.addControl(nav, "bottom-left");
 
 function populateBuildingContext(assetData, property) {
   const buildingNo = property.buildingNo;
+
+  let assetsAvailable = assetData ? assetData.length : "No Assets Available"
+
   document.getElementsByClassName("context-box")[0].innerHTML = `
     <div><h2 class="header">${property.name}</h2></div>
     <div class="smalltext">
     <div><strong>Building No: </strong>${buildingNo}</div>
     <div><strong>Ft<sup>2</sup>: </strong>${property.squareFt}</div>
-    <div><strong>Asset Count: </strong>${assetData.length}</div>
+    <div><strong>Asset Count: </strong>${assetsAvailable}</div>
     <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.assetID}" target="_blank"><strong>AIM Asset View</strong></a></div>
     </div>
     `;
@@ -217,21 +220,28 @@ function populateBuildingContext(assetData, property) {
     images/building-images/${buildingNo}.jpg
     `;
 
-  let select = document.createElement("select");
-  select.className = "assetDropdown";
-  for (let i = 0; i < assetData.length; i++) {
-    let assetOption =
-        assetData[i].id +
-        " : " +
-        assetData[i].description +
-        " : " +
-        assetData[i].assetType +
-        " : " +
-        assetData[i].assetGroup;
-    let assetElement = document.createElement("option");
-    assetElement.textContent = assetOption;
-    assetElement.value = assetOption;
-    select.appendChild(assetElement);
+  if (assetData) {
+    let select = document.createElement("select");
+    select.className = "assetDropdown";
+    for (let i = 0; i < assetData.length; i++) {
+      let assetOption =
+          assetData[i].id +
+          " : " +
+          assetData[i].description +
+          " : " +
+          assetData[i].assetType +
+          " : " +
+          assetData[i].assetGroup;
+      let assetElement = document.createElement("option");
+      assetElement.textContent = assetOption;
+      assetElement.value = assetOption;
+      select.appendChild(assetElement);
+    }
+    document.getElementsByClassName("context-box")[0].appendChild(select);
+  } else {
+    let errorMessageAsset = document.createElement("div");
+    errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Data</h3</div>`;
+    document.getElementsByClassName("context-box")[0].appendChild(errorMessageAsset)
   }
-  document.getElementsByClassName("context-box")[0].appendChild(select);
+
 }
