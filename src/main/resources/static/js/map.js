@@ -38,9 +38,9 @@ map.on("click", (event) => {
         .then(function (response) {
           return response.json();
         })
-        .then(function (json) {
+        .then(function (assetDataJson) {
           console.log("Fetch Successful");
-          populateBuildingContext(json, features[0].properties);
+          populateBuildingContext(assetDataJson, features[0].properties);
         })
         .catch(function (err) {
           console.log("Fetch problem: " + err.message);
