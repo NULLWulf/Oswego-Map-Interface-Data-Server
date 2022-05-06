@@ -44,6 +44,13 @@ public class AssetController {
         return assetRepository.count();
     }
 
+    @GetMapping("/count/{property}")
+    public long getCountByPropertyNum(@PathVariable String property){
+        log.info("Getting Asset Count by Property Number");
+        return assetRepository.getCountByPropertyNum(property);
+    }
+
+
     // Get by Asset Id
     @GetMapping("/{id}")
     public Optional<Assets> getId(@PathVariable Long id) {

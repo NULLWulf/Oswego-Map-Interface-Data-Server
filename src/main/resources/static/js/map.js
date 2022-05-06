@@ -5,8 +5,6 @@ const _bounds = 0.5;
 const flyToZoom = 18; // maximum zoom level after FlyToZoom is initialized when interacting with building icons
 const defaultStyle = "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j";
 const satelliteStyle = "mapbox://styles/mapbox/satellite-v9";
-
-let currentBuilding;
 let currentStyle = 0;
 
 const map = new mapboxgl.Map({
@@ -15,7 +13,7 @@ const map = new mapboxgl.Map({
   style: defaultStyle, // new style url
   center: [-76.543134, 43.453054], // starting position [lng, lat]
   zoom: 15.65, // initial zoom start
-  bearing: -37.25, // slightly off north to show majority of campus
+  bearing: -37.25, // slightly off north to show the majority of campus
   pitch: 0, // directly overhead
   // maxBounds: _mapPanBound,
 });
@@ -34,28 +32,33 @@ function bondFeatures(bound, map, event) {
 }
 map.on("click", (event) => {
   const features = bondFeatures(_bounds, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
-  // ensureClose("right"); // ensures right sidebar collapses
-
-  if (features.length == 1) {
-    currentBuilding = features[0].properties.buildingNo;
-    populateBuildingContext(features[0].properties);
+  let currentBuilding = features[0].properties.buildingNo;
+  if (features.length === 1) {
+    fetch(`/assets/property/${currentBuilding}`)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (json) {
+          console.log("Fetch Successful");
+          populateBuildingContext(json, features[0].properties);
+        })
+        .catch(function (err) {
+          console.log("Fetch problem: " + err.message);
+          document.getElementsByClassName("context-box")[0].innerHTML = `<div><h2>Error Retrieving Building Data</h2</div>`; // inserts into sidebar
+        });
   } else {
-    currentBuilding = "NaN";
     document.getElementsByClassName("fs-logo-building")[0].src =
-      "./images/branding/inverted_fs.png";
-    const noContext = `
-      <div><h2>Select a Building or Feature</h2</div>
-    `;
-    document.getElementsByClassName("context-box")[0].innerHTML = noContext; // inserts into sidebar
+        "./images/branding/inverted_fs.png";
+    document.getElementsByClassName("context-box")[0].innerHTML = `<div><h2>Select a Building or Feature</h2</div>`; // inserts into sidebar
   }
 });
 
 map.on("click", "buildings", (e) => {
   const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
-  // notes higher zoom level means more magnifation
+  // notes higher zoom level means more magnification
   map.flyTo({
     center: e.features[0].geometry.coordinates, // centers map based on exact point in geoJson array
-    zoom: constraintZoom, // new constrainted zoom, since this is an object data value, variable needs to be declares up top
+    zoom: constraintZoom, // new constrained zoom, since this is an object data value, variable needs to be declares up top
     speed: 0.3,
   });
 });
@@ -119,7 +122,7 @@ function ensureClose(id) {
 }
 
 function toggleMapStyle() {
-  if (currentStyle == 0) {
+  if (currentStyle === 0) {
     map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
     document.getElementById("style-toggle").innerHTML = "Default View";
     currentStyle = 1;
@@ -198,60 +201,37 @@ const nav = new mapboxgl.NavigationControl({
 });
 map.addControl(nav, "bottom-left");
 
-function populateBuildingContext(property) {
-  // will trigger if any features exist under point and open side bar.
-  // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
-  // Populates building data as html
-  const contextBox = `
+function populateBuildingContext(assetData, property) {
+  const buildingNo = property.buildingNo;
+  document.getElementsByClassName("context-box")[0].innerHTML = `
     <div><h2 class="header">${property.name}</h2></div>
     <div class="smalltext">
-    <div><strong>Building No: </strong>${property.buildingNo}</div>
+    <div><strong>Building No: </strong>${buildingNo}</div>
     <div><strong>Ft<sup>2</sup>: </strong>${property.squareFt}</div>
+    <div><strong>Asset Count: </strong>${assetData.length}</div>
     <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.assetID}" target="_blank"><strong>AIM Asset View</strong></a></div>
     </div>
     `;
-  document.getElementsByClassName("context-box")[0].innerHTML = contextBox; // inserts into sidebar
+
   document.getElementsByClassName("fs-logo-building")[0].src = `
-    images/building-images/${property.buildingNo}.jpg
+    images/building-images/${buildingNo}.jpg
     `;
 
-  let assetTblButton = document.createElement("button");
-  assetTblButton.id = "assetTableButton";
-  assetTblButton.innerHTML = "Assets Table";
-  document.getElementsByClassName("context-box")[0].appendChild(assetTblButton);
-  fetch(`/assets/property/${property.buildingNo}`)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (json) {
-      let query = json;
-      populateDropDown(query);
-    })
-    .catch(function (err) {
-      console.log("Fetch problem: " + err.message);
-    });
-}
-
-async function populateDropDown(data) {
-  const assetData = data;
-  console.log(assetData);
   let select = document.createElement("select");
-  select.textContent = `${data.length} Assets`;
   select.className = "assetDropdown";
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < assetData.length; i++) {
     let assetOption =
-      data[i].id +
-      " : " +
-      data[i].description +
-      " : " +
-      data[i].assetType +
-      " : " +
-      data[i].assetGroup;
+        assetData[i].id +
+        " : " +
+        assetData[i].description +
+        " : " +
+        assetData[i].assetType +
+        " : " +
+        assetData[i].assetGroup;
     let assetElement = document.createElement("option");
     assetElement.textContent = assetOption;
     assetElement.value = assetOption;
     select.appendChild(assetElement);
   }
-
   document.getElementsByClassName("context-box")[0].appendChild(select);
 }
