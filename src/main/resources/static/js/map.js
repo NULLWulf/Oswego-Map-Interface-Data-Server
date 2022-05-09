@@ -35,14 +35,14 @@ map.on("click", (event) => {
   let currentBuilding = features[0].properties.buildingNo;
   if (features.length === 1) {
     fetch(`/assets/property/${currentBuilding}`)
-      .then(function (response) {
+      .then((response) => {
         return response.json();
       })
-      .then(function (assetDataJson) {
+      .then((assetDataJson) => {
         console.log("Fetch Successful");
         populateBuildingContext(assetDataJson, features[0].properties);
       })
-      .catch(function (err) {
+      .catch((err) => {
         console.log("Fetch problem: " + err.message);
         populateBuildingContext(null, features[0].properties);
       });
@@ -214,8 +214,7 @@ function populateBuildingContext(assetData, property) {
     <div><strong>Building No: </strong>${buildingNo}</div>
     <div><strong>Ft<sup>2</sup>: </strong>${property.squareFt}</div>
     <div><strong>Asset Count: </strong>${assetsAvailable}</div>
-    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.assetID}" target="_blank"><strong>AIM Asset View</strong></a></div>
-    </div>
+    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.assetID}" target="_blank"><strong>AIM Asset Property/strong></a></div>
     `;
 
   document.getElementsByClassName("fs-logo-building")[0].src = `
@@ -241,7 +240,7 @@ function populateBuildingContext(assetData, property) {
       select.appendChild(assetElement);
     }
 
-    select.addEventListener("change", function () {
+    select.addEventListener("change", () => {
       getAssetFromDropDown(select.value);
     });
     document.getElementsByClassName("context-box")[0].appendChild(select);
@@ -255,5 +254,24 @@ function populateBuildingContext(assetData, property) {
 }
 
 function getAssetFromDropDown(assetId) {
-  console.log(assetId);
+  fetch(`/assets/${assetId}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      populateAssetContext(data);
+    });
 }
+
+// document.getElementsByClassName("selected-asset")[0].innerHTML = `
+//       <div><h3 class="header">Asset: ${asset.id}</h3></div>
+//       <div class="smalltext">
+//       <div><strong>Group: </strong>${asset.assetGroup}</div>
+//       <div><strong>Type: </strong>${asset.assetType}</div>
+//       <div><strong>Description: </strong>${asset.description}</div>
+//       <div><strong>Facility: </strong>${asset.facility}</div>
+//       <div><strong>Location: </strong>${asset.location}</div>
+//       <div><strong>Status: </strong>${asset.status}</div>
+//       <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
+//       `;
