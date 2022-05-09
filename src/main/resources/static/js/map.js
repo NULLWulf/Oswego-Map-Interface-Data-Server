@@ -264,14 +264,18 @@ function getAssetFromDropDown(assetId) {
     });
 }
 
-// document.getElementsByClassName("selected-asset")[0].innerHTML = `
-//       <div><h3 class="header">Asset: ${asset.id}</h3></div>
-//       <div class="smalltext">
-//       <div><strong>Group: </strong>${asset.assetGroup}</div>
-//       <div><strong>Type: </strong>${asset.assetType}</div>
-//       <div><strong>Description: </strong>${asset.description}</div>
-//       <div><strong>Facility: </strong>${asset.facility}</div>
-//       <div><strong>Location: </strong>${asset.location}</div>
-//       <div><strong>Status: </strong>${asset.status}</div>
-//       <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
-//       `;
+function populateAssetContext(asset) {
+  document.getElementsByClassName("selected-asset")[0].innerHTML = "Hi";
+
+  let newHtml = `
+      <div><h3 class="header">Asset: ${asset.id}</h3></div>
+      <div class="smalltext">
+      <div><strong>Group: </strong>${asset.assetGroup}</div>
+      <div><strong>Type: </strong>${asset.assetType}</div>
+      <div><strong>Description: </strong>${asset.description}</div>
+      <div><strong>Facility: </strong>${asset.facility}</div>
+      <div><strong>Location: </strong>${asset.location}</div>
+      <div><strong>Status: </strong>${asset.status}</div>
+      <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
+      `;
+}
