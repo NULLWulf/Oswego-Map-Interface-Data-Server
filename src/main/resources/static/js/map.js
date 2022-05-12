@@ -263,6 +263,8 @@ function populateBuildingContext(assetData, property) {
 }
 
 function populateAssetContext(asset) {
+  let property = asset.property;
+
   document.getElementById("asset-context").innerHTML = `
       <div><h3 class="header">Asset: ${asset.id}</h3></div>
       <div class="smalltext">
@@ -274,6 +276,13 @@ function populateAssetContext(asset) {
       <div><strong>Status: </strong>${asset.status}</div>
       <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
       `;
+  
+        <div>
+          <button class="style-button" onclick="flyToId(${property})">
+            Property ${property}
+          </button>
+        </div>;
+
 }
 
 function populateLiveMapContext(event) {
@@ -288,5 +297,6 @@ function populateLiveMapContext(event) {
             <div><strong>Zoom:</strong> ${map.getZoom()}</div>
             <div><strong>Bearing:</strong> ${map.getBearing()}</div>
             <div><strong>Pitch:</strong> ${map.getPitch()}</div>
+
   `;
 }

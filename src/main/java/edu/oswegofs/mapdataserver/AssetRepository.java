@@ -22,7 +22,6 @@ public interface AssetRepository extends JpaRepository<Assets,Long> {
     // Get total Assets in Database
     long count();
 
-
     // Get Asset Count Based on Building #
     @Query(value = "select COUNT(id) from assets where assets.property = :property", nativeQuery = true)
     long getCountByPropertyNum(@Param("property") String property);

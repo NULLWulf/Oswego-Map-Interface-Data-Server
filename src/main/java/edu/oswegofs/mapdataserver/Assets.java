@@ -2,10 +2,8 @@ package edu.oswegofs.mapdataserver;
 
 
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Getter
 @Setter
