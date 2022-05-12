@@ -73,7 +73,19 @@ map.on("mouseleave", "buildings", () => {
   map.getCanvas().style.cursor = "";
 });
 
+map.on("wheel", (event) => {
+  populateLiveMapContext(event);
+});
+
+map.on("touchmove", (event) => {
+  populateLiveMapContext(event);
+});
+
 map.on("mousemove", (event) => {
+  populateLiveMapContext(event);
+});
+
+function populateLiveMapContext(event) {
   document.getElementById("live-map-context").innerHTML = `
               <div><h2 class="header">Live Map Data</h2></div>
             <div><strong>Coords X:</strong> ${event.point.x}</div>
@@ -86,7 +98,7 @@ map.on("mousemove", (event) => {
             <div><strong>Bearing:</strong> ${map.getBearing()}</div>
             <div><strong>Pitch:</strong> ${map.getPitch()}</div>
   `;
-});
+}
 
 function flyToId(id) {
   map.flyTo({
