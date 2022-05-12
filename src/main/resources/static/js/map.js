@@ -74,15 +74,28 @@ map.on("mouseleave", "buildings", () => {
 });
 
 map.on("mousemove", (event) => {
-  document.getElementById("coordsx").innerHTML = JSON.stringify(event.point.x);
-  document.getElementById("coordsy").innerHTML = JSON.stringify(event.point.y);
-  document.getElementById("mlat").innerHTML = JSON.stringify(event.lngLat.lat);
-  document.getElementById("mlng").innerHTML = JSON.stringify(event.lngLat.lng);
-  document.getElementById("clat").innerHTML = map.getCenter().lat;
-  document.getElementById("clng").innerHTML = map.getCenter().lng;
-  document.getElementById("currentZoom").innerHTML = map.getZoom();
-  document.getElementById("bearing").innerHTML = map.getBearing();
-  document.getElementById("pitch").innerHTML = map.getPitch();
+  document.getElementById("live-map-context").innerHTML = `
+              <div><h2 class="header">Live Map Data</h2></div>
+            <div><strong>Coords X:</strong> ${event.point.x}</div>
+            <div><strong>Coords Y:</strong> ${event.point.y}</div>
+            <div><strong>Mouse Lng:</strong> ${event.lngLat.lng}</div>
+            <div><strong>Mouse Lat:</strong> ${event.lngLat.lat}</div>
+            <div><strong>Center Lng</strong> ${map.getCenter().lng}</div>
+            <div><strong>Center Lat:</strong> ${map.getCenter().lat}</div>
+            <div><strong>Zoom:</strong> ${map.getZoom()}</div>
+            <div><strong>Bearing:</strong> ${map.getBearing()}</div>
+            <div><strong>Pitch:</strong> ${map.getPitch()}</div>
+  `;
+
+  // document.getElementById("coordsx").innerHTML = JSON.stringify();
+  // document.getElementById("coordsy").innerHTML = JSON.stringify();
+  // document.getElementById("mlat").innerHTML = JSON.stringify();
+  // document.getElementById("mlng").innerHTML = JSON.stringify();
+  // document.getElementById("clat").innerHTML = ;
+  // document.getElementById("clng").innerHTML = ;
+  // document.getElementById("currentZoom").innerHTML = ;
+  // document.getElementById("bearing").innerHTML = ;
+  // document.getElementById("pitch").innerHTML = ;
 });
 
 function flyToId(id) {
