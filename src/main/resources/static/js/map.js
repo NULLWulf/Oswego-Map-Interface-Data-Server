@@ -86,16 +86,6 @@ map.on("mousemove", (event) => {
             <div><strong>Bearing:</strong> ${map.getBearing()}</div>
             <div><strong>Pitch:</strong> ${map.getPitch()}</div>
   `;
-
-  // document.getElementById("coordsx").innerHTML = JSON.stringify();
-  // document.getElementById("coordsy").innerHTML = JSON.stringify();
-  // document.getElementById("mlat").innerHTML = JSON.stringify();
-  // document.getElementById("mlng").innerHTML = JSON.stringify();
-  // document.getElementById("clat").innerHTML = ;
-  // document.getElementById("clng").innerHTML = ;
-  // document.getElementById("currentZoom").innerHTML = ;
-  // document.getElementById("bearing").innerHTML = ;
-  // document.getElementById("pitch").innerHTML = ;
 });
 
 function flyToId(id) {
