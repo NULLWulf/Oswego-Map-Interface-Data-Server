@@ -58,16 +58,14 @@ option:hover {
 
 h1 {
   font-size: 3em;
-  justify-content: center;
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 
 h2 {
   font-size: 2em;
-  text-justify: center;
-  margin-top: -0.5px;
-  margin-bottom: -0.5px;
+}
+
+h2 {
+  font-size: 2em;
 }
 
 .sidebar {
@@ -160,6 +158,9 @@ h2 {
 
 .header {
   text-align: center;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 #dialog {
