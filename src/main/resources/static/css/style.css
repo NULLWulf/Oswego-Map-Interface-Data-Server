@@ -59,11 +59,15 @@ option:hover {
 h1 {
   font-size: 3em;
   justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 h2 {
   font-size: 2em;
   text-justify: center;
+  margin-top: -0.5px;
+  margin-bottom: -0.5px;
 }
 
 .sidebar {
@@ -107,8 +111,6 @@ h2 {
   color: #ffffff;
   font-size: 14px;
   text-align: center;
-  /* height: 284px;
-  width: 426px; */
 }
 
 .sidebar-toggle {
@@ -153,7 +155,7 @@ h2 {
 .context-box {
   margin: 5%;
   padding: 0.5em;
-  border: 10px solid #355e3b;
+  border: 5px solid #355e3b;
 }
 
 .header {
