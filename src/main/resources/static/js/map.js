@@ -263,9 +263,7 @@ function getAssetFromDropDown(assetId) {
 }
 
 function populateAssetContext(asset) {
-  document.getElementById("asset-context").innerHTML = "Hi";
-
-  let newHtml = `
+  document.getElementById("asset-context").innerHTML = `
       <div><h3 class="header">Asset: ${asset.id}</h3></div>
       <div class="smalltext">
       <div><strong>Group: </strong>${asset.assetGroup}</div>

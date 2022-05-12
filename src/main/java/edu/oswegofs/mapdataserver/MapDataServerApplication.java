@@ -12,7 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 public class MapDataServerApplication
 {
-//asda
     public static void main(String[] args)  {
         SpringApplication.run(MapDataServerApplication.class, args);
     }
