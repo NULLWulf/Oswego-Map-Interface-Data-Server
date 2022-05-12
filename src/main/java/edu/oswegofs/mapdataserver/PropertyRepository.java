@@ -7,7 +7,4 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Optional;
 
 public interface PropertyRepository extends JpaRepository<Property, String> {
-
-    @Query(value = "SELECT * where ", nativeQuery = true)
-    Property findByBuildingNo(String buildingNo);
 }

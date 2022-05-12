@@ -12,20 +12,28 @@ import javax.persistence.*;
 public class Property {
 
     @Id
-    String BuildingNumber;
+    @Column(name = "BuildingNumber")
+    String id;
 
+    @Column(name = "Latitude")
     Float Latitude;
 
+    @Column(name = "Longitude")
     Float Longitude;
 
-    String name;
+    @Column(name = "Name")
+    String Namex;
 
+    @Column(name = "BuildAbr")
     String BuildrAbr;
 
+    @Column(name = "Address")
     String Address;
 
+    @Column(name = "SquareFt")
     Long SquareFt;
 
+    @Column(name = "AssetId")
     Long AssetId;
 
     public String getLatLong(){

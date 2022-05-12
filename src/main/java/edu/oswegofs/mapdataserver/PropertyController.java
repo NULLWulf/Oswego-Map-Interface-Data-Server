@@ -16,12 +16,6 @@ public class PropertyController {
     public PropertyController(PropertyRepository propertyRepository) {
         this.propertyRepository = propertyRepository;
     }
-
-    @GetMapping("/coordinates/{buildingNo}")
-    public String getBuildingCoordinates(@PathVariable String buildingNo) {
-        Property property = propertyRepository.findById(buildingNo);
-
-    }
 }
 
 
