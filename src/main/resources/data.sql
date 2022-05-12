@@ -10,16 +10,16 @@ CREATE TABLE assets(
   ,location    VARCHAR(7)
 );
 
-CREATE TABLE Property(
-   Latitude       NUMERIC(9,6) NOT NULL
-  ,Longitude      NUMERIC(10,6) NOT NULL
-  ,BuildingNumber VARCHAR(5) NOT NULL PRIMARY KEY
-  ,Name           VARCHAR(42) NOT NULL
-  ,BuildAbr       VARCHAR(18) NOT NULL
-  ,Address        VARCHAR(42) NOT NULL
-  ,SquareFt       INTEGER
-  ,AssetId        INTEGER
-);
+--CREATE TABLE Property(
+--   Latitude       NUMERIC(9,6) NOT NULL
+--  ,Longitude      NUMERIC(10,6) NOT NULL
+--  ,BuildingNumber VARCHAR(5) NOT NULL PRIMARY KEY
+--  ,Name           VARCHAR(42) NOT NULL
+--  ,BuildAbr       VARCHAR(18) NOT NULL
+--  ,Address        VARCHAR(42) NOT NULL
+--  ,SquareFt       INTEGER
+--  ,AssetId        INTEGER
+--);
 INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,property,location) VALUES (1735,'SHELDON HALL','PROPERTY','BUILDING','ACTIVE',28230,'MAIN CAMPUS','0001',NULL);
 INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,property,location) VALUES (1736,'PARK HALL','PROPERTY','BUILDING','ACTIVE',28230,'MAIN CAMPUS','0002',NULL);
 INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,property,location) VALUES (1737,'MARANO CAMPUS CENTER','PROPERTY','BUILDING','ACTIVE',28230,'MAIN CAMPUS','0003',NULL);
@@ -1719,73 +1719,75 @@ INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,pr
 INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,property,location) VALUES (7393,'Muti-Purpose Field - Stadium','PROPERTY','ATHLETIC FIELD','ACTIVE',28230,'MAIN CAMPUS','AF7',NULL);
 INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,property,location) VALUES (7394,'NCAA Softball Field','PROPERTY','ATHLETIC FIELD','ACTIVE',28230,'MAIN CAMPUS','AF8',NULL);
 INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,property,location) VALUES (7395,'NCAA Baseball Field','PROPERTY','ATHLETIC FIELD','ACTIVE',28230,'MAIN CAMPUS','AF9',NULL);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.453696,-76.544895,'0006','Lanigan Hall','LANIGAN-6','67 Rudolph Rd,Oswego,NY,13126',88200,1743);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455725,-76.542748,'0010','Mary Walker Infirmary','WALKER-10','40 Rudolph Rd,Oswego,NY,13126',33260,1747);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454329,-76.536017,'0001','Sheldon Hall','SHELDON-1','303 George Washington Blvd,Oswego,NY,13125',119211,1735);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.449492,-76.549734,'0036','Oneida Hall','ONEIDA-36','10 Onondaga Cir,Oswego,NY,13126',105000,1772);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.448445,-76.548433,'0037E','TOWNHOUSE E','TWNHSE','90 Iroquois Trail,Oswego NY,NY,13126',15880,1777);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.45789,-76.537868,'0041','Johnson Hall','JOHNSON-41','20 Rudolph Rd,Oswego,NY,13126',79097,1786);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.450678,-76.547794,'0031','Pathfinder Dining Hall','PATHFINDER-31','30 Cayuga Cir,Oswego,NY,13126',33827,1767);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.451339,-76.54739,'0032','Seneca Hall','SENECA-32','47 Cayuga Circle,Oswego,NY,13126',152548,1768);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447362,-76.548942,'0037B','TOWNHOUSE B','TWNHSB','90 Iroquois Trail,Oswego NY,NY,13126',8082,1774);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.45156,-76.547328,'0028A','Sewage Pump Station-Seneca','PUMP STAT-28A','47 Cayuga Cir,Oswego,NY,13126',211,5374);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.450528,-76.549495,'0034','Onondaga Hall','ONONDAGA-34','20 Onondaga Cir,Oswego,NY,13126',152548,1770);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.430151,-76.550001,'0083','Rice Creek Pavilion','RICE PAV-83','193 Thompson Rd,Oswego,NY,13126',893,1807);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.448326,-76.548181,'0037F','TOWNHOUSE F','TWNHSF','90 Iroquois Trail,Oswego NY,NY,13126',18295,1778);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.453347,-76.536451,'0022','King Hall','KING-22','294 George Washington Blvd,Oswego,NY,13126',7200,1759);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.452457,-76.542795,'0046','Hart Hall','HART-46','15 Union Rd,Oswego,NY,13126',114365,1791);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.430017,-76.55012,'0081','Rice Creek Observatory','RICE OBSER-81','193 Thompson Rd,Oswego,NY,13126',550,1805);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454212,-76.540769,'0003','Marano Campus Center','MARANO CC-3','315 George Washington Blvd,Oswego,NY,13126',185524,1737);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447573,-76.53719,'0012','Maintenance Bldg 12','MAINTENANCE-12','82 Mollison St,Oswego,NY,13126',20664,1749);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455177,-76.537905,'0009','Wilber Hall','WILBER-9','24 Takamine St,Oswego,NY,13126',108933,5373);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.457494,-76.538611,'0042','Lakeside Dining Hall','LAKESIDE-42','24 Rudolph Rd,Oswego,NY,13126',27870,1787);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.458035,-76.536772,'0005','Shady Shore','SHADY SHORE-5','6 Rudolph Rd,Oswego,NY,13126',8754,1741);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.453764,-76.543985,'0017','Penfield Library','PENFIELD-17','59 Rudolph Rd,Oswego,NY,13126',192298,1754);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.457241,-76.539462,'0043','Riggs Hall','RIGGS-43','28 Rudolph Rd,Oswego,NY,13126',58201,1788);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.44804,-76.536862,'0028','Sewage Main Lift Station','LIFT STAT MAIN-28','42 Rudolph Road,Oswego,NY,13126',1881,1765);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.451019,-76.548582,'0033','Cayuga Hall','CAYUGA-33','20 Cayuga Circle,Oswego,NY,13126',105072,1769);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447333,-76.547884,'0037J','TOWNHOUSE J','TWNHSJ','80 Iroquois Trail,Oswego NY,NY,13126',12599,1782);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.456148,-76.537891,'0004','Lee Hall','LEE-4','38 Centennial Drive,Oswego,NY,13126',65000,1740);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.451794,-76.54533,'0007','Tyler Hall','TYLER-7','71 Sweet Rd,Oswego,NY,13126',115430,5372);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447939,-76.548831,'0037C','TOWNHOUSE C','TWNHSC','90 Iroquois Trail,Oswego NY,NY,13126',12599,1775);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.457562,-76.50706,'0084','Office of Business and Community Relations','BUS & COMM REL-84','34 East Bridge St,Oswego,NY,13126',1917,1);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.452529,-76.541668,'0048','Funnelle Hall','FUNNELLE-48','25 Union Rd,Oswego,NY,13126',114365,1793);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447863,-76.547497,'0037K','TOWNHOUSE K','TWNHSK','80 Iroquois Trail,Oswego NY,NY,13126',16729,1783);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.457462,-76.507556,'0085','Business Resource Center','BUS RES CEN-85','121 East First St,Oswego,NY,13126',2739,1);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447163,-76.548601,'0037G','TOWNHOUSE G','TWNHSG','80 Iroquois Trail,Oswego NY,NY,13126',8082,1779);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455583,-76.53429,'0020','Service Bldg. 20','SERVICE BLDG-20','25 Sheldon Ae,Oswego,NY,13126',14850,1757);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.451383,-76.544182,'0026','Culkin Hall','CULKIN-26','72 Sweet Rd,Oswego,NY,13126',63591,1764);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454937,-76.538443,'0008','Shineman Center','SHINEMAN-8','30 Centennial Dr,Oswego,NY,13126',235860,1745);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.446178,-76.535531,'0019','Laker Hall','LAKER-19','30 Barnes Rd,Oswego,NY,13126',196608,1756);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447717,-76.54727,'0037l','TOWNHOUSE L','TWNHSL','80 Iroquois Trail,Oswego NY,NY,13126',12567,1784);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447501,-76.548089,'0037I','TOWNHOUSE I','TWNHSI','80 Iroquois Trail,Oswego NY,NY,13126',12599,1781);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.453962,-76.54216,'0003B','Convocation Center','CONVOCATION CTR-3B','55 Rudolph Rd,Oswego,NY,13126',1,1);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455547,-76.535295,'0014','Rich Hall','RICH-14','32 Sheldon Ave,Oswego,NY,13126',53742,1751);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.430006,-76.55011,'0023','Rice Creek Field Station','RICE-23','193 Thompson Rd,Oswego,NY,13126',1,1);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.458068,-76.536543,'0005A','Shady Shore Garage','SHADY SHORE GAR-5A','6 Rudolph Rd,Oswego,NY,13126',576,1742);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.050786,-76.153645,'0053','Syracuse Branch Campus','SYRACUSE-53','2 S Clinton St,Syracuse,NY,13202',14526,1799);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.456125,-76.541771,'0045','Scales Hall','SCALES-45','34 Rudolph Rd,Oswego,NY,13126',57464,1790);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.456611,-76.540637,'0044','Waterbury Hall','WATERBURY-44','30 Rudolph Rd,Oswego,NY,13126',57464,1789);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.449855,-76.534855,'0107','One Room School House','SCHOOL HOUSE-107','7061 Rte 104,Oswego,NY,13126',550,1810);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454745,-76.53429,'0015','Mackin Hall','MACKIN-15','53 Sheldon Ave,Oswego,NY,13126',41984,1752);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447813,-76.53471,'0021','Romney Field House','ROMNEY-21','28 Barnes Rd,Oswego,NY,',55000,1758);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454815,-76.539686,'0003A','Poucher Hall','POUCHER-3A','25 Centennial Dr,Oswego,NY,13126',40080,1785);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.446999,-76.548437,'0037H','TOWNHOUSE H','TWNHSH','80 Iroquois Trail,Oswego NY,NY,13126',10260,1780);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454153,-76.534529,'0015A','Moreland Hall','MORELAND-15A','57 Sheldon Ave,Oswego,NY,13126',29400,1814);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.448061,-76.536862,'0028B','Sewage Pump Station-Bldg 12','PUMP STAT-28B','82 Mollison St,Oswego,NY,13126',224,5375);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447754,-76.533711,'0082','Press Box','PRESS BOX-82','21 Barnes Dr,Oswego,NY,13126',495,1806);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.424324,-76.539694,'FALL','Fallbrook Recreation Center','FALL','103 Thopson Rd,Oswego,NY,13126',1,1);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.446985,-76.537028,'0071','Pole Barn','POLE BARN-71','76 Mollison St,Oswego,NY,13126',6925,1803);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.456131,-76.538573,'0004A','Lee Hall Central Heating Plant','CHP-4A','38 Centennial Drive,Oswego,NY,13126',21980,1795);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.452495,-76.54222,'0047','Cooper Dining Hall','COOPER-47','19 Union RD,Oswego,NY,13126',33546,1792);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454501,-76.542743,'0003C','Campus Center Storge Bldg','CAMP CTR STOR-3C','6 Rudolph Rd,Oswego,NY,13126',1,1);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.430444,-76.549306,'0024','Rice Creek Garage','RICE GAR-24','193 Thompson Rd,Oswego,NY,13126',1,1);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447417,-76.537908,'0011','Commissary Bldg','COMMISSARY-11','78 Mollison St,Oswego,NY,13126',30836,1748);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455248,-76.536931,'0002','Park Hall','PARK-2','22 Takamine St,Oswego,NY,13126',66979,1736);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.452454,-76.544099,'0029','Hewitt Hall','HEWITT-29','5 Union Rd,Oswego,NY,13126',135010,1766);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.449992,-76.548892,'0035','Littlepage Dining Hall','LITTLEPAGE-35','16 Onondaga Cir,Oswego,NY,13126',33827,1771);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447443,-76.549205,'0037A','TOWNHOUSE A','TWNHSA','90 Iroquois Trail,Oswego NY,NY,13126',10260,1773);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455133,-76.534233,'0015B','Lonis Hall','LONIS-15B','49 Sheldon Ave,Oswego,NY,13126',32285,1815);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447808,-76.54854,'0037D','TOWNHOUSE D','TWNHSD','90 Iroquois Trail,Oswego NY,NY,13126',12599,1776);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.452968,-76.545651,'0013','Mahar Hall','MAHAR-13','71 Rudolph Rd,Oswego,NY,13126',91530,1750);
-INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447757,-76.540361,'0104','Campus Police Parking Office','PARKING-104','7044 State Rt 104,Oswego NY,NY,13126',2297,1808);
+
+
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.453696,-76.544895,'0006','Lanigan Hall','LANIGAN-6','67 Rudolph Rd,Oswego,NY,13126',88200,1743);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455725,-76.542748,'0010','Mary Walker Infirmary','WALKER-10','40 Rudolph Rd,Oswego,NY,13126',33260,1747);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454329,-76.536017,'0001','Sheldon Hall','SHELDON-1','303 George Washington Blvd,Oswego,NY,13125',119211,1735);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.449492,-76.549734,'0036','Oneida Hall','ONEIDA-36','10 Onondaga Cir,Oswego,NY,13126',105000,1772);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.448445,-76.548433,'0037E','TOWNHOUSE E','TWNHSE','90 Iroquois Trail,Oswego NY,NY,13126',15880,1777);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.45789,-76.537868,'0041','Johnson Hall','JOHNSON-41','20 Rudolph Rd,Oswego,NY,13126',79097,1786);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.450678,-76.547794,'0031','Pathfinder Dining Hall','PATHFINDER-31','30 Cayuga Cir,Oswego,NY,13126',33827,1767);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.451339,-76.54739,'0032','Seneca Hall','SENECA-32','47 Cayuga Circle,Oswego,NY,13126',152548,1768);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447362,-76.548942,'0037B','TOWNHOUSE B','TWNHSB','90 Iroquois Trail,Oswego NY,NY,13126',8082,1774);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.45156,-76.547328,'0028A','Sewage Pump Station-Seneca','PUMP STAT-28A','47 Cayuga Cir,Oswego,NY,13126',211,5374);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.450528,-76.549495,'0034','Onondaga Hall','ONONDAGA-34','20 Onondaga Cir,Oswego,NY,13126',152548,1770);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.430151,-76.550001,'0083','Rice Creek Pavilion','RICE PAV-83','193 Thompson Rd,Oswego,NY,13126',893,1807);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.448326,-76.548181,'0037F','TOWNHOUSE F','TWNHSF','90 Iroquois Trail,Oswego NY,NY,13126',18295,1778);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.453347,-76.536451,'0022','King Hall','KING-22','294 George Washington Blvd,Oswego,NY,13126',7200,1759);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.452457,-76.542795,'0046','Hart Hall','HART-46','15 Union Rd,Oswego,NY,13126',114365,1791);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.430017,-76.55012,'0081','Rice Creek Observatory','RICE OBSER-81','193 Thompson Rd,Oswego,NY,13126',550,1805);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454212,-76.540769,'0003','Marano Campus Center','MARANO CC-3','315 George Washington Blvd,Oswego,NY,13126',185524,1737);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447573,-76.53719,'0012','Maintenance Bldg 12','MAINTENANCE-12','82 Mollison St,Oswego,NY,13126',20664,1749);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455177,-76.537905,'0009','Wilber Hall','WILBER-9','24 Takamine St,Oswego,NY,13126',108933,5373);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.457494,-76.538611,'0042','Lakeside Dining Hall','LAKESIDE-42','24 Rudolph Rd,Oswego,NY,13126',27870,1787);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.458035,-76.536772,'0005','Shady Shore','SHADY SHORE-5','6 Rudolph Rd,Oswego,NY,13126',8754,1741);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.453764,-76.543985,'0017','Penfield Library','PENFIELD-17','59 Rudolph Rd,Oswego,NY,13126',192298,1754);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.457241,-76.539462,'0043','Riggs Hall','RIGGS-43','28 Rudolph Rd,Oswego,NY,13126',58201,1788);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.44804,-76.536862,'0028','Sewage Main Lift Station','LIFT STAT MAIN-28','42 Rudolph Road,Oswego,NY,13126',1881,1765);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.451019,-76.548582,'0033','Cayuga Hall','CAYUGA-33','20 Cayuga Circle,Oswego,NY,13126',105072,1769);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447333,-76.547884,'0037J','TOWNHOUSE J','TWNHSJ','80 Iroquois Trail,Oswego NY,NY,13126',12599,1782);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.456148,-76.537891,'0004','Lee Hall','LEE-4','38 Centennial Drive,Oswego,NY,13126',65000,1740);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.451794,-76.54533,'0007','Tyler Hall','TYLER-7','71 Sweet Rd,Oswego,NY,13126',115430,5372);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447939,-76.548831,'0037C','TOWNHOUSE C','TWNHSC','90 Iroquois Trail,Oswego NY,NY,13126',12599,1775);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.457562,-76.50706,'0084','Office of Business and Community Relations','BUS & COMM REL-84','34 East Bridge St,Oswego,NY,13126',1917,1);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.452529,-76.541668,'0048','Funnelle Hall','FUNNELLE-48','25 Union Rd,Oswego,NY,13126',114365,1793);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447863,-76.547497,'0037K','TOWNHOUSE K','TWNHSK','80 Iroquois Trail,Oswego NY,NY,13126',16729,1783);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.457462,-76.507556,'0085','Business Resource Center','BUS RES CEN-85','121 East First St,Oswego,NY,13126',2739,1);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447163,-76.548601,'0037G','TOWNHOUSE G','TWNHSG','80 Iroquois Trail,Oswego NY,NY,13126',8082,1779);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455583,-76.53429,'0020','Service Bldg. 20','SERVICE BLDG-20','25 Sheldon Ae,Oswego,NY,13126',14850,1757);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.451383,-76.544182,'0026','Culkin Hall','CULKIN-26','72 Sweet Rd,Oswego,NY,13126',63591,1764);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454937,-76.538443,'0008','Shineman Center','SHINEMAN-8','30 Centennial Dr,Oswego,NY,13126',235860,1745);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.446178,-76.535531,'0019','Laker Hall','LAKER-19','30 Barnes Rd,Oswego,NY,13126',196608,1756);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447717,-76.54727,'0037l','TOWNHOUSE L','TWNHSL','80 Iroquois Trail,Oswego NY,NY,13126',12567,1784);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447501,-76.548089,'0037I','TOWNHOUSE I','TWNHSI','80 Iroquois Trail,Oswego NY,NY,13126',12599,1781);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.453962,-76.54216,'0003B','Convocation Center','CONVOCATION CTR-3B','55 Rudolph Rd,Oswego,NY,13126',1,1);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455547,-76.535295,'0014','Rich Hall','RICH-14','32 Sheldon Ave,Oswego,NY,13126',53742,1751);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.430006,-76.55011,'0023','Rice Creek Field Station','RICE-23','193 Thompson Rd,Oswego,NY,13126',1,1);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.458068,-76.536543,'0005A','Shady Shore Garage','SHADY SHORE GAR-5A','6 Rudolph Rd,Oswego,NY,13126',576,1742);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.050786,-76.153645,'0053','Syracuse Branch Campus','SYRACUSE-53','2 S Clinton St,Syracuse,NY,13202',14526,1799);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.456125,-76.541771,'0045','Scales Hall','SCALES-45','34 Rudolph Rd,Oswego,NY,13126',57464,1790);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.456611,-76.540637,'0044','Waterbury Hall','WATERBURY-44','30 Rudolph Rd,Oswego,NY,13126',57464,1789);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.449855,-76.534855,'0107','One Room School House','SCHOOL HOUSE-107','7061 Rte 104,Oswego,NY,13126',550,1810);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454745,-76.53429,'0015','Mackin Hall','MACKIN-15','53 Sheldon Ave,Oswego,NY,13126',41984,1752);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447813,-76.53471,'0021','Romney Field House','ROMNEY-21','28 Barnes Rd,Oswego,NY,',55000,1758);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454815,-76.539686,'0003A','Poucher Hall','POUCHER-3A','25 Centennial Dr,Oswego,NY,13126',40080,1785);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.446999,-76.548437,'0037H','TOWNHOUSE H','TWNHSH','80 Iroquois Trail,Oswego NY,NY,13126',10260,1780);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454153,-76.534529,'0015A','Moreland Hall','MORELAND-15A','57 Sheldon Ave,Oswego,NY,13126',29400,1814);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.448061,-76.536862,'0028B','Sewage Pump Station-Bldg 12','PUMP STAT-28B','82 Mollison St,Oswego,NY,13126',224,5375);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447754,-76.533711,'0082','Press Box','PRESS BOX-82','21 Barnes Dr,Oswego,NY,13126',495,1806);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.424324,-76.539694,'FALL','Fallbrook Recreation Center','FALL','103 Thopson Rd,Oswego,NY,13126',1,1);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.446985,-76.537028,'0071','Pole Barn','POLE BARN-71','76 Mollison St,Oswego,NY,13126',6925,1803);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.456131,-76.538573,'0004A','Lee Hall Central Heating Plant','CHP-4A','38 Centennial Drive,Oswego,NY,13126',21980,1795);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.452495,-76.54222,'0047','Cooper Dining Hall','COOPER-47','19 Union RD,Oswego,NY,13126',33546,1792);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454501,-76.542743,'0003C','Campus Center Storge Bldg','CAMP CTR STOR-3C','6 Rudolph Rd,Oswego,NY,13126',1,1);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.430444,-76.549306,'0024','Rice Creek Garage','RICE GAR-24','193 Thompson Rd,Oswego,NY,13126',1,1);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447417,-76.537908,'0011','Commissary Bldg','COMMISSARY-11','78 Mollison St,Oswego,NY,13126',30836,1748);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455248,-76.536931,'0002','Park Hall','PARK-2','22 Takamine St,Oswego,NY,13126',66979,1736);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.452454,-76.544099,'0029','Hewitt Hall','HEWITT-29','5 Union Rd,Oswego,NY,13126',135010,1766);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.449992,-76.548892,'0035','Littlepage Dining Hall','LITTLEPAGE-35','16 Onondaga Cir,Oswego,NY,13126',33827,1771);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447443,-76.549205,'0037A','TOWNHOUSE A','TWNHSA','90 Iroquois Trail,Oswego NY,NY,13126',10260,1773);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455133,-76.534233,'0015B','Lonis Hall','LONIS-15B','49 Sheldon Ave,Oswego,NY,13126',32285,1815);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447808,-76.54854,'0037D','TOWNHOUSE D','TWNHSD','90 Iroquois Trail,Oswego NY,NY,13126',12599,1776);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.452968,-76.545651,'0013','Mahar Hall','MAHAR-13','71 Rudolph Rd,Oswego,NY,13126',91530,1750);
+--INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.447757,-76.540361,'0104','Campus Police Parking Office','PARKING-104','7044 State Rt 104,Oswego NY,NY,13126',2297,1808);

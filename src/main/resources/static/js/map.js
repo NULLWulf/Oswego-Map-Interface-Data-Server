@@ -73,9 +73,9 @@ map.on("mouseleave", "buildings", () => {
   map.getCanvas().style.cursor = "";
 });
 
-map.on("wheel", (event) => {
-  populateLiveMapContext(event);
-});
+// map.on("wheel", (event) => {
+//   populateLiveMapContext(event);
+// });
 
 map.on("touchmove", (event) => {
   populateLiveMapContext(event);
@@ -277,11 +277,11 @@ function populateAssetContext(asset) {
       <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
       `;
   
-        <div>
-          <button class="style-button" onclick="flyToId(${property})">
-            Property ${property}
-          </button>
-        </div>;
+        // <div>
+        //   <button class="style-button" onclick="flyToId(${property})">
+        //     Property ${property}
+        //   </button>
+        // </div>;
 
 }
 
