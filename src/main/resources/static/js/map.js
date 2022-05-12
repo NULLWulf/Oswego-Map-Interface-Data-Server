@@ -85,21 +85,6 @@ map.on("mousemove", (event) => {
   populateLiveMapContext(event);
 });
 
-function populateLiveMapContext(event) {
-  document.getElementById("live-map-context").innerHTML = `
-              <div><h2 class="header">Live Map Data</h2></div>
-            <div><strong>Coords X:</strong> ${event.point.x}</div>
-            <div><strong>Coords Y:</strong> ${event.point.y}</div>
-            <div><strong>Mouse Lng:</strong> ${event.lngLat.lng}</div>
-            <div><strong>Mouse Lat:</strong> ${event.lngLat.lat}</div>
-            <div><strong>Center Lng</strong> ${map.getCenter().lng}</div>
-            <div><strong>Center Lat:</strong> ${map.getCenter().lat}</div>
-            <div><strong>Zoom:</strong> ${map.getZoom()}</div>
-            <div><strong>Bearing:</strong> ${map.getBearing()}</div>
-            <div><strong>Pitch:</strong> ${map.getPitch()}</div>
-  `;
-}
-
 function flyToId(id) {
   map.flyTo({
     center: regions[id].center,
@@ -218,6 +203,17 @@ const nav = new mapboxgl.NavigationControl({
 });
 map.addControl(nav, "bottom-left");
 
+function getAssetFromDropDown(assetId) {
+  fetch(`/assets/${assetId}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      populateAssetContext(data);
+    });
+}
+
 function populateBuildingContext(assetData, property) {
   const buildingNo = property.buildingNo;
 
@@ -266,17 +262,6 @@ function populateBuildingContext(assetData, property) {
   }
 }
 
-function getAssetFromDropDown(assetId) {
-  fetch(`/assets/${assetId}`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      populateAssetContext(data);
-    });
-}
-
 function populateAssetContext(asset) {
   document.getElementById("asset-context").innerHTML = `
       <div><h3 class="header">Asset: ${asset.id}</h3></div>
@@ -289,4 +274,19 @@ function populateAssetContext(asset) {
       <div><strong>Status: </strong>${asset.status}</div>
       <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
       `;
+}
+
+function populateLiveMapContext(event) {
+  document.getElementById("live-map-context").innerHTML = `
+            <div><h2 class="header">Live Map Data</h2></div>
+            <div><strong>Coords X:</strong> ${event.point.x}</div>
+            <div><strong>Coords Y:</strong> ${event.point.y}</div>
+            <div><strong>Mouse Lng:</strong> ${event.lngLat.lng}</div>
+            <div><strong>Mouse Lat:</strong> ${event.lngLat.lat}</div>
+            <div><strong>Center Lng</strong> ${map.getCenter().lng}</div>
+            <div><strong>Center Lat:</strong> ${map.getCenter().lat}</div>
+            <div><strong>Zoom:</strong> ${map.getZoom()}</div>
+            <div><strong>Bearing:</strong> ${map.getBearing()}</div>
+            <div><strong>Pitch:</strong> ${map.getPitch()}</div>
+  `;
 }
