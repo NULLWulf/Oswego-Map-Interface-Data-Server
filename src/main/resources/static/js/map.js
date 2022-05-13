@@ -40,21 +40,6 @@ map.on("click", (event) => {
   }
 });
 
-function getBuildingAssets(currentBuilding, features) {
-  fetch(`/assets/property/${currentBuilding}`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((assetDataJson) => {
-      console.log("Fetch Successful");
-      populateBuildingContext(assetDataJson, features[0].properties);
-    })
-    .catch((err) => {
-      console.log("Fetch problem: " + err.message);
-      populateBuildingContext(null, features[0].properties);
-    });
-}
-
 map.on("click", "buildings", (e) => {
   const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
   // notes higher zoom level means more magnification
@@ -73,10 +58,6 @@ map.on("mouseleave", "buildings", () => {
   map.getCanvas().style.cursor = "";
 });
 
-// map.on("wheel", (event) => {
-//   populateLiveMapContext(event);
-// });
-
 map.on("touchmove", (event) => {
   populateLiveMapContext(event);
 });
@@ -85,7 +66,7 @@ map.on("mousemove", (event) => {
   populateLiveMapContext(event);
 });
 
-function flyToId(id) {
+function flyToRegionDropdown(id) {
   map.flyTo({
     center: regions[id].center,
     zoom: regions[id].zoom,
@@ -111,6 +92,8 @@ const nav = new mapboxgl.NavigationControl({
 });
 map.addControl(nav, "bottom-left");
 
+////////////////////// Fetch Requests ////////////////////////////////////
+
 function getAssetFromDropDown(assetId) {
   fetch(`/assets/${assetId}`)
     .then((response) => {
@@ -121,6 +104,23 @@ function getAssetFromDropDown(assetId) {
       populateAssetContext(data);
     });
 }
+
+function getBuildingAssets(currentBuilding, features) {
+  fetch(`/assets/property/${currentBuilding}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((assetDataJson) => {
+      console.log("Fetch Successful");
+      populateBuildingContext(assetDataJson, features[0].properties);
+    })
+    .catch((err) => {
+      console.log("Fetch problem: " + err.message);
+      populateBuildingContext(null, features[0].properties);
+    });
+}
+
+////////////////////// Progmatic HTML Population ////////////////////////////////////
 
 function populateBuildingContext(assetData, property) {
   const buildingNo = property.buildingNo;
@@ -184,12 +184,6 @@ function populateAssetContext(asset) {
       <div><strong>Status: </strong>${asset.status}</div>
       <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
       `;
-
-  // <div>
-  //   <button class="style-button" onclick="flyToId(${property})">
-  //     Property ${property}
-  //   </button>
-  // </div>;
 }
 
 function populateLiveMapContext(event) {
