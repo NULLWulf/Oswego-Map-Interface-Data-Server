@@ -15,6 +15,4 @@ public class MapDataServerApplication
     public static void main(String[] args)  {
         SpringApplication.run(MapDataServerApplication.class, args);
     }
-
-//425345test33
 }
