@@ -31,29 +31,29 @@ function bondFeatures(bound, map, event) {
   }
 }
 map.on("click", (event) => {
-  const features = bondFeatures(_bounds, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
-  let currentBuilding = features[0].properties.buildingNo;
-  if (features.length === 1) {
-    fetch(`/assets/property/${currentBuilding}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((assetDataJson) => {
-        console.log("Fetch Successful");
-        populateBuildingContext(assetDataJson, features[0].properties);
-      })
-      .catch((err) => {
-        console.log("Fetch problem: " + err.message);
-        populateBuildingContext(null, features[0].properties);
-      });
-  } else {
-    document.getElementsByClassName("fs-logo-building")[0].src =
-      "./images/branding/inverted_fs.png";
-    document.getElementById(
-      "building-context"
-    ).innerHTML = `<div><h2>Select a Building or Feature</h2</div>`; // inserts into sidebar
+  try {
+    const features = bondFeatures(_bounds, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
+    let currentBuilding = features[0].properties.buildingNo;
+    getBuildingAssets(currentBuilding, features);
+  } catch {
+    noBuildingSelected();
   }
 });
+
+function getBuildingAssets(currentBuilding, features) {
+  fetch(`/assets/property/${currentBuilding}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((assetDataJson) => {
+      console.log("Fetch Successful");
+      populateBuildingContext(assetDataJson, features[0].properties);
+    })
+    .catch((err) => {
+      console.log("Fetch problem: " + err.message);
+      populateBuildingContext(null, features[0].properties);
+    });
+}
 
 map.on("click", "buildings", (e) => {
   const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
@@ -94,35 +94,6 @@ function flyToId(id) {
   });
 }
 
-function toggleSidebar(id) {
-  let elem = document.getElementById(id);
-  let classes = elem.className.split(" ");
-  let padding = {};
-
-  if (elem.classList.contains("collapsed")) {
-    // Remove the 'collapsed' class from the class list of the element, this sets it back to the expanded state.
-    classes.splice(classes.indexOf("collapsed"), 1);
-  } else {
-    padding[id] = 0;
-    // Add the 'collapsed' class to the class list of the element
-    classes.push("collapsed");
-  }
-
-  // Update the class list on the element
-  elem.className = classes.join(" ");
-}
-
-function ensureClose(id) {
-  let elem = document.getElementById(id);
-  if (!elem.classList.contains("collapsed")) {
-    let classes = elem.className.split(" ");
-    let padding = {};
-    padding[id] = 0;
-    classes.push("collapsed");
-    elem.className = classes.join(" ");
-  }
-}
-
 function toggleMapStyle() {
   if (currentStyle === 0) {
     map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
@@ -134,69 +105,6 @@ function toggleMapStyle() {
     currentStyle = 0;
   }
 }
-
-const regions = [
-  {
-    region: "central",
-    center: [-76.54294334759209, 43.45347920082102],
-    zoom: 16.875459902527414,
-    bearing: -32,
-  },
-  {
-    region: "lakeside",
-    center: [-76.54021035103943, 43.45724401433708],
-    zoom: 17.11144729,
-    bearing: -37,
-  },
-  {
-    region: "east",
-    center: [-76.53636691718475, 43.45522585648385],
-    zoom: 16.9951515,
-    bearing: 0,
-  },
-  {
-    region: "west",
-    center: [-76.54866150274084, 43.45050187154001],
-    zoom: 17.73465424,
-    bearing: -50,
-  },
-  {
-    region: "athletic",
-    center: [-76.53619107389581, 43.4476488569735],
-    zoom: 16.55784477,
-    bearing: -32,
-  },
-  {
-    region: "village",
-    center: [-76.54833021875518, 43.44783233942783],
-    zoom: 17.88606643,
-    bearing: -42,
-  },
-  {
-    region: "rice",
-    center: [-76.54966430787358, 43.429976388125624],
-    zoom: 17.75221243425645,
-    bearing: -32,
-  },
-  {
-    region: "fallbrook",
-    center: [-76.53989823543341, 43.42480854657407],
-    zoom: 17.250656149181214,
-    bearing: -32,
-  },
-  {
-    region: "downtown",
-    center: [-76.5071990728699, 43.45745286540054],
-    zoom: 18.37727826852788,
-    bearing: -20,
-  },
-  {
-    region: "syracuse",
-    center: [-76.15364909821363, 43.05075196784364],
-    zoom: 18.631023835047465,
-    bearing: -19.686627218935314,
-  },
-];
 
 const nav = new mapboxgl.NavigationControl({
   compass: true,
@@ -276,13 +184,12 @@ function populateAssetContext(asset) {
       <div><strong>Status: </strong>${asset.status}</div>
       <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
       `;
-  
-        // <div>
-        //   <button class="style-button" onclick="flyToId(${property})">
-        //     Property ${property}
-        //   </button>
-        // </div>;
 
+  // <div>
+  //   <button class="style-button" onclick="flyToId(${property})">
+  //     Property ${property}
+  //   </button>
+  // </div>;
 }
 
 function populateLiveMapContext(event) {
@@ -300,3 +207,75 @@ function populateLiveMapContext(event) {
 
   `;
 }
+
+function noBuildingSelected() {
+  document.getElementsByClassName("fs-logo-building")[0].src =
+    "./images/branding/inverted_fs.png";
+  document.getElementById(
+    "building-context"
+  ).innerHTML = `<div><h2>Select a Building or Feature</h2</div>`; // inserts into sidebar
+}
+
+////////////////////// JSON Data ////////////////////////////////////
+const regions = [
+  {
+    region: "central",
+    center: [-76.54294334759209, 43.45347920082102],
+    zoom: 16.875459902527414,
+    bearing: -32,
+  },
+  {
+    region: "lakeside",
+    center: [-76.54021035103943, 43.45724401433708],
+    zoom: 17.11144729,
+    bearing: -37,
+  },
+  {
+    region: "east",
+    center: [-76.53636691718475, 43.45522585648385],
+    zoom: 16.9951515,
+    bearing: 0,
+  },
+  {
+    region: "west",
+    center: [-76.54866150274084, 43.45050187154001],
+    zoom: 17.73465424,
+    bearing: -50,
+  },
+  {
+    region: "athletic",
+    center: [-76.53619107389581, 43.4476488569735],
+    zoom: 16.55784477,
+    bearing: -32,
+  },
+  {
+    region: "village",
+    center: [-76.54833021875518, 43.44783233942783],
+    zoom: 17.88606643,
+    bearing: -42,
+  },
+  {
+    region: "rice",
+    center: [-76.54966430787358, 43.429976388125624],
+    zoom: 17.75221243425645,
+    bearing: -32,
+  },
+  {
+    region: "fallbrook",
+    center: [-76.53989823543341, 43.42480854657407],
+    zoom: 17.250656149181214,
+    bearing: -32,
+  },
+  {
+    region: "downtown",
+    center: [-76.5071990728699, 43.45745286540054],
+    zoom: 18.37727826852788,
+    bearing: -20,
+  },
+  {
+    region: "syracuse",
+    center: [-76.15364909821363, 43.05075196784364],
+    zoom: 18.631023835047465,
+    bearing: -19.686627218935314,
+  },
+];
