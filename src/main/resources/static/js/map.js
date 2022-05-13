@@ -1,3 +1,5 @@
+////////////////////// Map Parameters ////////////////////////////////////
+
 mapboxgl.accessToken = // new style url
   "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg"; // public token, not able to make changes to map itself with it
 // only access style layer etc.
@@ -18,6 +20,23 @@ const map = new mapboxgl.Map({
   // maxBounds: _mapPanBound,
 });
 
+const nav = new mapboxgl.NavigationControl({
+  compass: true,
+});
+map.addControl(nav, "bottom-left");
+
+////////////////////// Map Functions ////////////////////////////////////
+
+map.on("click", (event) => {
+  try {
+    const features = bondFeatures(_bounds, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
+    let currentBuilding = features[0].properties.buildingNo;
+    getBuildingAssets(currentBuilding, features);
+  } catch {
+    noBuildingSelected();
+  }
+});
+
 function bondFeatures(bound, map, event) {
   if (map.loaded()) {
     const bbox = [
@@ -30,15 +49,6 @@ function bondFeatures(bound, map, event) {
     // function to get data features underneath point when an event is passed through
   }
 }
-map.on("click", (event) => {
-  try {
-    const features = bondFeatures(_bounds, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
-    let currentBuilding = features[0].properties.buildingNo;
-    getBuildingAssets(currentBuilding, features);
-  } catch {
-    noBuildingSelected();
-  }
-});
 
 map.on("click", "buildings", (e) => {
   const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
@@ -87,11 +97,6 @@ function toggleMapStyle() {
   }
 }
 
-const nav = new mapboxgl.NavigationControl({
-  compass: true,
-});
-map.addControl(nav, "bottom-left");
-
 ////////////////////// Fetch Requests ////////////////////////////////////
 
 function getAssetFromDropDown(assetId) {
@@ -133,7 +138,7 @@ function populateBuildingContext(assetData, property) {
     <div><strong>Building No: </strong>${buildingNo}</div>
     <div><strong>Ft<sup>2</sup>: </strong>${property.squareFt}</div>
     <div><strong>Asset Count: </strong>${assetsAvailable}</div>
-    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.assetID}" target="_blank"><strong>AIM Asset Property/strong></a></div>
+    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.assetID}" target="_blank"><strong>AIM Asset Property</strong></a></div>
     `;
 
   document.getElementsByClassName("fs-logo-building")[0].src = `
