@@ -2,7 +2,6 @@ package edu.oswegofs.mapdataserver;
 
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @Getter

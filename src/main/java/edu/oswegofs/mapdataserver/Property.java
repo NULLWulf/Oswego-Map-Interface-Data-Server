@@ -1,5 +1,6 @@
 package edu.oswegofs.mapdataserver;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 import javax.persistence.*;
 
@@ -12,29 +13,28 @@ import javax.persistence.*;
 public class Property {
 
     @Id
-    @Column(name = "BuildingNumber")
-    String id;
+    Long id;
+
+    @Column(name = "BuildingCode")
+    String buildingCode;
 
     @Column(name = "Latitude")
-    Float Latitude;
+    Float latitude;
 
     @Column(name = "Longitude")
-    Float Longitude;
+    Float longitude;
 
-    @Column(name = "Name")
-    String Namex;
+    @Column(name = "BuildingName")
+    String buildingName;
 
     @Column(name = "BuildAbr")
-    String BuildrAbr;
+    String buildAbr;
 
     @Column(name = "Address")
-    String Address;
+    String address;
 
     @Column(name = "SquareFt")
-    Long SquareFt;
-
-    @Column(name = "AssetId")
-    Long AssetId;
+    Long squareFt;
 
     public String getLatLong(){
         return "[" + this.getLatitude() + "," + this.getLongitude() + "]";

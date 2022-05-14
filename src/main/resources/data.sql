@@ -10,16 +10,7 @@ CREATE TABLE assets(
   ,location    VARCHAR(7)
 );
 
---CREATE TABLE Property(
---   Latitude       NUMERIC(9,6) NOT NULL
---  ,Longitude      NUMERIC(10,6) NOT NULL
---  ,BuildingNumber VARCHAR(5) NOT NULL PRIMARY KEY
---  ,Name           VARCHAR(42) NOT NULL
---  ,BuildAbr       VARCHAR(18) NOT NULL
---  ,Address        VARCHAR(42) NOT NULL
---  ,SquareFt       INTEGER
---  ,AssetId        INTEGER
---);
+
 INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,property,location) VALUES (1735,'SHELDON HALL','PROPERTY','BUILDING','ACTIVE',28230,'MAIN CAMPUS','0001',NULL);
 INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,property,location) VALUES (1736,'PARK HALL','PROPERTY','BUILDING','ACTIVE',28230,'MAIN CAMPUS','0002',NULL);
 INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,property,location) VALUES (1737,'MARANO CAMPUS CENTER','PROPERTY','BUILDING','ACTIVE',28230,'MAIN CAMPUS','0003',NULL);
@@ -1720,8 +1711,18 @@ INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,pr
 INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,property,location) VALUES (7394,'NCAA Softball Field','PROPERTY','ATHLETIC FIELD','ACTIVE',28230,'MAIN CAMPUS','AF8',NULL);
 INSERT INTO assets(id,description,assettype,assetgroup,status,region,facility,property,location) VALUES (7395,'NCAA Baseball Field','PROPERTY','ATHLETIC FIELD','ACTIVE',28230,'MAIN CAMPUS','AF9',NULL);
 
+CREATE TABLE Property(
+   BuildingCode   VARCHAR(5)
+  ,Latitude       NUMERIC(9,6)
+  ,Longitude      NUMERIC(10,6)
+  ,BuildingName   VARCHAR(42)
+  ,BuildAbr       VARCHAR(18)
+  ,Address        VARCHAR(42)
+  ,SquareFt       INTEGER
+  ,id        INT NOT NULL PRIMARY KEY
+);
 
---INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.453696,-76.544895,'0006','Lanigan Hall','LANIGAN-6','67 Rudolph Rd,Oswego,NY,13126',88200,1743);
+INSERT INTO Property(BuildingCode,Latitude,Longitude,BuildingName,BuildAbr,Address,SquareFt,id) VALUES ('0006',43.453696,-76.544895,'Lanigan Hall','LANIGAN-6','67 Rudolph Rd,Oswego,NY,13126',88200,1743);
 --INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.455725,-76.542748,'0010','Mary Walker Infirmary','WALKER-10','40 Rudolph Rd,Oswego,NY,13126',33260,1747);
 --INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.454329,-76.536017,'0001','Sheldon Hall','SHELDON-1','303 George Washington Blvd,Oswego,NY,13125',119211,1735);
 --INSERT INTO Property(Latitude,Longitude,BuildingNumber,Name,BuildAbr,Address,SquareFt,AssetId) VALUES (43.449492,-76.549734,'0036','Oneida Hall','ONEIDA-36','10 Onondaga Cir,Oswego,NY,13126',105000,1772);
