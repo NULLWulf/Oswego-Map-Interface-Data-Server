@@ -92,7 +92,11 @@ function flyToRegionDropdown(id) {
 }
 
 function toggleMapStyle() {
+  
+
+
   // toggles map style between default and satellite view
+
   if (currentStyle === 0) {
     map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
     document.getElementById("style-toggle").innerHTML = "Default View";
@@ -163,6 +167,7 @@ function populateBuildingContext(assetData, property) {
     select.id = "asset-dropdown";
 
     for (let i = 0; i < assetData.length; i++) {
+      // loops through asset data array and adds asset elements
       let assetOption =
         assetData[i].id +
         " : " +
@@ -178,11 +183,12 @@ function populateBuildingContext(assetData, property) {
     }
 
     select.addEventListener("change", () => {
+      // attaches event listener to dropdown that populates asset context based on selection
       getAssetFromDropDown(select.value);
     });
     document.getElementById("building-context").appendChild(select);
   } else {
-    // if assetData = null
+    // if assetData = 
     let errorMessageAsset = document.createElement("div");
     errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Data</h3</div>`;
     document.getElementById("building-context").appendChild(errorMessageAsset);
