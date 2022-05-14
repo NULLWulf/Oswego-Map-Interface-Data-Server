@@ -136,12 +136,14 @@ function getBuildingAssets(currentBuilding, features) {
 
 ////////////////////// Progmatic HTML Population ////////////////////////////////////
 
+// Populates building context, also attempts to populate asset list dropdown
 function populateBuildingContext(assetData, property) {
-  const buildingNo = property.buildingNo;
+  const buildingNo = property.buildingNo; // sets building no
 
-  let assetsAvailable = assetData ? assetData.length : "No Assets Available";
+  let assetsAvailable = assetData ? assetData.length : "No Assets Available"; // checks to see if asset data is available, needed to show no assets available on building context
 
-  document.getElementById("building-context").innerHTML = `
+  // sets html with building context
+  document.getElementById("building-context").innerHTML = ` 
     <div><h2 class="header">${property.name}</h2></div>
     <div class="smalltext">
     <div><strong>Building No: </strong>${buildingNo}</div>
@@ -150,11 +152,13 @@ function populateBuildingContext(assetData, property) {
     <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.assetID}" target="_blank"><strong>AIM Asset Property</strong></a></div>
     `;
 
+  // attempts to get building picture
   document.getElementsByClassName("fs-logo-building")[0].src = `
     images/building-images/${buildingNo}.jpg
     `;
 
   if (assetData) {
+    // if assetData has some length populates dropdown list
     let select = document.createElement("select");
     select.id = "asset-dropdown";
 
@@ -178,6 +182,7 @@ function populateBuildingContext(assetData, property) {
     });
     document.getElementById("building-context").appendChild(select);
   } else {
+    // if assetData = null
     let errorMessageAsset = document.createElement("div");
     errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Data</h3</div>`;
     document.getElementById("building-context").appendChild(errorMessageAsset);
