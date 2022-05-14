@@ -3,11 +3,10 @@
 mapboxgl.accessToken = // new style url
   "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg"; // public token, not able to make changes to map itself with it
 // only access style layer etc.
-const _bounds = 0.5;
 const flyToZoom = 18; // maximum zoom level after FlyToZoom is initialized when interacting with building icons
-const defaultStyle = "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j";
-const satelliteStyle = "mapbox://styles/mapbox/satellite-v9";
-let currentStyle = 0;
+const defaultStyle = "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j"; // Default style URL
+const satelliteStyle = "mapbox://styles/mapbox/satellite-v9"; // Satellite Style URL
+let currentStyle = 0; // Holds current map style
 
 const map = new mapboxgl.Map({
   // creates Mapbox object
@@ -21,32 +20,34 @@ const map = new mapboxgl.Map({
 });
 
 const nav = new mapboxgl.NavigationControl({
+  // adds map zoom and rotate control buttons
   compass: true,
 });
 map.addControl(nav, "bottom-left");
 
 ////////////////////// Map Functions ////////////////////////////////////
+// Direct interactions and manipulations of the map /////////////////////
 
 map.on("click", (event) => {
+  // when clicking on building atempts to get building info from mapbox data and fetch building asset as well
   try {
-    const features = bondFeatures(_bounds, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
-    let currentBuilding = features[0].properties.buildingNo;
-    getBuildingAssets(currentBuilding, features);
+    const features = bondFeatures(0.5, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
+    let currentBuilding = features[0].properties.buildingNo; // stores current building number
+    getBuildingAssets(currentBuilding, features); // passes building number and grabbed feature under point
   } catch {
     noBuildingSelected();
   }
 });
 
 function bondFeatures(bound, map, event) {
+  // bounds features within a radius of certain of point, returns an array
   if (map.loaded()) {
     const bbox = [
       // based off of pixel width to determine bounds
       [event.point.x - bound, event.point.y - bound],
       [event.point.x + bound, event.point.y + bound],
     ];
-    return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // returns Objecct that corresponds with data values under point
-    // bounds are passed in so you can tweak the click radius of the element corresponding with each building.
-    // function to get data features underneath point when an event is passed through
+    return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // Returns features within  certain radius of bounds
   }
 }
 
@@ -61,22 +62,27 @@ map.on("click", "buildings", (e) => {
 });
 
 map.on("mouseenter", "buildings", () => {
+  // changes mouse cursor to pointer when over building
   map.getCanvas().style.cursor = "pointer";
 });
 
 map.on("mouseleave", "buildings", () => {
+  // changes mouse to default when off of building feature
   map.getCanvas().style.cursor = "";
 });
 
 map.on("touchmove", (event) => {
+  // populates live map context when using touchscreen
   populateLiveMapContext(event);
 });
 
 map.on("mousemove", (event) => {
+  // populates live map context when using mouse
   populateLiveMapContext(event);
 });
 
 function flyToRegionDropdown(id) {
+  // fly to region selected from dropdwon menu
   map.flyTo({
     center: regions[id].center,
     zoom: regions[id].zoom,
@@ -86,6 +92,7 @@ function flyToRegionDropdown(id) {
 }
 
 function toggleMapStyle() {
+  // toggles map style between default and satellite view
   if (currentStyle === 0) {
     map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
     document.getElementById("style-toggle").innerHTML = "Default View";
@@ -99,6 +106,7 @@ function toggleMapStyle() {
 
 ////////////////////// Fetch Requests ////////////////////////////////////
 
+// gets Asset from dropdown list and populates dropdown list
 function getAssetFromDropDown(assetId) {
   fetch(`/assets/${assetId}`)
     .then((response) => {
@@ -110,6 +118,7 @@ function getAssetFromDropDown(assetId) {
     });
 }
 
+// Gets building assets from dropdown and populates building context
 function getBuildingAssets(currentBuilding, features) {
   fetch(`/assets/property/${currentBuilding}`)
     .then((response) => {
@@ -216,6 +225,8 @@ function noBuildingSelected() {
 }
 
 ////////////////////// JSON Data ////////////////////////////////////
+
+// Fixed Region and Bearing Data
 const regions = [
   {
     region: "central",
