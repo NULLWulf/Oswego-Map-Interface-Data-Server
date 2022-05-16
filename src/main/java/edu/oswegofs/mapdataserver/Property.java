@@ -8,33 +8,33 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @Entity
-@Table(name = "Property")
+@Table(name = "property")
 public class Property {
 
     @Id
-    @Column(name = "BuildingNumber")
-    String id;
+    @Column(name = "building_code")
+    String building_code;
 
-    @Column(name = "Latitude")
-    Float Latitude;
+    @Column(name = "latitude")
+    Float latitude;
 
-    @Column(name = "Longitude")
-    Float Longitude;
+    @Column(name = "longitude")
+    Float longitude;
 
-    @Column(name = "Name")
-    String Namex;
+    @Column(name = "name")
+    String name;
 
-    @Column(name = "BuildAbr")
-    String BuildrAbr;
+    @Column(name = "build_abr")
+    String build_abr;
 
-    @Column(name = "Address")
-    String Address;
+    @Column(name = "address")
+    String address;
 
-    @Column(name = "SquareFt")
-    Long SquareFt;
+    @Column(name = "square_ft")
+    Long square_ft;
 
-    @Column(name = "AssetId")
-    Long AssetId;
+    @Column(name = "asset_id")
+    Long asset_id;
 
     public String getLatLong(){
         return "[" + this.getLatitude() + "," + this.getLongitude() + "]";
