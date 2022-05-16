@@ -144,7 +144,7 @@ function populateBuildingContext(assetData, property) {
 
   // sets html with building context
   document.getElementById("building-context").innerHTML = ` 
-    <div><h2 class="header">${property.name}</h2></div>
+    <div><h2 class="header">${property.building_name}</h2></div>
     <div class="smalltext">
     <div><strong>Building No: </strong>${property.building_code}</div>
     <div><strong>Ft<sup>2</sup>: </strong>${property.square_ft}</div>
@@ -299,7 +299,7 @@ const regions = [
 
 ///////////// Testing Tings ////////////////
 function functionTester() {
-  fetch(`/property/0001`)
+  fetch(`/property/0006`)
     .then((response) => {
       return response.json();
     })
@@ -310,5 +310,6 @@ function functionTester() {
         zoom: 18,
         speed: 0.6,
       });
+      getBuildingAssets(data);
     });
 }

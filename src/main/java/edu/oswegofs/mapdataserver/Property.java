@@ -21,8 +21,8 @@ public class Property {
     @Column(name = "longitude")
     Float longitude;
 
-    @Column(name = "name")
-    String name;
+    @Column(name = "building_name")
+    String building_name;
 
     @Column(name = "build_abr")
     String build_abr;
