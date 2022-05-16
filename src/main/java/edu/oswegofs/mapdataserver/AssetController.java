@@ -15,8 +15,8 @@ public class AssetController {
 
     private final AssetRepository assetRepository;
 
+    // Defines Asset Controller LOgger
     private static final Logger log = LoggerFactory.getLogger(AssetController.class);
-
 
     // Assigns Asset Repo to this Controller
     public AssetController(AssetRepository assetRepository) {
@@ -44,12 +44,12 @@ public class AssetController {
         return assetRepository.count();
     }
 
-    @GetMapping("/count/{property}")
-    public long getCountByPropertyNum(@PathVariable String property){
+    // Returns total asset count in database
+    @GetMapping("/count/{building_code}")
+    public long getCountByPropertyNum(@PathVariable String building_code){
         log.info("Getting Asset Count by Property Number");
-        return assetRepository.getCountByPropertyNum(property);
+        return assetRepository.getCountByPropertyNum(building_code);
     }
-
 
     // Get by Asset Id
     @GetMapping("/{id}")
@@ -66,6 +66,7 @@ public class AssetController {
         return assetRepository.findByProperty(propertyId);
     }
 
+    // Gets Assets by PropertyId, AssetType
     @GetMapping("/property/{propertyId}/{assetType}")
     public Iterable<Assets> getByPropertyIdAssetType(@PathVariable String propertyId,
                                                      @PathVariable String assetType){
@@ -73,6 +74,7 @@ public class AssetController {
         return assetRepository.findByPropType(propertyId,assetType);
     }
 
+    // Gets Assets by PropertyId, AssetType, AssetGroup
     @GetMapping("/property/{propertyId}/{assetType}/{assetGroup}")
     public Iterable<Assets> getByPropertyIdAssetTypeGroup(@PathVariable String propertyId,
                                                           @PathVariable String assetType,

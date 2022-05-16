@@ -92,9 +92,6 @@ function flyToRegionDropdown(id) {
 }
 
 function toggleMapStyle() {
-  
-
-
   // toggles map style between default and satellite view
 
   if (currentStyle === 0) {
@@ -123,6 +120,21 @@ function getAssetFromDropDown(assetId) {
 }
 
 // Gets building assets from dropdown and populates building context
+function getBuildingAssets(currentBuilding, features) {
+  fetch(`/assets/property/${currentBuilding}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((assetDataJson) => {
+      console.log("Fetch Successful");
+      populateBuildingContext(assetDataJson, features[0].properties);
+    })
+    .catch((err) => {
+      console.log("Fetch problem: " + err.message);
+      populateBuildingContext(null, features[0].properties);
+    });
+}
+
 function getBuildingAssets(currentBuilding, features) {
   fetch(`/assets/property/${currentBuilding}`)
     .then((response) => {
@@ -188,7 +200,7 @@ function populateBuildingContext(assetData, property) {
     });
     document.getElementById("building-context").appendChild(select);
   } else {
-    // if assetData = 
+    // if assetData =
     let errorMessageAsset = document.createElement("div");
     errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Data</h3</div>`;
     document.getElementById("building-context").appendChild(errorMessageAsset);

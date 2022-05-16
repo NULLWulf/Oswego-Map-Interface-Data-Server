@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/property")
 public class PropertyController {
 
+    // Defines Property Repository
     private final PropertyRepository propertyRepository;
     private static final Logger log = LoggerFactory.getLogger(PropertyController.class);
 

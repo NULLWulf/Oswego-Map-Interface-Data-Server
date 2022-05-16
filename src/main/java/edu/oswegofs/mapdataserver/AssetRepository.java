@@ -16,7 +16,7 @@ public interface AssetRepository extends JpaRepository<Assets,Long> {
     Optional<Assets> findByid(Long id);
 
     // Find All Asset Type and Category Pairs
-    @Query(value = "SELECT distinct assetType,assetGroup from assets order by assetType", nativeQuery = true)
+    @Query(value = "SELECT distinct asset_type,asset_group from assets order by asset_type", nativeQuery = true)
     List<String> findAssetIdAndCategory();
 
     // Get total Assets in Database
@@ -31,7 +31,7 @@ public interface AssetRepository extends JpaRepository<Assets,Long> {
     List<Assets> findByProperty(@Param("property") String property);
 
     @Query(value = "select * from assets where assets.property = :property" +
-            " and assets.assetType = :assetType and assets.assetgroup = :assetGroup", nativeQuery = true)
+            " and assets.asset_type = :assetType and assets.asset_group = :assetGroup", nativeQuery = true)
     public List<Assets> findByPropTypeGroup(@Param("property") String property,
                                             @Param("assetType") String assetType,
                                             @Param("assetGroup") String assetGroup);
