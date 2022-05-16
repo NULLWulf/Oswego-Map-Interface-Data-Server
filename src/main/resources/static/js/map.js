@@ -140,8 +140,6 @@ function getBuildingAssets(buildingData) {
 
 // Populates building context, also attempts to populate asset list dropdown
 function populateBuildingContext(assetData, property) {
-  // const buildingNo = property.buildingNo; // sets building no
-
   let assetsAvailable = assetData ? assetData.length : "No Assets Available"; // checks to see if asset data is available, needed to show no assets available on building context
 
   // sets html with building context
