@@ -136,6 +136,22 @@ function getBuildingAssets(buildingData) {
     });
 }
 
+function functionTester(building_code) {
+  fetch(`/property/${building_code}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      map.flyTo({
+        center: [data.longitude, data.latitude],
+        zoom: 18,
+        speed: 0.6,
+      });
+      getBuildingAssets(data);
+    });
+}
+
 ////////////////////// Progmatic HTML Population ////////////////////////////////////
 
 // Populates building context, also attempts to populate asset list dropdown
@@ -193,7 +209,8 @@ function populateBuildingContext(assetData, property) {
 }
 
 function populateAssetContext(asset) {
-  let property = asset.property;
+  // populates map context box
+  let property = asset.property; // same thing as "building code"
 
   document.getElementById("asset-context").innerHTML = `
       <div><h3 class="header">Asset: ${asset.id}</h3></div>
@@ -209,6 +226,8 @@ function populateAssetContext(asset) {
 }
 
 function populateLiveMapContext(event) {
+  // populates map context box based on certain movement conditions
+  // mouse moving, touchscreen, etc.
   document.getElementById("live-map-context").innerHTML = `
             <div><h2 class="header">Live Map Data</h2></div>
             <div><strong>Coords X:</strong> ${event.point.x}</div>
@@ -220,7 +239,6 @@ function populateLiveMapContext(event) {
             <div><strong>Zoom:</strong> ${map.getZoom()}</div>
             <div><strong>Bearing:</strong> ${map.getBearing()}</div>
             <div><strong>Pitch:</strong> ${map.getPitch()}</div>
-
   `;
 }
 
