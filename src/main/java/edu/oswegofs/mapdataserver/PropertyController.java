@@ -1,10 +1,14 @@
 package edu.oswegofs.mapdataserver;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @RequestMapping("/property")
 public class PropertyController {
 
@@ -22,10 +26,9 @@ public class PropertyController {
         return propertyRepository.findAll();
     }
 
-    @GetMapping("/latlong/{building_code}")
-    public String getLatLong(@PathVariable String building_code){
+    @GetMapping("/{building_code}")
+    public Property getPropertyById(@PathVariable String building_code){
         log.info("Getting Center Coordinates of Property " + building_code);
-        Property property = propertyRepository.getById(building_code);
-        return property.getLatLong();
+        return propertyRepository.findById(building_code).orElseGet(Property::new);
     }
 }

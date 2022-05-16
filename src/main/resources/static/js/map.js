@@ -296,3 +296,19 @@ const regions = [
     bearing: -19.686627218935314,
   },
 ];
+
+///////////// Testing Tings ////////////////
+function functionTester() {
+  fetch(`/property/0001`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      map.flyTo({
+        center: [data.longitude, data.latitude],
+        zoom: 18,
+        speed: 0.6,
+      });
+    });
+}
