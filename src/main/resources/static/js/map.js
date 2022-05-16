@@ -32,9 +32,9 @@ map.on("click", (event) => {
   // when clicking on building atempts to get building info from mapbox data and fetch building asset as well
   try {
     const features = bondFeatures(0.5, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
-    let currentBuilding = features[0].properties.building_code; // stores current building number
+    // let currentBuilding = features[0].properties.building_code; // stores current building number
     let selectedBuilding = features[0].properties;
-    getBuildingAssets(currentBuilding, selectedBuilding); // passes building number and grabbed feature under point
+    getBuildingAssets(selectedBuilding); // passes building number and grabbed feature under point
   } catch {
     noBuildingSelected();
   }
@@ -121,8 +121,8 @@ function getAssetFromDropDown(assetId) {
 }
 
 // Gets building assets from dropdown and populates building context
-function getBuildingAssets(currentBuilding, buildingData) {
-  fetch(`/assets/property/${currentBuilding}`)
+function getBuildingAssets(buildingData) {
+  fetch(`/assets/property/${buildingData.building_code}`)
     .then((response) => {
       return response.json();
     })
@@ -140,7 +140,7 @@ function getBuildingAssets(currentBuilding, buildingData) {
 
 // Populates building context, also attempts to populate asset list dropdown
 function populateBuildingContext(assetData, property) {
-  const buildingNo = property.buildingNo; // sets building no
+  // const buildingNo = property.buildingNo; // sets building no
 
   let assetsAvailable = assetData ? assetData.length : "No Assets Available"; // checks to see if asset data is available, needed to show no assets available on building context
 
@@ -148,7 +148,7 @@ function populateBuildingContext(assetData, property) {
   document.getElementById("building-context").innerHTML = ` 
     <div><h2 class="header">${property.name}</h2></div>
     <div class="smalltext">
-    <div><strong>Building No: </strong>${buildingNo}</div>
+    <div><strong>Building No: </strong>${property.building_code}</div>
     <div><strong>Ft<sup>2</sup>: </strong>${property.square_ft}</div>
     <div><strong>Asset Count: </strong>${assetsAvailable}</div>
     <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.asset_id}" target="_blank"><strong>AIM Asset Property</strong></a></div>
@@ -156,7 +156,7 @@ function populateBuildingContext(assetData, property) {
 
   // attempts to get building picture
   document.getElementsByClassName("fs-logo-building")[0].src = `
-    images/building-images/${buildingNo}.jpg
+    images/building-images/${property.building_code}.jpg
     `;
 
   if (assetData) {
@@ -171,7 +171,7 @@ function populateBuildingContext(assetData, property) {
         " : " +
         assetData[i].description +
         " : " +
-        asseTata[i].assetType +
+        assetData[i].assetType +
         " : " +
         assetData[i].assetGroup;
       let assetElement = document.createElement("option");
