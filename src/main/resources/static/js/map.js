@@ -226,7 +226,7 @@ function populateAssetContext(asset) {
     </div>
     <div id="right-asset-context>
     </div>
-        `;
+    `;
 }
 
 function populateLiveMapContext(event) {
@@ -243,7 +243,7 @@ function populateLiveMapContext(event) {
     <div><strong>Zoom:</strong> ${map.getZoom()}</div>
     <div><strong>Bearing:</strong> ${map.getBearing()}</div>
     <div><strong>Pitch:</strong> ${map.getPitch()}</div>
-  `;
+    `;
 }
 
 function noBuildingSelected() {
