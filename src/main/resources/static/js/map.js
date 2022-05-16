@@ -213,8 +213,9 @@ function populateAssetContext(asset) {
   let property = asset.property; // same thing as "building code"
 
   document.getElementById("asset-context").innerHTML = `
-      <div><h3 class="header">Asset: ${asset.id}</h3></div>
-      <div class="smalltext">
+    <div><h3 class="header">Asset: ${asset.id}</h3></div>
+    <div id="left-asset-context>
+    <div class="smalltext">
       <div><strong>Group: </strong>${asset.assetGroup}</div>
       <div><strong>Type: </strong>${asset.assetType}</div>
       <div><strong>Description: </strong>${asset.description}</div>
@@ -222,23 +223,26 @@ function populateAssetContext(asset) {
       <div><strong>Location: </strong>${asset.location}</div>
       <div><strong>Status: </strong>${asset.status}</div>
       <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
-      `;
+    </div>
+    <div id="right-asset-context>
+    </div>
+        `;
 }
 
 function populateLiveMapContext(event) {
   // populates map context box based on certain movement conditions
   // mouse moving, touchscreen, etc.
   document.getElementById("live-map-context").innerHTML = `
-            <div><h2 class="header">Live Map Data</h2></div>
-            <div><strong>Coords X:</strong> ${event.point.x}</div>
-            <div><strong>Coords Y:</strong> ${event.point.y}</div>
-            <div><strong>Mouse Lng:</strong> ${event.lngLat.lng}</div>
-            <div><strong>Mouse Lat:</strong> ${event.lngLat.lat}</div>
-            <div><strong>Center Lng</strong> ${map.getCenter().lng}</div>
-            <div><strong>Center Lat:</strong> ${map.getCenter().lat}</div>
-            <div><strong>Zoom:</strong> ${map.getZoom()}</div>
-            <div><strong>Bearing:</strong> ${map.getBearing()}</div>
-            <div><strong>Pitch:</strong> ${map.getPitch()}</div>
+    <div><h2 class="header">Live Map Data</h2></div>
+    <div><strong>Coords X:</strong> ${event.point.x}</div>
+    <div><strong>Coords Y:</strong> ${event.point.y}</div>
+    <div><strong>Mouse Lng:</strong> ${event.lngLat.lng}</div>
+    <div><strong>Mouse Lat:</strong> ${event.lngLat.lat}</div>
+    <div><strong>Center Lng</strong> ${map.getCenter().lng}</div>
+    <div><strong>Center Lat:</strong> ${map.getCenter().lat}</div>
+    <div><strong>Zoom:</strong> ${map.getZoom()}</div>
+    <div><strong>Bearing:</strong> ${map.getBearing()}</div>
+    <div><strong>Pitch:</strong> ${map.getPitch()}</div>
   `;
 }
 
