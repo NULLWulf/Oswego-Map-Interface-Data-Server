@@ -212,20 +212,16 @@ function populateAssetContext(asset) {
   // populates map context box
   let property = asset.property; // same thing as "building code"
 
-  document.getElementById("asset-context").innerHTML = `
-    <div><h3 class="header">Asset: ${asset.id}</h3></div>
-    <div id="left-asset-context>
-    <div class="smalltext">
-      <div><strong>Group: </strong>${asset.assetGroup}</div>
-      <div><strong>Type: </strong>${asset.assetType}</div>
-      <div><strong>Description: </strong>${asset.description}</div>
-      <div><strong>Facility: </strong>${asset.facility}</div>
-      <div><strong>Location: </strong>${asset.location}</div>
-      <div><strong>Status: </strong>${asset.status}</div>
-      <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
-    </div>
-    <div id="right-asset-context>
-    </div>
+  document.getElementById("asset-context-header").innerHTML = `${asset.id}`;
+
+  document.getElementById("asset-context-data").innerHTML = `
+    <div><strong>Group: </strong>${asset.assetGroup}</div>
+    <div><strong>Type: </strong>${asset.assetType}</div>
+    <div><strong>Description: </strong>${asset.description}</div>
+    <div><strong>Facility: </strong>${asset.facility}</div>
+    <div><strong>Location: </strong>${asset.location}</div>
+    <div><strong>Status: </strong>${asset.status}</div>
+    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
     `;
 }
 
