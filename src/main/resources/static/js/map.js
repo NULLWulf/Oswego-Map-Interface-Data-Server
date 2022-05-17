@@ -224,6 +224,8 @@ function populateAssetContext(asset) {
     <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
     `;
 
+  // document.getElementById("assset-context-controls").innerHTML = "";
+
   let refocus_button = document.createElement("button");
   refocus_button.classList.add("button");
   refocus_button.innerHTML = "Refocus Parent Building";
@@ -231,7 +233,7 @@ function populateAssetContext(asset) {
     refocusBuilding(asset.property);
   });
 
-  document.getElementById("asset-context-controls").appendChild(refocus_button);
+  document.getElementById("asset-context-controls").replaceWith(refocus_button);
 }
 
 function populateLiveMapContext(event) {
