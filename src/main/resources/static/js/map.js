@@ -136,7 +136,7 @@ function getBuildingAssets(buildingData) {
     });
 }
 
-function functionTester(building_code) {
+function refocusBuilding(building_code) {
   fetch(`/property/${building_code}`)
     .then((response) => {
       return response.json();
@@ -223,6 +223,15 @@ function populateAssetContext(asset) {
     <div><strong>Status: </strong>${asset.status}</div>
     <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
     `;
+
+  let refocus_button = document.createElement("button");
+  refocus_button.classList.add("button");
+  refocus_button.innerHTML = "Refocus Parent Building";
+  refocus_button.addEventListener("click", () => {
+    refocusBuilding(asset.property);
+  });
+
+  document.getElementById("asset-context-controls").appendChild(refocus_button);
 }
 
 function populateLiveMapContext(event) {
@@ -315,20 +324,3 @@ const regions = [
     bearing: -19.686627218935314,
   },
 ];
-
-///////////// Testing Tings ////////////////
-function functionTester() {
-  fetch(`/property/0006`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      map.flyTo({
-        center: [data.longitude, data.latitude],
-        zoom: 18,
-        speed: 0.6,
-      });
-      getBuildingAssets(data);
-    });
-}
