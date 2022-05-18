@@ -1,10 +1,10 @@
 ////////////////////// Map Parameters ////////////////////////////////////
 
 mapboxgl.accessToken = // new style url
-  "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg"; // public token, not able to make changes to map itself with it
+  "pk.eyJ1Ijoic3VueS1vc3dlZ28iLCJhIjoiY2wzYnI3dThoMDdtcDNqbzJhc2NrNHIyNCJ9.bC45EQZcAuxRLvk_AvR5Cw"; // public token, not able to make changes to map itself with it
 // only access style layer etc.
 const flyToZoom = 18; // maximum zoom level after FlyToZoom is initialized when interacting with building icons
-const defaultStyle = "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j"; // Default style URL
+const defaultStyle = "mapbox://styles/suny-oswego/cl3bphxsb005s14qz971ul1vq"; // Default style URL
 const satelliteStyle = "mapbox://styles/mapbox/satellite-v9"; // Satellite Style URL
 let currentStyle = 0; // Holds current map style
 
