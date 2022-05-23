@@ -123,7 +123,6 @@ function getAssetFromDropDown(assetId) {
     .catch((err) => {
       // if eror in process assumes a fetch problem
       console.log("Fetch Problem: " + err.message);
-      window.alert("Error Retrieving Asset Data: \n" + err.message);
     });
 }
 
@@ -143,6 +142,9 @@ function getBuildingAssets(buildingData) {
     });
 }
 
+// refocouses the center of the map based on the passed on building
+// this function currently only responds to a button in the asset context, but could
+// easily be re-used
 function refocusBuilding(building_code) {
   fetch(`/property/${building_code}`)
     .then((response) => {
@@ -151,11 +153,12 @@ function refocusBuilding(building_code) {
     .then((data) => {
       console.log(data);
       map.flyTo({
+        // map fly to function that centers the map on the building center long/lat point
         center: [data.longitude, data.latitude],
         zoom: 18,
         speed: 0.6,
       });
-      getBuildingAssets(data);
+      getBuildingAssets(data); // calls getBuildAssets to popualte building contexst
     })
     .catch((err) => {
       console.log("Fetch problem: " + err.message);
@@ -168,7 +171,6 @@ function refocusBuilding(building_code) {
 function populateBuildingContext(assetData, property) {
   let assetsAvailable = assetData ? assetData.length : "No Assets Available"; // checks to see if asset data is available, needed to show no assets available on building context
 
-  console.log(property);
   // sets html with building context
   document.getElementById("building-context").innerHTML = ` 
     <div><h2 class="header">${property.building_name}</h2></div>
@@ -186,8 +188,8 @@ function populateBuildingContext(assetData, property) {
 
   if (assetData) {
     // if assetData has some length populates dropdown list
-    let select = document.createElement("select");
-    select.id = "asset-dropdown";
+    let select = document.createElement("select"); // creates "Drop down menu elemetn "
+    select.id = "asset-dropdown"; // sets is
 
     for (let i = 0; i < assetData.length; i++) {
       // loops through asset data array and adds asset elements
@@ -199,19 +201,19 @@ function populateBuildingContext(assetData, property) {
         assetData[i].assetType +
         " : " +
         assetData[i].assetGroup;
-      let assetElement = document.createElement("option");
-      assetElement.textContent = assetOption;
-      assetElement.value = assetData[i].id;
-      select.appendChild(assetElement);
+      let assetElement = document.createElement("option"); // creates option which is an individual asset
+      assetElement.textContent = assetOption; // set inner text contnet of looper through data
+      assetElement.value = assetData[i].id; // sets value as asset id
+      select.appendChild(assetElement); // appends asset to the drop down list
     }
 
     select.addEventListener("change", () => {
       // attaches event listener to dropdown that populates asset context based on selection
       getAssetFromDropDown(select.value);
     });
-    document.getElementById("building-context").appendChild(select);
+    document.getElementById("building-context").appendChild(select); // appends completed dropdown list to building context
   } else {
-    // if assetData =
+    // creates new element specifying error getting building data
     let errorMessageAsset = document.createElement("div");
     errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Data</h3</div>`;
     document.getElementById("building-context").appendChild(errorMessageAsset);
