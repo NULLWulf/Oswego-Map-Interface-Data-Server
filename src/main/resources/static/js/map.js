@@ -213,7 +213,7 @@ function populateBuildingContext(assetData, property) {
     });
     document.getElementById("building-context").appendChild(select); // appends completed dropdown list to building context
   } else {
-    // creates new element specifying error getting building data
+    // creates new element specifying error getting building
     let errorMessageAsset = document.createElement("div");
     errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Data</h3</div>`;
     document.getElementById("building-context").appendChild(errorMessageAsset);
@@ -222,10 +222,11 @@ function populateBuildingContext(assetData, property) {
 
 function populateAssetContext(asset) {
   // populates map context box
-  let property = asset.property; // same thing as "building code"
 
-  document.getElementById("asset-context-header").innerHTML = `${asset.id}`;
+  document.getElementById("asset-context-header").innerHTML = `${asset.id}`; // sets header as AssetId
 
+  // populates asset data element with various data points as indicated
+  // by aim
   document.getElementById("asset-context-data").innerHTML = `
     <div><strong>Group: </strong>${asset.assetGroup}</div>
     <div><strong>Type: </strong>${asset.assetType}</div>
@@ -235,8 +236,6 @@ function populateAssetContext(asset) {
     <div><strong>Status: </strong>${asset.status}</div>
     <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
     `;
-
-  // document.getElementById("assset-context-controls").innerHTML = "";
 
   let refocus_button = document.createElement("button");
   refocus_button.classList.add("button");
