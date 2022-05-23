@@ -16,7 +16,6 @@ const map = new mapboxgl.Map({
   zoom: 15.65, // initial zoom start
   bearing: -37.25, // slightly off north to show the majority of campus
   pitch: 0, // directly overhead
-  // maxBounds: _mapPanBound,
 });
 
 const nav = new mapboxgl.NavigationControl({
@@ -29,26 +28,28 @@ map.addControl(nav, "bottom-left");
 // Direct interactions and manipulations of the map /////////////////////
 
 map.on("click", (event) => {
-  // when clicking on building atempts to get building info from mapbox data and fetch building asset as well
+  // when clicking on building, attempts to get building data at selectedc point
   try {
     const features = bondFeatures(0.5, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
     // let currentBuilding = features[0].properties.building_code; // stores current building number
     let selectedBuilding = features[0].properties;
     getBuildingAssets(selectedBuilding); // passes building number and grabbed feature under point
   } catch {
-    noBuildingSelected();
+    noBuildingSelected(); // no building selected context
   }
 });
 
 function bondFeatures(bound, map, event) {
-  // bounds features within a radius of certain of point, returns an array
+  // bounds features within a radius of certain of point, returns an array of said features, should typically only be one but array is sorted based on distance from point
+  // Data is stored as a mapbox data layer
   if (map.loaded()) {
+    // checks to see if map is loaded, unsure whether this is neccesary
     const bbox = [
       // based off of pixel width to determine bounds
       [event.point.x - bound, event.point.y - bound],
       [event.point.x + bound, event.point.y + bound],
     ];
-    return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // Returns features within  certain radius of bounds
+    return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // Returns array of building data
   }
 }
 
@@ -73,12 +74,12 @@ map.on("mouseleave", "buildings", () => {
 });
 
 map.on("touchmove", (event) => {
-  // populates live map context when using touchscreen
+  // populates live map context based on touch screen activity
   populateLiveMapContext(event);
 });
 
 map.on("mousemove", (event) => {
-  // populates live map context when using mouse
+  // populates live map context when detecting mouse movement
   populateLiveMapContext(event);
 });
 
@@ -95,11 +96,13 @@ function flyToRegionDropdown(id) {
 function toggleMapStyle() {
   // toggles map style between default and satellite view
 
+  // If currentStyle is 0 , changed to satellite view
   if (currentStyle === 0) {
     map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
     document.getElementById("style-toggle").innerHTML = "Default View";
     currentStyle = 1;
   } else {
+    // If currentStyle is 1, change to default style
     map.setLayoutProperty("mapbox-satellite", "visibility", "none");
     document.getElementById("style-toggle").innerHTML = "Satellite View";
     currentStyle = 0;
@@ -112,25 +115,29 @@ function toggleMapStyle() {
 function getAssetFromDropDown(assetId) {
   fetch(`/assets/${assetId}`)
     .then((response) => {
-      return response.json();
+      return response.json(); // gets Asset and returns as Json
     })
     .then((data) => {
-      console.log(data);
-      populateAssetContext(data);
+      populateAssetContext(data); // calls Populate Asset Context
+    })
+    .catch((err) => {
+      // if eror in process assumes a fetch problem
+      console.log("Fetch Problem: " + err.message);
+      window.alert("Error Retrieving Asset Data: \n" + err.message);
     });
 }
 
 // Gets building assets from dropdown and populates building context
 function getBuildingAssets(buildingData) {
-  fetch(`/assets/property/${buildingData.building_code}`)
+  fetch(`/assets/property/${buildingData.building_code}`) // attempts to get building assets by passing in building number/code
     .then((response) => {
       return response.json();
     })
     .then((assetDataJson) => {
-      console.log("Fetch Successful");
-      populateBuildingContext(assetDataJson, buildingData);
+      populateBuildingContext(assetDataJson, buildingData); // passed buildingData and assetDataJson to build out building context and asset dropdown list
     })
     .catch((err) => {
+      // displays message if previous chain fails, and populates Building Data without asset data
       console.log("Fetch problem: " + err.message);
       populateBuildingContext(null, buildingData);
     });
@@ -149,6 +156,9 @@ function refocusBuilding(building_code) {
         speed: 0.6,
       });
       getBuildingAssets(data);
+    })
+    .catch((err) => {
+      console.log("Fetch problem: " + err.message);
     });
 }
 
