@@ -1,9 +1,13 @@
 # SUNY Oswego Asset Map Interface
 
-## :question: Purpose :question:
+## :globe_with_meridians: [Test Deployment](https://oswego-map.herokuapp.com/) :globe_with_meridians:
+Currently a test deployment is running on a free Heroku dyno.  The web page may take a moment to show if there has not been recent activity. 
+
+### :question: Purpose :question:
+This is an ongoing project intended to a be a front facing visual representation of SUNY Oswego's inventory mamangement systems.  "Inventory" in this case can include everything from a smoke detector to an entire building itself, and elements anywhere in between.  In time it may have additional functionality such as showing layers of equipment that may be malfunctioning, offline, need repair etc.  This project in time may conceptually serve as a basis for a campus energy and sustainability map.
 
 ### :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
-Visual Representation of the various languages, tools, and some frameworks used in this project.  This list is not exhaustive.  For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies)
+Visual Representation of the various languages, tools, and some frameworks used in this project.  This list is not exhaustive.  For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
   <img src="https://github.com/gilbarbara/logos/blob/master/logos/chrome.svg"  title="Chrome" alt="Chrome" width="40" height="40"/>&nbsp;
