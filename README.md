@@ -1,5 +1,4 @@
-# Oswego-Map-Interface-Data-Server
-
+# SUNY Oswego Asset Map Interface
 
 ### :hammer_and_wrench: Languages and Tools :
 <link rel="stylesheet" href="devicon.min.css">
