@@ -3,10 +3,10 @@
 ## :globe_with_meridians: [Test Deployment](https://oswego-map.herokuapp.com/) :globe_with_meridians:
 Currently a test deployment is running on a free Heroku dyno.  The web page may take a moment to show if there has not been recent activity. 
 
-### :question: Purpose :question:
+## :question: Purpose :question:
 This is an ongoing project intended to a be a front facing visual representation of SUNY Oswego's inventory mamangement systems.  "Inventory" in this case can include everything from a smoke detector to an entire building itself, and elements anywhere in between.  In time it may have additional functionality such as showing layers of equipment that may be malfunctioning, offline, need repair etc.  This project in time may conceptually serve as a basis for a campus energy and sustainability map.
 
-### :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
+## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
 Visual Representation of the various languages, tools, and some frameworks used in this project.  This list is not exhaustive.  For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/apache/apache-original-wordmark.svg"  title="Apache" alt="Apache" width="40" height="40"/>&nbsp;
@@ -28,7 +28,7 @@ Visual Representation of the various languages, tools, and some frameworks used 
 </div>
 
 ***
-### :building_construction: Project Structure :building_construction:
+## :building_construction: Project Structure :building_construction:
 ```
 ├── Procfile
 ├── README.md
