@@ -1,6 +1,6 @@
 # SUNY Oswego Asset Map Interface
 
-## Purpose :hugging_face:
+## Purpose :smiley:
 
 ### :hammer_and_wrench: Languages and Tools :
 <link rel="stylesheet" href="devicon.min.css">
