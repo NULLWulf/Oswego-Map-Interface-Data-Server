@@ -4,7 +4,7 @@ name: Heroku-Wake
 
 # Controls when the workflow will run
 on:
-  schedule: # execute every 24 hours
+  schedule: # execute every Half Hour
     - cron: "*/30 * * * *"
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
