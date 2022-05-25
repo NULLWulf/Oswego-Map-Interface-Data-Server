@@ -166,11 +166,11 @@ function refocusBuilding(building_code) {
 
 ////////////////////// Programmatic HTML Population ////////////////////////////////////
 
-// Populates building context, also attempts to populate asset list dropdown
+// Populates building context, attempts to populate Asset drop dropdown if said data is present
 function populateBuildingContext(assetData, property) {
-  let assetsAvailable = assetData ? assetData.length : "No Assets Available"; // checks to see if asset data is available, needed to show no assets available on building context
+  // Checks to see if asset data is available, else assigns string to show that assets are not available
+  let assetsAvailable = assetData ? assetData.length : "No Assets Available";
 
-  console.log(property);
   // sets html with building context
   document.getElementById("building-context").innerHTML = ` 
     <div><h2 class="header">${property.building_name}</h2></div>
