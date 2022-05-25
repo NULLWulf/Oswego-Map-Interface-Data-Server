@@ -47,14 +47,13 @@ function boundFeatures(bound, map, event) {
   return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // Returns array of building feature data
 }
 
-//
+// When a building feature is clicked, gets building coordinates and center view on said building
 map.on("click", "buildings", (e) => {
   // If Zoom level is less than 18, use zoom level of 18
   const constraintZoom = map.getZoom() > 18 ? map.getZoom() : 18;
   // notes higher zoom level means more magnification
   map.flyTo({
-    center: e.features[0].geometry.coordinates, // centers map based on exact point in geoJson array
-    // new constrained zoom, since this is an object data value, variable needs to be declares up top
+    center: e.features[0].geometry.coordinates,
     zoom: constraintZoom,
     speed: 0.3,
   });
@@ -90,16 +89,16 @@ function flyToRegionDropdown(id) {
   });
 }
 
+// Toggles between Default Style and Satellite Raster view
 function toggleMapStyle() {
-  // toggles map style between default and satellite view
 
   // If currentStyle is 0 , changed to satellite view
   if (currentStyle === 0) {
     map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
     document.getElementById("style-toggle").innerHTML = "Default View";
     currentStyle = 1;
+  // If currentStyle is 1, change to default style
   } else {
-    // If currentStyle is 1, change to default style
     map.setLayoutProperty("mapbox-satellite", "visibility", "none");
     document.getElementById("style-toggle").innerHTML = "Satellite View";
     currentStyle = 0;
@@ -108,7 +107,7 @@ function toggleMapStyle() {
 
 ////////////////////// Fetch Requests ////////////////////////////////////
 
-// gets Asset from dropdown list and populates dropdown list
+// Gets Asset from dropdown list and populates asset context
 function getAssetFromDropDown(assetId) {
   fetch(`/assets/${assetId}`)
     .then((response) => {
@@ -118,39 +117,46 @@ function getAssetFromDropDown(assetId) {
       populateAssetContext(data); // calls Populate Asset Context
     })
     .catch((err) => {
-      // if eror in process assumes a fetch problem
+      // if error in process assumes a fetch problem
       console.log("Fetch Problem: " + err.message);
     });
 }
 
-// Gets building assets from dropdown and populates building context
+// Gets Building Assets from database then populates Building and Asset context
+// Building Data can come from data in GeoJson layer or from database depending
+// on where this function is called from
 function getBuildingAssets(buildingData) {
-  fetch(`/assets/property/${buildingData.building_code}`) // attempts to get building assets by passing in building number/code
+  // attempts to get building assets by passing in building number/code
+  fetch(`/assets/property/${buildingData.building_code}`)
     .then((response) => {
       return response.json();
     })
     .then((assetDataJson) => {
-      populateBuildingContext(assetDataJson, buildingData); // passed buildingData and assetDataJson to build out building context and asset dropdown list
+      // Passes Building Data and Asset data from database
+      populateBuildingContext(assetDataJson, buildingData);
     })
     .catch((err) => {
-      // displays message if previous chain fails, and populates Building Data without asset data
+      // Displays message if previous chain fails, and populates Building Data Context without asset data
       console.log("Fetch problem: " + err.message);
       populateBuildingContext(null, buildingData);
     });
 }
 
+// Calls database to get building data as opposed to data from the GeoJson layer
 function refocusBuilding(building_code) {
   fetch(`/property/${building_code}`)
     .then((response) => {
       return response.json();
     })
+    // "data" refers to building data from database
     .then((data) => {
-      console.log(data);
+      // Centers map of building geo-position coordinates
       map.flyTo({
         center: [data.longitude, data.latitude],
         zoom: 18,
         speed: 0.6,
       });
+      // Passes retrieved building data from database
       getBuildingAssets(data);
     })
     .catch((err) => {
@@ -158,7 +164,7 @@ function refocusBuilding(building_code) {
     });
 }
 
-////////////////////// Progmatic HTML Population ////////////////////////////////////
+////////////////////// Programmatic HTML Population ////////////////////////////////////
 
 // Populates building context, also attempts to populate asset list dropdown
 function populateBuildingContext(assetData, property) {
