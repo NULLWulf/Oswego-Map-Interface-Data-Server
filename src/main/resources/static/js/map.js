@@ -16,8 +16,8 @@ const map = new mapboxgl.Map({
   pitch: 0, // Initially top-down view of map
 });
 
+// Add Map Zoom and Rotation Control buttons
 const nav = new mapboxgl.NavigationControl({
-  // adds map zoom and rotate control buttons
   compass: true,
 });
 map.addControl(nav, "bottom-left");
@@ -25,30 +25,26 @@ map.addControl(nav, "bottom-left");
 ////////////////////// Map Functions ////////////////////////////////////
 // Direct interactions and manipulations of the map /////////////////////
 
+// When clicking on the map attempts to get features at clicked point
 map.on("click", (event) => {
-  // when clicking on building, attempts to get building data at selectedc point
   try {
-    const features = bondFeatures(0.5, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
-    // let currentBuilding = features[0].properties.building_code; // stores current building number
-    let selectedBuilding = features[0].properties;
-    getBuildingAssets(selectedBuilding); // passes building number and grabbed feature under point
+    // Attempts to get features within certain radius of "bound" parameter
+    const features = boundFeatures(0.5, map, event);
+    getBuildingAssets(features[0].properties); // passes building number and grabbed feature under point
   } catch {
     noBuildingSelected(); // no building selected context
   }
 });
 
-function bondFeatures(bound, map, event) {
-  // bounds features within a radius of certain of point, returns an array of said features, should typically only be one but array is sorted based on distance from point
-  // Data is stored as a mapbox data layer
-  if (map.loaded()) {
-    // checks to see if map is loaded, unsure whether this is neccesary
-    const bbox = [
-      // based off of pixel width to determine bounds
-      [event.point.x - bound, event.point.y - bound],
-      [event.point.x + bound, event.point.y + bound],
-    ];
-    return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // Returns array of building data
-  }
+// Bounds feature within a box-like radius, returns array of features under point
+// sorted closed to furthest
+function boundFeatures(bound, map, event) {
+  const bbox = [ // bounding box
+    // based off of pixel width to determine bounds
+    [event.point.x - bound, event.point.y - bound],
+    [event.point.x + bound, event.point.y + bound],
+  ];
+  return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // Returns array of building feature data
 }
 
 map.on("click", "buildings", (e) => {
