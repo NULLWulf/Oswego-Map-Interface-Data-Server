@@ -192,7 +192,7 @@ function populateBuildingContext(assetData, property) {
     for (let i = 0; i < assetData.length; i++) {
       // loops through asset data array and adds asset elements
       let assetOption =
-        assetData[i].id +
+        assetData[i].asset_id +
         " : " +
         assetData[i].description +
         " : " +
