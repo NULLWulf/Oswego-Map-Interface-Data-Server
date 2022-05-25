@@ -13,7 +13,8 @@ public interface AssetRepository extends JpaRepository<Assets,Long> {
     List<Assets> findByAssetType(String assetType);
 
     // Get asset by Primary key (id)
-    Optional<Assets> findByid(Long id);
+    @Query(value = "SELECT * from assets where asset_id.property = :asset_id", nativeQuery = true)
+    Optional<Assets> findByAssetId(Long asset_id);
 
     // Find All Asset Type and Category Pairs
     @Query(value = "SELECT distinct asset_type,asset_group from assets order by asset_type", nativeQuery = true)
@@ -23,7 +24,7 @@ public interface AssetRepository extends JpaRepository<Assets,Long> {
     long count();
 
     // Get Asset Count Based on Building #
-    @Query(value = "select COUNT(id) from assets where assets.property = :property", nativeQuery = true)
+    @Query(value = "select COUNT(asset_id) from assets where assets.property = :property", nativeQuery = true)
     long getCountByPropertyNum(@Param("property") String property);
 
     // Get Assets by Property #
