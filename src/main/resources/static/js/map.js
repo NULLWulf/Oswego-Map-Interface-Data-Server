@@ -58,28 +58,28 @@ map.on("click", "buildings", (e) => {
   });
 });
 
+// Changes mouse cursor to pointer when over building feature
 map.on("mouseenter", "buildings", () => {
-  // changes mouse cursor to pointer when over building
   map.getCanvas().style.cursor = "pointer";
 });
 
+// Changes to default mouse icon when off of building feature
 map.on("mouseleave", "buildings", () => {
-  // changes mouse to default when off of building feature
   map.getCanvas().style.cursor = "";
 });
 
+// Populates map data context based on touch screen movement
 map.on("touchmove", (event) => {
-  // populates live map context based on touch screen activity
   populateLiveMapContext(event);
 });
 
+// Populates live map context when detecting mouse movement
 map.on("mousemove", (event) => {
-  // populates live map context when detecting mouse movement
   populateLiveMapContext(event);
 });
 
+// Fly to region as selected from dropdown menu
 function flyToRegionDropdown(id) {
-  // fly to region selected from dropdwon menu
   map.flyTo({
     center: regions[id].center,
     zoom: regions[id].zoom,
