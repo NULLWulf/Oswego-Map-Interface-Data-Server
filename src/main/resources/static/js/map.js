@@ -171,20 +171,20 @@ function populateBuildingContext(assetData, property) {
   // Checks to see if asset data is available, else assigns string to show that assets are not available
   let assetsAvailable = assetData ? assetData.length : "No Assets Available";
 
-  // sets html with building context
+  // Sets building-context HTML with building data
+  // Asset Count will be either actual asset context array count or "No Assets Available"
   document.getElementById("building-context").innerHTML = ` 
     <div><h2 class="header">${property.building_name}</h2></div>
     <div class="smalltext">
     <div><strong>Building No: </strong>${property.building_code}</div>
     <div><strong>Ft<sup>2</sup>: </strong>${property.square_ft}</div>
     <div><strong>Asset Count: </strong>${assetsAvailable}</div>
-    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.asset_id}" target="_blank"><strong>AIM Asset Property</strong></a></div>
+    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.asset_id}" target="_blank">
+    <strong>AIM Asset Property</strong></a></div>
     `;
 
-  // attempts to get building picture
-  document.getElementsByClassName("fs-logo-building")[0].src = `
-    images/building-images/${property.building_code}.jpg
-    `;
+  // Attempts to set building image header with respective building
+  setBuildingImage(property.building_code);
 
   if (assetData) {
     // if assetData has some length populates dropdown list
@@ -238,7 +238,6 @@ function populateAssetContext(asset) {
     <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
     `;
 
-  // document.getElementById("assset-context-controls").innerHTML = "";
 
   let refocus_button = document.createElement("button");
   refocus_button.classList.add("button");
@@ -273,6 +272,18 @@ function noBuildingSelected() {
   document.getElementById(
     "building-context"
   ).innerHTML = `<div><h2>Select a Building or Feature</h2</div>`; // inserts into sidebar
+}
+
+// Sets building image from passed building code else defaults to inverted FS logo
+function setBuildingImage(building_code){
+  // Attempts to get image of building else
+  try {
+    document.getElementsByClassName("fs-logo-building")[0].src = `
+    images/building-images/${building_code}.jpg
+    `;
+  }catch {
+    document.getElementsByClassName("fs-logo-building")[0].src = "images/branding/inverted_fs.png.jpg";
+  }
 }
 
 ////////////////////// JSON Data ////////////////////////////////////
