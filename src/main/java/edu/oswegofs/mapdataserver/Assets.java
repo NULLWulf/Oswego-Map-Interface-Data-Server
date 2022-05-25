@@ -13,8 +13,10 @@ import javax.persistence.*;
 @Table(name = "assets")
 public class Assets {
 
+
+    @Column(name = "asset_id")
     @Id
-    Long id;
+    Long asset_id;
 
     @Column(name = "description")
     String description;

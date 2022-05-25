@@ -35,8 +35,4 @@ public class Property {
 
     @Column(name = "asset_id")
     Long asset_id;
-
-    public String getLatLong(){
-        return "[" + this.getLatitude() + "," + this.getLongitude() + "]";
-    }
 }

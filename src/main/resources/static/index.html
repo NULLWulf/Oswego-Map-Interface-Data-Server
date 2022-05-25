@@ -3,9 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <title>SUNY Oswego Map Interface</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.js"></script>
-
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
     <script
       src="https://kit.fontawesome.com/9660ea68b2.js"
@@ -30,7 +27,6 @@
           <img
             class="fs-logo-building"
             src="./images/branding/inverted_fs.png"
-            onerror="this.src='./images/branding/inverted_fs.png'"
           />
         </div>
         <div class="left-sidebar-body">
@@ -55,7 +51,7 @@
 
           <div class="dropdown">
             <select
-              id="region-dropwn"
+              id="region-dropdown"
               onchange="flyToRegionDropdown(this.value)"
             >
               <option value="none" selected disabled hidden>

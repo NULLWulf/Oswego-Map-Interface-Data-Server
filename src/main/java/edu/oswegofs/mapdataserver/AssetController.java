@@ -15,7 +15,7 @@ public class AssetController {
 
     private final AssetRepository assetRepository;
 
-    // Defines Asset Controller LOgger
+    // Defines Asset Controller as
     private static final Logger log = LoggerFactory.getLogger(AssetController.class);
 
     // Assigns Asset Repo to this Controller
@@ -55,7 +55,7 @@ public class AssetController {
     @GetMapping("/{id}")
     public Optional<Assets> getId(@PathVariable Long id) {
         log.info("Getting Asset: " + id);
-        return assetRepository.findByid(id);
+        return assetRepository.findByAssetId(id);
     }
 
     // Get Assets by Property #
