@@ -1,21 +1,19 @@
 ////////////////////// Map Parameters ////////////////////////////////////
 
-mapboxgl.accessToken = // new style url
-  "pk.eyJ1Ijoic3VueS1vc3dlZ28iLCJhIjoiY2wzYnI3dThoMDdtcDNqbzJhc2NrNHIyNCJ9.bC45EQZcAuxRLvk_AvR5Cw"; // public token, not able to make changes to map itself with it
-// only access style layer etc.
-const flyToZoom = 18; // maximum zoom level after FlyToZoom is initialized when interacting with building icons
-const defaultStyle = "mapbox://styles/suny-oswego/cl3bphxsb005s14qz971ul1vq"; // Default style URL
+// SUNY-Oswego Token, locked down to certain domain access
+mapboxgl.accessToken = "pk.eyJ1Ijoic3VueS1vc3dlZ28iLCJhIjoiY2wzYnI3dThoMDdtcDNqbzJhc2NrNHIyNCJ9.bC45EQZcAuxRLvk_AvR5Cw";
+const defaultStyle = "mapbox://styles/suny-oswego/cl3bphxsb005s14qz971ul1vq"; // Default style URL, managed through Mapbox
 const satelliteStyle = "mapbox://styles/mapbox/satellite-v9"; // Satellite Style URL
 let currentStyle = 0; // Holds current map style
 
+// Creates Map object
 const map = new mapboxgl.Map({
-  // creates Mapbox object
   container: "map", // container ID
-  style: defaultStyle, // new style url
-  center: [-76.543134, 43.453054], // starting position [lng, lat]
-  zoom: 15.65, // initial zoom start
-  bearing: -37.25, // slightly off north to show the majority of campus
-  pitch: 0, // directly overhead
+  style: defaultStyle, // Default Style
+  center: [-76.543134, 43.453054], // Starting geo-positon of map
+  zoom: 15.65, // Initial zoom level start
+  bearing: -37.25, // Starting cardinality slightly NW
+  pitch: 0, // Initially top-down view of map
 });
 
 const nav = new mapboxgl.NavigationControl({
@@ -54,7 +52,8 @@ function bondFeatures(bound, map, event) {
 }
 
 map.on("click", "buildings", (e) => {
-  const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
+  // If Zoom level is less than 18, use zoom level of 18
+  const constraintZoom = map.getZoom() > 18 ? map.getZoom() : 18;
   // notes higher zoom level means more magnification
   map.flyTo({
     center: e.features[0].geometry.coordinates, // centers map based on exact point in geoJson array
