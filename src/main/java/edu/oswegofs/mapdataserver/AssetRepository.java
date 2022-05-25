@@ -13,7 +13,7 @@ public interface AssetRepository extends JpaRepository<Assets,Long> {
     List<Assets> findByAssetType(String assetType);
 
     // Get asset by Primary key (id)
-    @Query(value = "SELECT * from assets where asset_id.property = :asset_id", nativeQuery = true)
+    @Query(value = "SELECT * from assets where assets.asset_id = :asset_id", nativeQuery = true)
     Optional<Assets> findByAssetId(Long asset_id);
 
     // Find All Asset Type and Category Pairs

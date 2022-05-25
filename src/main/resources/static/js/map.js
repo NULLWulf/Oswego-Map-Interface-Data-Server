@@ -123,7 +123,6 @@ function getAssetFromDropDown(assetId) {
     .catch((err) => {
       // if eror in process assumes a fetch problem
       console.log("Fetch Problem: " + err.message);
-      window.alert("Error Retrieving Asset Data: \n" + err.message);
     });
 }
 
@@ -201,7 +200,7 @@ function populateBuildingContext(assetData, property) {
         assetData[i].assetGroup;
       let assetElement = document.createElement("option");
       assetElement.textContent = assetOption;
-      assetElement.value = assetData[i].id;
+      assetElement.value = assetData[i].asset_id;
       select.appendChild(assetElement);
     }
 
@@ -222,7 +221,9 @@ function populateAssetContext(asset) {
   // populates map context box
   let property = asset.property; // same thing as "building code"
 
-  document.getElementById("asset-context-header").innerHTML = `${asset.id}`;
+  document.getElementById(
+    "asset-context-header"
+  ).innerHTML = `${asset.asset_id}`;
 
   document.getElementById("asset-context-data").innerHTML = `
     <div><strong>Group: </strong>${asset.assetGroup}</div>
