@@ -47,13 +47,15 @@ function boundFeatures(bound, map, event) {
   return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // Returns array of building feature data
 }
 
+//
 map.on("click", "buildings", (e) => {
   // If Zoom level is less than 18, use zoom level of 18
   const constraintZoom = map.getZoom() > 18 ? map.getZoom() : 18;
   // notes higher zoom level means more magnification
   map.flyTo({
     center: e.features[0].geometry.coordinates, // centers map based on exact point in geoJson array
-    zoom: constraintZoom, // new constrained zoom, since this is an object data value, variable needs to be declares up top
+    // new constrained zoom, since this is an object data value, variable needs to be declares up top
+    zoom: constraintZoom,
     speed: 0.3,
   });
 });
