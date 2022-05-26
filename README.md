@@ -33,6 +33,13 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 - More direct integration with AIM AssetWorks
 - Energy Usage Map (likely its own project)
 
+### ❗ Known Issues ❗
+- Requires tangible data to experiment with more informative data layers
+- Requires a styling overhaul
+- Limited asset data available currently
+    - When larger data sets are available will require more efficient means of sorting, filtering, paging etc.
+- Back-end currently rudimentary, not much consideration for exceptions
+
 ## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
 Visual Representation of the various languages, tools, and some frameworks used in this project.  This list is not exhaustive.  For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
 <div>
@@ -54,16 +61,6 @@ Visual Representation of the various languages, tools, and some frameworks used 
   <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;
 </div>
 
-## ❗ Known Issues ❗
-- Requires tangible data to experiment with more informative data layers
-- Requires a styling overhaul
-- Limited asset data available currently
-  - When larger data sets are available will require more efficient means of sorting, filtering, paging etc.
-- Back-end currently rudimentary, not much consideration for exceptions
-
-## Credits
-#### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
-#### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
 ***
 ## :building_construction: Project Structure :building_construction:
 ```
@@ -215,3 +212,7 @@ Visual Representation of the various languages, tools, and some frameworks used 
 │                       └── MapDataServerApplicationTests.java
 └── system.properties
 ```
+
+## Credits
+#### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
+#### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
