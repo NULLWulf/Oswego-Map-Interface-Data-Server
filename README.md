@@ -104,7 +104,7 @@ needs.
    - First time contributors will likely have contribution examined in depth before acceptance
 5. If Accepted, repo owner will merge in main repository
 6. Update forked repository accordingly
-## :building_construction: [Project Directory Structure]() :building_construction:
+## :building_construction: [Project Directory Structure](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/docs/structure.md) :building_construction:
 ## Credits
 #### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
 #### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/nullwulf)
