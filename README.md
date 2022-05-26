@@ -37,7 +37,7 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 - Limited asset data available currently
     - When larger data sets are available will require more efficient means of sorting, filtering, paging etc.
 - Limited exception handling front and back-end
-## :hammer_and_wrench: Technology :hammer_and_wrench:
+## :hammer_and_wrench: Languages, Tools, Tech :hammer_and_wrench:
 
 ### Tech Stack
 <div>
