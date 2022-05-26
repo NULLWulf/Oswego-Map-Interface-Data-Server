@@ -23,13 +23,14 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 
 ### :soon: Proposed Features :soon:
 - Better reactivity to mobile devices
+- Search functionality for finding assets
 - Connectivity with production sized SQL database
   - Use H2 only for testing
 - More useful data layers such as:
   - Specific equipment locations
   - Malfunctioning equipment
   - Live data for equipment metrics
-- More direct integration with AIM AssetWorks 
+- More direct integration with AIM AssetWorks
 - Energy Usage Map (likely its own project)
 
 ## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
@@ -52,6 +53,13 @@ Visual Representation of the various languages, tools, and some frameworks used 
   <img src="https://github.com/devicons/devicon/blob/master/icons/spring/spring-original-wordmark.svg" title="Spring" alt="Spring" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;
 </div>
+
+## Known Issues
+- Requires tangible data to experiment with more informative data layers
+- Requires a styling overhaul
+- Limited asset data available currently
+  - When larger data sets are available will require more efficient means of sorting, filtering, paging etc.
+- Back-end currently rudimentary, not much consideration for exceptions
 
 ## Credits
 #### :copyright: 2022 SUNY Oswego Facility Services
