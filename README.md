@@ -73,8 +73,15 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
   - [Maven](https://maven.apache.org/)
     - [pom.xml](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/pom.xml)
   - [Spring Boot](https://spring.io/projects/spring-boot)
+    - Spring JPA
+    - Spring MVC
+    - Spring Rest Controller
+    - and more
 - Development
   - [H2 In-Memory Database](https://www.h2database.com/html/main.html)
+  - [Spring Boot Developer Tools](https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/html/using-boot-devtools.html)
+- Deployment
+  - All deployment and continuous integration handled by repository owner. 
 
 For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
 
