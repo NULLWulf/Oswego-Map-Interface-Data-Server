@@ -1,15 +1,39 @@
 # [SUNY Oswego Asset Map Interface](https://oswego-map.herokuapp.com/)
 Currently, a test deployment is running on a Heroku Dyno.  A work-flow is set up to keep the dyno awake.
-
 ## :question: Description :question:
 A MapboxGL-JS driven front-end application meant to provide a visual means of interacting with SUNY Oswego's inventory 
 system.  "Inventory" in this case can be anything from a smoke detector to a building itself.  Currently, the assets are
 presented in parent-child relationship with the building's serving as a prent to the smaller assets.  Currently, powered
 by a Spring Boot web server API to serving web content as well as data from a SQL based database.
-
 ### Current Features
+- Essential map controls (zoom, rotate, pitch, etc.)
+- Map meta-data updates on mouse movement, touchscreen interaction
+- Style/Satellite View Toggle
+- Campus region quick navigation drop-down
+- Building Data Context Box
+  - Populates upon interaction
+  - Populates list of assets belonging to buildings
+  - Map centers on building upon click
+  - Shows image in heading if image available
+- Asset Data Context Box
+  - Populates upon selection via building asset dropdown
+  - Refocus parent building (say if map moves out of view)
+- Data Storage
+  - Sample data assets currently stored in H2 in-memory database
+  - Building Data
+    - Stored in H2
+    - Stored as GeoJSON via MapBox
 
 ### Proposed Future Features
+- Better reactivity to mobile devices
+- Connectivity with production sized SQL database
+  - Use H2 only for testing
+- More useful data layers such as:
+  - Specific equipment locations
+  - Malfunctioning equipment
+  - Live data for equipment metrics
+- More direct integration with AIM AssetWorks 
+- Energy Usage Map (likely its own project)
 
 ## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
 Visual Representation of the various languages, tools, and some frameworks used in this project.  This list is not exhaustive.  For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
@@ -32,7 +56,6 @@ Visual Representation of the various languages, tools, and some frameworks used 
   <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;
 </div>
 
-***
 ## Credits
 #### ©2022 SUNY Oswego Facility Services
 #### Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
