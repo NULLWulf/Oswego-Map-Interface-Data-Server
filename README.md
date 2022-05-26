@@ -61,7 +61,7 @@ Visual Representation of the various languages, tools, and some frameworks used 
   <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;
 </div>
 
-## 💁🏼:woman_tipping_hand_medium_skin_tone: Contributing 💁🏿‍:woman_tipping_hand_light_skin_tone:
+## :handshake:  Contributing :handshake:
 There are numerous ways for this project to be improved upon.  We feel one of the best ways to see this project
 fleshed out and actualized over time is to open it up to open-source contributing in addition to whomever may be working
 on it on an official basis.  Contributions can come from anyone whether they be hobby programmers, staff and or other students
