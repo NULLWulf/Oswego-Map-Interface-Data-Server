@@ -62,7 +62,7 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 
 ### Environment
 - Frontend
-  - Javascript, HTML, CSS
+  - [Javascript](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/js/map.js), [HTML]((https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/index.html)), [CSS](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/css/style.css)
   - Mapbox-GL-JS
   - NPM
     - [package.json](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package.json)
