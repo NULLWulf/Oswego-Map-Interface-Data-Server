@@ -1,10 +1,19 @@
 # SUNY Oswego Asset Map Interface
 
 ## :globe_with_meridians: [Test Deployment](https://oswego-map.herokuapp.com/) :globe_with_meridians:
-Currently a test deployment is running on a free Heroku dyno.  The web page may take a moment to show if there has not been recent activity. 
+Currently, a test deployment is running on a Heroku Dyno.  A work-flow is set up to keep the dyno awake, so there should
+not be any downtime. 
 
-## :question: Purpose :question:
-This is an ongoing project intended to a be a front facing visual representation of SUNY Oswego's inventory mamangement systems.  "Inventory" in this case can include everything from a smoke detector to an entire building itself, and elements anywhere in between.  In time it may have additional functionality such as showing layers of equipment that may be malfunctioning, offline, need repair etc.  This project in time may conceptually serve as a basis for a campus energy and sustainability map.
+## :question: Description :question:
+A MapboxGL-JS driven front-end application meant to provide a visual means of interacting with SUNY Oswego's inventory 
+system.  "Inventory" in this case can be anything from a smoke detector to a building itself.  Currently, the assets are
+presented in parent-child relationship with the building's serving as a prent to the smaller assets.  Currently, powered
+by a Spring Boot web server API to serving web content as well as data from a SQL based database.
+
+### Current Features
+
+### Proposed Future Features
+
 
 ## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
 Visual Representation of the various languages, tools, and some frameworks used in this project.  This list is not exhaustive.  For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
@@ -12,7 +21,7 @@ Visual Representation of the various languages, tools, and some frameworks used 
   <img src="https://github.com/devicons/devicon/blob/master/icons/apache/apache-original-wordmark.svg"  title="Apache" alt="Apache" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
   <img src="https://github.com/gilbarbara/logos/blob/master/logos/chrome.svg"  title="Chrome" alt="Chrome" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg" title="Git" **alt="Git" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg" title="Git" alt="Git" width="40" height="40" />&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"  title="GitHub" alt="GitHub" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/heroku/heroku-original-wordmark.svg"  title="Heroku" alt="Heroku" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/>&nbsp;
@@ -178,3 +187,8 @@ Visual Representation of the various languages, tools, and some frameworks used 
 │                       └── MapDataServerApplicationTests.java
 └── system.properties
 ```
+
+
+
+### Credits
+## ©2022 SUNY Oswego Facility Services, Project Originator (Nathaniel Wolf)[https://github.com/NULLWulf]
