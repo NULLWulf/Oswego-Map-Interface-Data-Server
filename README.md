@@ -6,9 +6,8 @@ system.  "Inventory" in this case can be anything from a smoke detector to a bui
 presented in parent-child relationship with the building's serving as a prent to the smaller assets.  Currently, powered
 by a Spring Boot web server API to serving web content as well as data from a SQL based database.
 ### Current Features
-- Essential map controls (zoom, rotate, pitch, etc.)
+- Essential map controls (zoom, rotate, pitch, etc.), Satellite/Stylistic toggle 
 - Map meta-data updates on mouse movement, touchscreen interaction
-- Style/Satellite View Toggle
 - Campus region quick navigation drop-down
 - Building Data Context Box
   - Populates upon interaction
@@ -19,12 +18,10 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
   - Populates upon selection via building asset dropdown
   - Refocus parent building (say if map moves out of view)
 - Data Storage
-  - Sample data assets currently stored in H2 in-memory database
-  - Building Data
-    - Stored in H2
-    - Stored as GeoJSON via MapBox
+  - Sample data of assets and buildings currently stored in H2 in-memory database
+  - Building data also stored in MapBox tileset (GeoJSON)
 
-### Proposed Future Features
+### Proposed Features
 - Better reactivity to mobile devices
 - Connectivity with production sized SQL database
   - Use H2 only for testing
