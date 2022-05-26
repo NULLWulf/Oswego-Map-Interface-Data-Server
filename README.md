@@ -74,6 +74,8 @@ needs.
 - Improvements to anything listed in **Current Features**
 - Addition of anything listed in **Proposed Features**
 - Addressing anything listed in **Known Issues**
+- Modification or Alternative Mapbox Styles
+  - [Active Mapbox Style for Copying](https://api.mapbox.com/styles/v1/suny-oswego/cl3bphxsb005s14qz971ul1vq.html?title=copy&access_token=pk.eyJ1Ijoic3VueS1vc3dlZ28iLCJhIjoiY2wzYm90eWhrMDB4ZTNpb2R2OTRtZ2dsZSJ9.iZWk7zC3_UlciiXyaX4PWQ&zoomwheel=true&fresh=true#15.99/43.452543/-76.543031/-39.3)
 
 ### :ladder: Steps to Contribute :ladder:
 1. Fork the Main Repository
