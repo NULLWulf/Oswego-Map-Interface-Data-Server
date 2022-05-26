@@ -62,16 +62,16 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 
 ### 🌱 Environment 🌱
 - Frontend
-  - [Javascript](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/js/map.js), [HTML](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/index.html), [CSS](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/css/style.css)
+  - [Javascript](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/js/map.js), [HTML](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/index.html), [CSS](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/css/style.css)
   - [Mapbox-GL-JS Vector Map Framework](https://docs.mapbox.com/mapbox-gl-js/api/)
   - [NPM](https://www.npmjs.com/)
-    - [package.json](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package.json)
-    - [package-lock.json](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package-lock.json)
+    - [package.json](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package.json)
+    - [package-lock.json](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package-lock.json)
 - Backend
   - [Java SE 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-    - [src](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/tree/main/src)
+    - [src](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/tree/main/src)
   - [Maven](https://maven.apache.org/)
-    - [pom.xml](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/pom.xml)
+    - [pom.xml](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/pom.xml)
   - [Spring Boot](https://spring.io/projects/spring-boot)
     - Spring JPA
     - Spring MVC
@@ -264,4 +264,4 @@ needs.
 
 ## Credits
 #### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
-#### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
+#### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/nullwulf)
