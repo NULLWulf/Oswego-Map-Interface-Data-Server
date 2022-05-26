@@ -62,13 +62,14 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 
 ### Environment
 - Frontend
-  - [Javascript](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/js/map.js), [HTML]((https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/index.html)), [CSS](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/css/style.css)
+  - [Javascript](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/js/map.js), [HTML](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/index.html), [CSS](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/css/style.css)
   - Mapbox-GL-JS
   - NPM
     - [package.json](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package.json)
     - [package-lock.json](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package-lock.json)
 - Backend
   - Java 17
+    - [src](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/tree/main/src)
   - Maven
     - [pom.xml](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/pom.xml)
   - Spring Boot
