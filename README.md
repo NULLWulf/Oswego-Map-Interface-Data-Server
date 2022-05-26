@@ -1,10 +1,37 @@
-# SUNY Oswego Asset Map Interface
+# [SUNY Oswego Asset Map Interface](https://oswego-map.herokuapp.com/)
+Currently, a test deployment is running on a Heroku Dyno.  A work-flow is set up to keep the dyno awake.
+## :question: Description :question:
+A MapboxGL-JS driven front-end application meant to provide a visual means of interacting with SUNY Oswego's inventory 
+system.  "Inventory" in this case can be anything from a smoke detector to a building itself.  Currently, the assets are
+presented in parent-child relationship with the building's serving as a prent to the smaller assets.  Currently, powered
+by a Spring Boot web server API to serving web content as well as data from a SQL based database.
+### :ballot_box_with_check: Current Features :ballot_box_with_check:
+- Essential map controls (zoom, rotate, pitch, etc.), Satellite/Stylistic toggle 
+- Map meta-data updates on mouse movement, touchscreen interaction
+- Campus region quick navigation drop-down
+- Building Data Context Box
+  - Populates upon interaction
+  - Populates list of assets belonging to buildings
+  - Map centers on building upon click
+  - Shows image in heading if image available
+- Asset Data Context Box
+  - Populates upon selection via building asset dropdown
+  - Refocus parent building (say if map moves out of view)
+- Data Storage
+  - Sample data of assets and buildings currently stored in H2 in-memory database
+  - Building data also stored in MapBox tileset (GeoJSON)
 
-## :globe_with_meridians: [Test Deployment](https://oswego-map.herokuapp.com/) :globe_with_meridians:
-Currently a test deployment is running on a free Heroku dyno.  The web page may take a moment to show if there has not been recent activity. 
-
-## :question: Purpose :question:
-This is an ongoing project intended to a be a front facing visual representation of SUNY Oswego's inventory mamangement systems.  "Inventory" in this case can include everything from a smoke detector to an entire building itself, and elements anywhere in between.  In time it may have additional functionality such as showing layers of equipment that may be malfunctioning, offline, need repair etc.  This project in time may conceptually serve as a basis for a campus energy and sustainability map.
+### :soon: Proposed Features :soon:
+- Better reactivity to mobile devices
+- Search functionality for finding assets
+- Connectivity with production sized SQL database
+  - Use H2 only for testing
+- More useful data layers such as:
+  - Specific equipment locations
+  - Malfunctioning equipment
+  - Live data for equipment metrics
+- More direct integration with AIM AssetWorks
+- Energy Usage Map (likely its own project)
 
 ## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
 Visual Representation of the various languages, tools, and some frameworks used in this project.  This list is not exhaustive.  For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
@@ -12,7 +39,7 @@ Visual Representation of the various languages, tools, and some frameworks used 
   <img src="https://github.com/devicons/devicon/blob/master/icons/apache/apache-original-wordmark.svg"  title="Apache" alt="Apache" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
   <img src="https://github.com/gilbarbara/logos/blob/master/logos/chrome.svg"  title="Chrome" alt="Chrome" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg" title="Git" **alt="Git" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg" title="Git" alt="Git" width="40" height="40" />&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"  title="GitHub" alt="GitHub" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/heroku/heroku-original-wordmark.svg"  title="Heroku" alt="Heroku" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/>&nbsp;
@@ -27,6 +54,16 @@ Visual Representation of the various languages, tools, and some frameworks used 
   <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;
 </div>
 
+## ❗ Known Issues ❗
+- Requires tangible data to experiment with more informative data layers
+- Requires a styling overhaul
+- Limited asset data available currently
+  - When larger data sets are available will require more efficient means of sorting, filtering, paging etc.
+- Back-end currently rudimentary, not much consideration for exceptions
+
+## Credits
+#### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
+#### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
 ***
 ## :building_construction: Project Structure :building_construction:
 ```

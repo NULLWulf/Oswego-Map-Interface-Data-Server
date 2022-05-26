@@ -1,7 +1,8 @@
 ////////////////////// Map Parameters ////////////////////////////////////
 
 // SUNY-Oswego Token, locked down to certain domain access
-mapboxgl.accessToken = "pk.eyJ1Ijoic3VueS1vc3dlZ28iLCJhIjoiY2wzYnI3dThoMDdtcDNqbzJhc2NrNHIyNCJ9.bC45EQZcAuxRLvk_AvR5Cw";
+mapboxgl.accessToken =
+  "pk.eyJ1Ijoic3VueS1vc3dlZ28iLCJhIjoiY2wzYnI3dThoMDdtcDNqbzJhc2NrNHIyNCJ9.bC45EQZcAuxRLvk_AvR5Cw";
 const defaultStyle = "mapbox://styles/suny-oswego/cl3bphxsb005s14qz971ul1vq"; // Default style URL, managed through Mapbox
 const satelliteStyle = "mapbox://styles/mapbox/satellite-v9"; // Satellite Style URL
 let currentStyle = 0; // Holds current map style
@@ -39,7 +40,8 @@ map.on("click", (event) => {
 // Bounds feature within a box-like radius, returns array of features under point
 // sorted closed to furthest
 function boundFeatures(bound, map, event) {
-  const bbox = [ // bounding box
+  const bbox = [
+    // bounding box
     // based off of pixel width to determine bounds
     [event.point.x - bound, event.point.y - bound],
     [event.point.x + bound, event.point.y + bound],
@@ -91,13 +93,12 @@ function flyToRegionDropdown(id) {
 
 // Toggles between Default Style and Satellite Raster view
 function toggleMapStyle() {
-
   // If currentStyle is 0 , changed to satellite view
   if (currentStyle === 0) {
     map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
     document.getElementById("style-toggle").innerHTML = "Default View";
     currentStyle = 1;
-  // If currentStyle is 1, change to default style
+    // If currentStyle is 1, change to default style
   } else {
     map.setLayoutProperty("mapbox-satellite", "visibility", "none");
     document.getElementById("style-toggle").innerHTML = "Satellite View";
@@ -185,14 +186,20 @@ function populateBuildingContext(assetData, property) {
 
   // Attempts to set building image header with respective building
   setBuildingImage(property.building_code);
+  // Calls function to build out asset population dropdown
+  populateBuildingAssetList(assetData);
+}
 
+// If asset data is avaiable will populate asset dropdown list
+// otherwise producces an error message
+function populateBuildingAssetList(assetData) {
   if (assetData) {
     // if assetData has some length populates dropdown list
     let select = document.createElement("select");
     select.id = "asset-dropdown";
 
+    // loops through asset data array and adds asset elements
     for (let i = 0; i < assetData.length; i++) {
-      // loops through asset data array and adds asset elements
       let assetOption =
         assetData[i].asset_id +
         " : " +
@@ -207,27 +214,26 @@ function populateBuildingContext(assetData, property) {
       select.appendChild(assetElement);
     }
 
+    // attaches event listener to dropdown that populates asset context based on selection
     select.addEventListener("change", () => {
-      // attaches event listener to dropdown that populates asset context based on selection
       getAssetFromDropDown(select.value);
     });
     document.getElementById("building-context").appendChild(select);
   } else {
-    // if assetData =
     let errorMessageAsset = document.createElement("div");
-    errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Data</h3</div>`;
+    errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Asset Data</h3</div>`;
     document.getElementById("building-context").appendChild(errorMessageAsset);
   }
 }
 
+// Populates asset context box html
 function populateAssetContext(asset) {
-  // populates map context box
-  let property = asset.property; // same thing as "building code"
-
+  // Sets context box with Assset ID #
   document.getElementById(
     "asset-context-header"
   ).innerHTML = `${asset.asset_id}`;
 
+  // Sets asset context html
   document.getElementById("asset-context-data").innerHTML = `
     <div><strong>Group: </strong>${asset.assetGroup}</div>
     <div><strong>Type: </strong>${asset.assetType}</div>
@@ -238,20 +244,25 @@ function populateAssetContext(asset) {
     <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
     `;
 
-
+  // Creates asset context box function
   let refocus_button = document.createElement("button");
   refocus_button.classList.add("button");
   refocus_button.innerHTML = "Refocus Parent Building";
+
+  // Attaches refocus building, which when clicked will center the map on the asset's parent building
+  // as well as populate the building context box with respective building data
   refocus_button.addEventListener("click", () => {
     refocusBuilding(asset.property);
   });
 
-  document.getElementById("asset-context-controls").replaceWith(refocus_button);
+  // Ensures Prior Button HTML is cleared out
+  document.getElementById("asset-context-controls").innerHTML = "";
+  // Replaces current building box with new refocus button,
+  document.getElementById("asset-context-controls").appendChild(refocus_button);
 }
 
+// Populates live map context when function is called, (currently mouse movement, touch screen interaction)
 function populateLiveMapContext(event) {
-  // populates map context box based on certain movement conditions
-  // mouse moving, touchscreen, etc.
   document.getElementById("live-map-context").innerHTML = `
     <div><h2 class="header">Live Map Data</h2></div>
     <div><strong>Coords X:</strong> ${event.point.x}</div>
@@ -266,6 +277,8 @@ function populateLiveMapContext(event) {
     `;
 }
 
+// Called when interaction on map results in no building being selected, replaces building header image
+// with default facility services logo and sets context box accordingly
 function noBuildingSelected() {
   document.getElementsByClassName("fs-logo-building")[0].src =
     "./images/branding/inverted_fs.png";
@@ -275,14 +288,15 @@ function noBuildingSelected() {
 }
 
 // Sets building image from passed building code else defaults to inverted FS logo
-function setBuildingImage(building_code){
+function setBuildingImage(building_code) {
   // Attempts to get image of building else
   try {
     document.getElementsByClassName("fs-logo-building")[0].src = `
     images/building-images/${building_code}.jpg
     `;
-  }catch {
-    document.getElementsByClassName("fs-logo-building")[0].src = "images/branding/inverted_fs.png.jpg";
+  } catch {
+    document.getElementsByClassName("fs-logo-building")[0].src =
+      "images/branding/inverted_fs.png.jpg";
   }
 }
 
