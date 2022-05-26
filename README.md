@@ -3,8 +3,8 @@ Currently, a test deployment is running on a Heroku Dyno.  A work-flow is set up
 ## :question: Description :question:
 A MapboxGL-JS driven front-end application meant to provide a visual means of interacting with SUNY Oswego's inventory 
 system.  "Inventory" in this case can be anything from a smoke detector to a building itself.  Currently, the assets are
-presented in parent-child relationship with the building's serving as a prent to the smaller assets.  Currently, powered
-by a Spring Boot web server API to serving web content as well as data from a SQL based database.
+presented in parent-child relationship with the building's serving as a prent to the smaller assets. The web application is powered
+by a Spring Boot web server API for serving web content as well as data from a SQL based database.
 ### :ballot_box_with_check: Current Features :ballot_box_with_check:
 - Essential map controls (zoom, rotate, pitch, etc.), Satellite/Stylistic toggle 
 - Map meta-data updates on mouse movement, touchscreen interaction
@@ -15,30 +15,31 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
   - Map centers on building upon click
   - Shows image in heading if image available
 - Asset Data Context Box
-  - Populates upon selection via building asset dropdown
+  - Populates upon selection via asset dropdown in building context box
   - Refocus parent building (say if map moves out of view)
 - Data Storage
   - Sample data of assets and buildings currently stored in H2 in-memory database
   - Building data also stored in MapBox tileset (GeoJSON)
 ### :soon: Proposed Features :soon:
-- Better reactivity to mobile devices
+- Optimize for mobile devices
 - Search functionality for finding assets
 - Connectivity with production sized SQL database
   - Use H2 only for testing
 - More useful data layers such as:
   - Specific equipment locations
   - Malfunctioning equipment
-  - Live data for equipment metrics
-- More direct integration with AIM AssetWorks
+  - Live data of equipment metrics
+- Direct integration with AIM Assetworks via API
 - Energy Usage Map (likely its own project)
 ### ❗ Known Issues ❗
-- Requires tangible data to experiment with more informative data layers
+- Requires more datasets as well as variety of data to experiment with additional data layers
 - Requires a styling overhaul
 - Limited asset data available currently
     - When larger data sets are available will require more efficient means of sorting, filtering, paging etc.
-- Limited exception handling front and back-end
-## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
+- Limited exception handling for both front and back-end
+## :hammer_and_wrench: Languages, Tools, Tech :hammer_and_wrench:
 
+### 🖥️ Tech Stack 🖥️
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/apache/apache-original-wordmark.svg"  title="Apache" alt="Apache" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
@@ -79,16 +80,17 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
   - [H2 In-Memory Database](https://www.h2database.com/html/main.html)
   - [Spring Boot Developer Tools](https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/html/using-boot-devtools.html)
 - Deployment
-  - All deployment and continuous integration handled by repository owner.
+  - Heroku dyno with continuous integration handled through Heroku-20 Java Buildpack
+
 For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
-## :handshake:  Contributing :handshake:
+## :handshake: Contributing :handshake:
 There are numerous ways for this project to be improved upon.  We feel one of the best ways to see this project
 fleshed out and actualized over time is to open it up to open-source contributing in addition to whomever may be working
 on it on an official basis.  Contributions can come from anyone whether they be hobby programmers, staff and or other students
 at the SUNY Oswego Campus or elsewhere. It's also possible to potentially refactor this project to suit your own campus's
 needs.
 ### :sos: Ways To Help :sos:
-- Conversion of front-end to a well known JavaScript framework (React, Angular, etc.)
+- Conversion of front-end to a well known front-end framework (React, Angular, etc.)
   - Recommend reaching out to repo owner before experimenting and implementing such changes
 - Improvements to anything listed in **[Current Features](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server#ballot_box_with_check-current-features-ballot_box_with_check)**
 - Addition of anything listed in **[Proposed Features](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server#soon-proposed-features-soon)**
