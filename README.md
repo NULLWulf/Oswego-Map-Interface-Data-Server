@@ -109,6 +109,14 @@ needs.
    - First time contributors will likely have contribution examined in depth before acceptance
 5. If Accepted, repo owner will merge in main repository
 6. Update forked repository accordingly
+
+### ⚖️ Contribution Guidelines ⚖️
+- The content of contributions must comply with the [SUNY Oswego Code of Conduct](https://www.oswego.edu/policies)
+- Other SUNY Oswego policies as applicable
+- Must add some sort of measurable value to the project
+- May not contain any sort of intentionally malfunction causing or malicious code
+- May not be re-used for commercial use
+
 ## 🎗️ Credits 🎗️
 #### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
 #### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/nullwulf)
