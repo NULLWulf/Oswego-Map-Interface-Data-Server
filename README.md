@@ -60,22 +60,23 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
   <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;
 </div>
 
-### Environment
+### 🌱 Environment 🌱
 - Frontend
   - [Javascript](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/js/map.js), [HTML](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/index.html), [CSS](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/css/style.css)
-  - Mapbox-GL-JS
-  - NPM
+  - [Mapbox-GL-JS Vector Map Framework](https://docs.mapbox.com/mapbox-gl-js/api/)
+  - [NPM](https://www.npmjs.com/)
     - [package.json](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package.json)
     - [package-lock.json](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package-lock.json)
 - Backend
-  - Java 17
+  - [Java SE 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
     - [src](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/tree/main/src)
-  - Maven
+  - [Maven](https://maven.apache.org/)
     - [pom.xml](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/pom.xml)
-  - Spring Boot
+  - [Spring Boot](https://spring.io/projects/spring-boot)
+- Development
+  - [H2 In-Memory Database](https://www.h2database.com/html/main.html)
 
 For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
-
 
 ## :handshake:  Contributing :handshake:
 There are numerous ways for this project to be improved upon.  We feel one of the best ways to see this project
@@ -92,6 +93,7 @@ needs.
 - Addressing anything listed in **Known Issues**
 - Modification or Alternative Mapbox Styles
   - [Active Mapbox Style for Copying](https://api.mapbox.com/styles/v1/suny-oswego/cl3bphxsb005s14qz971ul1vq.html?title=copy&access_token=pk.eyJ1Ijoic3VueS1vc3dlZ28iLCJhIjoiY2wzYm90eWhrMDB4ZTNpb2R2OTRtZ2dsZSJ9.iZWk7zC3_UlciiXyaX4PWQ&zoomwheel=true&fresh=true#15.99/43.452543/-76.543031/-39.3)
+  - Create a pull-request and link a copy of your Mapbox style for consideration in the comments
 
 ### :ladder: Steps to Contribute :ladder:
 1. Fork the Main Repository
