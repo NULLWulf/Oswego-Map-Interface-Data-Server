@@ -188,7 +188,6 @@ Visual Representation of the various languages, tools, and some frameworks used 
 └── system.properties
 ```
 
-
-
-### Credits
-## ©2022 SUNY Oswego Facility Services, Project Originator (Nathaniel Wolf)[https://github.com/NULLWulf]
+## Credits
+#### ©2022 SUNY Oswego Facility Services, 
+#### Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
