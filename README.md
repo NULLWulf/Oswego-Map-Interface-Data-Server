@@ -83,6 +83,9 @@ by a Spring Boot web server API for serving web content as well as data from a S
   - Heroku dyno with continuous integration handled through Heroku-20 Java Buildpack
 
 For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
+
+### :building_construction: [Project Directory Structure](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/docs/structure.md) :building_construction:
+
 ## :handshake: Contributing :handshake:
 There are numerous ways for this project to be improved upon.  We feel one of the best ways to see this project
 fleshed out and actualized over time is to open it up to open-source contributing in addition to whomever may be working
@@ -106,7 +109,6 @@ needs.
    - First time contributors will likely have contribution examined in depth before acceptance
 5. If Accepted, repo owner will merge in main repository
 6. Update forked repository accordingly
-## :building_construction: [Project Directory Structure](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/docs/structure.md) :building_construction:
-## Credits
+## 🎗️ Credits 🎗️
 #### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
 #### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/nullwulf)
