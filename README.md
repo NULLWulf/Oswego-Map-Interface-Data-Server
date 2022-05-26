@@ -95,9 +95,9 @@ needs.
 ### :sos: Ways To Help :sos:
 - Conversion of front-end to a well known JavaScript framework (React, Angular, etc.)
   - Recommend reaching out to repo owner before experimenting and implementing such changes
-- Improvements to anything listed in **Current Features**
-- Addition of anything listed in **Proposed Features**
-- Addressing anything listed in **Known Issues**
+- Improvements to anything listed in **[Current Features](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server#ballot_box_with_check-current-features-ballot_box_with_check)**
+- Addition of anything listed in **[Proposed Features](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server#soon-proposed-features-soon)**
+- Addressing anything listed in **[Known Issues](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server#-known-issues-)**
 - Modification or Alternative Mapbox Styles
   - [Active Mapbox Style for Copying](https://api.mapbox.com/styles/v1/suny-oswego/cl3bphxsb005s14qz971ul1vq.html?title=copy&access_token=pk.eyJ1Ijoic3VueS1vc3dlZ28iLCJhIjoiY2wzYm90eWhrMDB4ZTNpb2R2OTRtZ2dsZSJ9.iZWk7zC3_UlciiXyaX4PWQ&zoomwheel=true&fresh=true#15.99/43.452543/-76.543031/-39.3)
   - Create a pull-request and link a copy of your Mapbox style for consideration in the comments
