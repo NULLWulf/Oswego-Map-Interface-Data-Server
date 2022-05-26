@@ -1,8 +1,5 @@
-# SUNY Oswego Asset Map Interface
-
-## :globe_with_meridians: [Test Deployment](https://oswego-map.herokuapp.com/) :globe_with_meridians:
-Currently, a test deployment is running on a Heroku Dyno.  A work-flow is set up to keep the dyno awake, so there should
-not be any downtime. 
+# [SUNY Oswego Asset Map Interface](https://oswego-map.herokuapp.com/)
+Currently, a test deployment is running on a Heroku Dyno.  A work-flow is set up to keep the dyno awake.
 
 ## :question: Description :question:
 A MapboxGL-JS driven front-end application meant to provide a visual means of interacting with SUNY Oswego's inventory 
@@ -13,7 +10,6 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 ### Current Features
 
 ### Proposed Future Features
-
 
 ## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
 Visual Representation of the various languages, tools, and some frameworks used in this project.  This list is not exhaustive.  For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
@@ -37,6 +33,12 @@ Visual Representation of the various languages, tools, and some frameworks used 
 </div>
 
 ***
+
+
+## Credits
+#### ©2022 SUNY Oswego Facility Services
+#### Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
+
 ## :building_construction: Project Structure :building_construction:
 ```
 ├── Procfile
@@ -187,7 +189,3 @@ Visual Representation of the various languages, tools, and some frameworks used 
 │                       └── MapDataServerApplicationTests.java
 └── system.properties
 ```
-
-## Credits
-#### ©2022 SUNY Oswego Facility Services, 
-#### Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
