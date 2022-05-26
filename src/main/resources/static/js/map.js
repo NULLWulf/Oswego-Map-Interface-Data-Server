@@ -91,20 +91,10 @@ function flyToRegionDropdown(id) {
   });
 }
 
-// Toggles between Default Style and Satellite Raster view
-function toggleMapStyle() {
-  // If currentStyle is 0 , changed to satellite view
-  if (currentStyle === 0) {
-    map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
-    document.getElementById("style-toggle").innerHTML = "Default View";
-    currentStyle = 1;
-    // If currentStyle is 1, change to default style
-  } else {
-    map.setLayoutProperty("mapbox-satellite", "visibility", "none");
-    document.getElementById("style-toggle").innerHTML = "Satellite View";
-    currentStyle = 0;
-  }
-}
+// // Toggles between Default Style and Satellite Raster view
+// function toggleMapStyle() {
+//
+// }
 
 ////////////////////// Fetch Requests ////////////////////////////////////
 
@@ -301,6 +291,21 @@ function setBuildingImage(building_code) {
 }
 
 ////////////////////// JSON Data ////////////////////////////////////
+const style_toggle = document.getElementById("style-toggle")
+style_toggle.onclick = () => {
+  // If currentStyle is 0 , changed to satellite view
+  if (currentStyle === 0) {
+    map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
+    document.getElementById("style-toggle").innerHTML = "Default View";
+    currentStyle = 1;
+    // If currentStyle is 1, change to default style
+  } else {
+    map.setLayoutProperty("mapbox-satellite", "visibility", "none");
+    document.getElementById("style-toggle").innerHTML = "Satellite View";
+    currentStyle = 0;
+  }
+}
+
 
 // Fixed Region and Bearing Data
 const regions = [
