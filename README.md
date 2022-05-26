@@ -33,6 +33,13 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 - More direct integration with AIM AssetWorks
 - Energy Usage Map (likely its own project)
 
+### ❗ Known Issues ❗
+- Requires tangible data to experiment with more informative data layers
+- Requires a styling overhaul
+- Limited asset data available currently
+    - When larger data sets are available will require more efficient means of sorting, filtering, paging etc.
+- Limited exception handling front and back-end
+
 ## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
 Visual Representation of the various languages, tools, and some frameworks used in this project.  This list is not exhaustive.  For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
 <div>
@@ -54,17 +61,29 @@ Visual Representation of the various languages, tools, and some frameworks used 
   <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;
 </div>
 
-## ❗ Known Issues ❗
-- Requires tangible data to experiment with more informative data layers
-- Requires a styling overhaul
-- Limited asset data available currently
-  - When larger data sets are available will require more efficient means of sorting, filtering, paging etc.
-- Back-end currently rudimentary, not much consideration for exceptions
+## :handshake:  Contributing :handshake:
+There are numerous ways for this project to be improved upon.  We feel one of the best ways to see this project
+fleshed out and actualized over time is to open it up to open-source contributing in addition to whomever may be working
+on it on an official basis.  Contributions can come from anyone whether they be hobby programmers, staff and or other students
+at the SUNY Oswego Campus or elsewhere. It's also possible to potentially refactor this project to suit your own campus's
+needs.  
 
-## Credits
-#### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
-#### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
-***
+### :sos: Ways To Help :sos:
+- Conversion of front-end to a well known JavaScript framework (React, Angular, etc.)
+  - Recommend reaching out to repo owner before experimenting and implementing such changes
+- Improvements to anything listed in **Current Features**
+- Addition of anything listed in **Proposed Features**
+- Addressing anything listed in **Known Issues**
+
+### :ladder: Steps to Contribute :ladder:
+1. Fork the Main Repository
+2. Commit and push any changes to forked repository
+3. Create a pull request describing changes, additions, etc. made to project
+4. Wait for repo owner review and acceptance of contribution
+   - First time contributors will likely have contribution examined in depth before acceptance
+5. If Accepted, repo owner will merge in main repository
+6. Update forked repository accordingly
+
 ## :building_construction: Project Structure :building_construction:
 ```
 ├── Procfile
@@ -215,3 +234,7 @@ Visual Representation of the various languages, tools, and some frameworks used 
 │                       └── MapDataServerApplicationTests.java
 └── system.properties
 ```
+
+## Credits
+#### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
+#### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
