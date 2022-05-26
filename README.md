@@ -72,6 +72,7 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
   - Maven
     - [pom.xml](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/pom.xml)
   - Spring Boot
+
 For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
 
 
