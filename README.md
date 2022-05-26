@@ -54,7 +54,7 @@ Visual Representation of the various languages, tools, and some frameworks used 
   <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;
 </div>
 
-## Known Issues
+## ❗ Known Issues ❗
 - Requires tangible data to experiment with more informative data layers
 - Requires a styling overhaul
 - Limited asset data available currently
@@ -62,7 +62,7 @@ Visual Representation of the various languages, tools, and some frameworks used 
 - Back-end currently rudimentary, not much consideration for exceptions
 
 ## Credits
-#### :copyright: 2022 SUNY Oswego Facility Services
+#### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
 #### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
 ***
 ## :building_construction: Project Structure :building_construction:
