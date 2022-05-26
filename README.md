@@ -62,14 +62,13 @@ Visual Representation of the various languages, tools, and some frameworks used 
 </div>
 
 ## Contributing
-## Goals
 There are numerous ways for this project to be improved upon.  We feel one of the best ways to see this project
 fleshed out and actualized over time is to open it up to open-source contributing in addition to whomever may be working
 on it on an official basis.  Contributions can come from anyone whether they be hobby programmers, staff and or other students
 at the SUNY Oswego Campus or elsewhere. It's also possible to potentially refactor this project to suit your own campus's
 needs.  
 
-### Ways To Help
+### 💁🏼:woman_tipping_hand_medium_skin_tone: Ways To Help 💁🏿‍:woman_tipping_hand_light_skin_tone:
 - Conversion of front-end to a well known JavaScript framework (React, Angular, etc.)
   - Recommend reaching out to repo owner before experimenting and implementing such changes
 - Improvements to anything listed in **Current Features**
