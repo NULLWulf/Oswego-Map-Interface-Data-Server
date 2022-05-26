@@ -41,7 +41,6 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 - Limited exception handling front and back-end
 
 ## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
-Visual Representation of the various languages, tools, and some frameworks used in this project.  This list is not exhaustive.  For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/apache/apache-original-wordmark.svg"  title="Apache" alt="Apache" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
@@ -60,6 +59,20 @@ Visual Representation of the various languages, tools, and some frameworks used 
   <img src="https://github.com/devicons/devicon/blob/master/icons/spring/spring-original-wordmark.svg" title="Spring" alt="Spring" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;
 </div>
+### Environment
+- Frontend
+  - Javascript, HTML, CSS
+  - Mapbox-GL-JS
+  - NPM
+    - [package.json](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package.json)
+    - [package-lock.json](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package-lock.json)
+- Backend
+  - Java 17
+  - Maven
+    - [pom.xml](https://github.com/NULLWulf/Oswego-Map-Interface-Data-Server/blob/main/pom.xml)
+  - Spring Boot
+For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
+
 
 ## :handshake:  Contributing :handshake:
 There are numerous ways for this project to be improved upon.  We feel one of the best ways to see this project
