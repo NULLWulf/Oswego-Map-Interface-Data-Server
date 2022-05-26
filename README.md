@@ -37,8 +37,9 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 - Limited asset data available currently
     - When larger data sets are available will require more efficient means of sorting, filtering, paging etc.
 - Limited exception handling front and back-end
-## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
+## :hammer_and_wrench: Technology :hammer_and_wrench:
 
+### Tech Stack
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/apache/apache-original-wordmark.svg"  title="Apache" alt="Apache" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
@@ -79,7 +80,8 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
   - [H2 In-Memory Database](https://www.h2database.com/html/main.html)
   - [Spring Boot Developer Tools](https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/html/using-boot-devtools.html)
 - Deployment
-  - All deployment and continuous integration handled by repository owner.
+  - Heroku dyno with continuous integration handled through Heroku-20 Java Buildpack
+
 For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
 ## :handshake:  Contributing :handshake:
 There are numerous ways for this project to be improved upon.  We feel one of the best ways to see this project
