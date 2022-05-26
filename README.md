@@ -59,6 +59,7 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
   <img src="https://github.com/devicons/devicon/blob/master/icons/spring/spring-original-wordmark.svg" title="Spring" alt="Spring" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;
 </div>
+
 ### Environment
 - Frontend
   - Javascript, HTML, CSS
