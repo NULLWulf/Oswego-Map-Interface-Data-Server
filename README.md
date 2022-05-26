@@ -5,7 +5,7 @@ A MapboxGL-JS driven front-end application meant to provide a visual means of in
 system.  "Inventory" in this case can be anything from a smoke detector to a building itself.  Currently, the assets are
 presented in parent-child relationship with the building's serving as a prent to the smaller assets.  Currently, powered
 by a Spring Boot web server API to serving web content as well as data from a SQL based database.
-### Current Features
+### :ballot_box_with_check: Current Features :ballot_box_with_check:
 - Essential map controls (zoom, rotate, pitch, etc.), Satellite/Stylistic toggle 
 - Map meta-data updates on mouse movement, touchscreen interaction
 - Campus region quick navigation drop-down
@@ -21,7 +21,7 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
   - Sample data of assets and buildings currently stored in H2 in-memory database
   - Building data also stored in MapBox tileset (GeoJSON)
 
-### Proposed Features
+### :soon: Proposed Features :soon:
 - Better reactivity to mobile devices
 - Connectivity with production sized SQL database
   - Use H2 only for testing
@@ -54,8 +54,8 @@ Visual Representation of the various languages, tools, and some frameworks used 
 </div>
 
 ## Credits
-#### ©2022 SUNY Oswego Facility Services
-#### Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
+#### :copyright:2022 SUNY Oswego Facility Services
+#### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
 ***
 ## :building_construction: Project Structure :building_construction:
 ```
