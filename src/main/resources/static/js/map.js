@@ -186,9 +186,12 @@ function populateBuildingContext(assetData, property) {
 
   // Attempts to set building image header with respective building
   setBuildingImage(property.building_code);
+  // Calls function to build out asset population dropdown
   populateBuildingAssetList(assetData);
 }
 
+// If asset data is avaiable will populate asset dropdown list
+// otherwise producces an error message
 function populateBuildingAssetList(assetData) {
   if (assetData) {
     // if assetData has some length populates dropdown list
@@ -211,27 +214,26 @@ function populateBuildingAssetList(assetData) {
       select.appendChild(assetElement);
     }
 
+    // attaches event listener to dropdown that populates asset context based on selection
     select.addEventListener("change", () => {
-      // attaches event listener to dropdown that populates asset context based on selection
       getAssetFromDropDown(select.value);
     });
     document.getElementById("building-context").appendChild(select);
   } else {
-    // if assetData =
     let errorMessageAsset = document.createElement("div");
-    errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Data</h3</div>`;
+    errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Asset Data</h3</div>`;
     document.getElementById("building-context").appendChild(errorMessageAsset);
   }
 }
 
+// Populates asset context box html
 function populateAssetContext(asset) {
-  // populates map context box
-  let property = asset.property; // same thing as "building code"
-
+  // Sets context box with Assset ID #
   document.getElementById(
     "asset-context-header"
   ).innerHTML = `${asset.asset_id}`;
 
+  // Sets asset context html
   document.getElementById("asset-context-data").innerHTML = `
     <div><strong>Group: </strong>${asset.assetGroup}</div>
     <div><strong>Type: </strong>${asset.assetType}</div>
@@ -245,11 +247,17 @@ function populateAssetContext(asset) {
   let refocus_button = document.createElement("button");
   refocus_button.classList.add("button");
   refocus_button.innerHTML = "Refocus Parent Building";
+
+  // Attaches refocus building, which when clicked will center the map on the asset's parent building
+  // as well as populate the building context box with respective building data
   refocus_button.addEventListener("click", () => {
     refocusBuilding(asset.property);
   });
 
-  document.getElementById("asset-context-controls").replaceWith(refocus_button);
+  // Ensures Prior Button HTML is cleared out
+  document.getElementById("asset-context-controls").innerHTML = "";
+  // Replaces current building box with new refocus button,
+  document.getElementById("asset-context-controls").appendChild(refocus_button);
 }
 
 function populateLiveMapContext(event) {
