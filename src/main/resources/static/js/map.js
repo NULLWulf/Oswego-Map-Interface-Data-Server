@@ -17,14 +17,15 @@ const map = new mapboxgl.Map({
   pitch: 0, // Initially top-down view of map
 });
 
+
+////////////////////// Map Functions ////////////////////////////////////
+// Direct interactions and manipulations of the map /////////////////////
+
 // Add Map Zoom and Rotation Control buttons
 const nav = new mapboxgl.NavigationControl({
   compass: true,
 });
 map.addControl(nav, "bottom-left");
-
-////////////////////// Map Functions ////////////////////////////////////
-// Direct interactions and manipulations of the map /////////////////////
 
 // When clicking on the map attempts to get features at clicked point
 map.on("click", (event) => {
@@ -82,7 +83,9 @@ map.on("mousemove", (event) => {
 });
 
 // Fly to region as selected from dropdown menu
-function flyToRegionDropdown(id) {
+const region_dropdown = document.getElementById("region-dropdown");
+region_dropdown.onchange = () => {
+  let id = region_dropdown.value;
   map.flyTo({
     center: regions[id].center,
     zoom: regions[id].zoom,
@@ -92,9 +95,20 @@ function flyToRegionDropdown(id) {
 }
 
 // // Toggles between Default Style and Satellite Raster view
-// function toggleMapStyle() {
-//
-// }
+const style_toggle = document.getElementById("style-toggle");
+style_toggle.onclick = () => {
+  // If currentStyle is 0 , changed to satellite view
+  if (currentStyle === 0) {
+    map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
+    document.getElementById("style-toggle").innerHTML = "Default View";
+    currentStyle = 1;
+    // If currentStyle is 1, change to default style
+  } else {
+    map.setLayoutProperty("mapbox-satellite", "visibility", "none");
+    document.getElementById("style-toggle").innerHTML = "Satellite View";
+    currentStyle = 0;
+  }
+}
 
 ////////////////////// Fetch Requests ////////////////////////////////////
 
@@ -180,8 +194,8 @@ function populateBuildingContext(assetData, property) {
   populateBuildingAssetList(assetData);
 }
 
-// If asset data is avaiable will populate asset dropdown list
-// otherwise producces an error message
+// If asset data is available will populate asset dropdown list
+// otherwise produces an error message
 function populateBuildingAssetList(assetData) {
   if (assetData) {
     // if assetData has some length populates dropdown list
@@ -204,7 +218,7 @@ function populateBuildingAssetList(assetData) {
       select.appendChild(assetElement);
     }
 
-    // attaches event listener to dropdown that populates asset context based on selection
+    // attaches event listener to drop down that populates asset context based on selection
     select.addEventListener("change", () => {
       getAssetFromDropDown(select.value);
     });
@@ -291,20 +305,6 @@ function setBuildingImage(building_code) {
 }
 
 ////////////////////// JSON Data ////////////////////////////////////
-const style_toggle = document.getElementById("style-toggle")
-style_toggle.onclick = () => {
-  // If currentStyle is 0 , changed to satellite view
-  if (currentStyle === 0) {
-    map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
-    document.getElementById("style-toggle").innerHTML = "Default View";
-    currentStyle = 1;
-    // If currentStyle is 1, change to default style
-  } else {
-    map.setLayoutProperty("mapbox-satellite", "visibility", "none");
-    document.getElementById("style-toggle").innerHTML = "Satellite View";
-    currentStyle = 0;
-  }
-}
 
 
 // Fixed Region and Bearing Data
