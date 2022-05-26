@@ -33,12 +33,10 @@ Visual Representation of the various languages, tools, and some frameworks used 
 </div>
 
 ***
-
-
 ## Credits
 #### ©2022 SUNY Oswego Facility Services
 #### Project Originator [Nathaniel Wolf](https://github.com/NULLWulf)
-
+***
 ## :building_construction: Project Structure :building_construction:
 ```
 ├── Procfile
