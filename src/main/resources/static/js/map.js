@@ -244,6 +244,7 @@ function populateAssetContext(asset) {
     <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
     `;
 
+  // Creates asset context box function
   let refocus_button = document.createElement("button");
   refocus_button.classList.add("button");
   refocus_button.innerHTML = "Refocus Parent Building";
@@ -260,9 +261,8 @@ function populateAssetContext(asset) {
   document.getElementById("asset-context-controls").appendChild(refocus_button);
 }
 
+// Populates live map context when function is called, (currently mouse movement, touch screen interaction)
 function populateLiveMapContext(event) {
-  // populates map context box based on certain movement conditions
-  // mouse moving, touchscreen, etc.
   document.getElementById("live-map-context").innerHTML = `
     <div><h2 class="header">Live Map Data</h2></div>
     <div><strong>Coords X:</strong> ${event.point.x}</div>
@@ -277,6 +277,8 @@ function populateLiveMapContext(event) {
     `;
 }
 
+// Called when interaction on map results in no building being selected, replaces building header image
+// with default facility services logo and sets context box accordingly
 function noBuildingSelected() {
   document.getElementsByClassName("fs-logo-building")[0].src =
     "./images/branding/inverted_fs.png";
