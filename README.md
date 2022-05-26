@@ -1,4 +1,4 @@
-# [SUNY Oswego Asset Map Interface](https://oswego-map.herokuapp.com/)
+# 🗺️ [SUNY Oswego Asset Map Interface](https://oswego-map.herokuapp.com/) 🗺️
 Currently, a test deployment is running on a Heroku Dyno.  A work-flow is set up to keep the dyno awake.
 ## :question: Description :question:
 A MapboxGL-JS driven front-end application meant to provide a visual means of interacting with SUNY Oswego's inventory 
@@ -20,7 +20,6 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 - Data Storage
   - Sample data of assets and buildings currently stored in H2 in-memory database
   - Building data also stored in MapBox tileset (GeoJSON)
-
 ### :soon: Proposed Features :soon:
 - Better reactivity to mobile devices
 - Search functionality for finding assets
@@ -32,15 +31,14 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
   - Live data for equipment metrics
 - More direct integration with AIM AssetWorks
 - Energy Usage Map (likely its own project)
-
 ### ❗ Known Issues ❗
 - Requires tangible data to experiment with more informative data layers
 - Requires a styling overhaul
 - Limited asset data available currently
     - When larger data sets are available will require more efficient means of sorting, filtering, paging etc.
 - Limited exception handling front and back-end
-
 ## :hammer_and_wrench: Languages and Tools :hammer_and_wrench:
+
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/apache/apache-original-wordmark.svg"  title="Apache" alt="Apache" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
@@ -62,7 +60,7 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
 
 ### 🌱 Environment 🌱
 - Frontend
-  - [Javascript](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/js/map.js), [HTML](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/index.html), [CSS](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/css/style.css)
+  - [Javascript](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/js/map.js), [HTML](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/index.html), [CSS](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/css/style.css) (Project Files)
   - [Mapbox-GL-JS Vector Map Framework](https://docs.mapbox.com/mapbox-gl-js/api/)
   - [NPM](https://www.npmjs.com/)
     - [package.json](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package.json)
@@ -81,17 +79,14 @@ by a Spring Boot web server API to serving web content as well as data from a SQ
   - [H2 In-Memory Database](https://www.h2database.com/html/main.html)
   - [Spring Boot Developer Tools](https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/html/using-boot-devtools.html)
 - Deployment
-  - All deployment and continuous integration handled by repository owner. 
-
+  - All deployment and continuous integration handled by repository owner.
 For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
-
 ## :handshake:  Contributing :handshake:
 There are numerous ways for this project to be improved upon.  We feel one of the best ways to see this project
 fleshed out and actualized over time is to open it up to open-source contributing in addition to whomever may be working
 on it on an official basis.  Contributions can come from anyone whether they be hobby programmers, staff and or other students
 at the SUNY Oswego Campus or elsewhere. It's also possible to potentially refactor this project to suit your own campus's
-needs.  
-
+needs.
 ### :sos: Ways To Help :sos:
 - Conversion of front-end to a well known JavaScript framework (React, Angular, etc.)
   - Recommend reaching out to repo owner before experimenting and implementing such changes
@@ -101,7 +96,6 @@ needs.
 - Modification or Alternative Mapbox Styles
   - [Active Mapbox Style for Copying](https://api.mapbox.com/styles/v1/suny-oswego/cl3bphxsb005s14qz971ul1vq.html?title=copy&access_token=pk.eyJ1Ijoic3VueS1vc3dlZ28iLCJhIjoiY2wzYm90eWhrMDB4ZTNpb2R2OTRtZ2dsZSJ9.iZWk7zC3_UlciiXyaX4PWQ&zoomwheel=true&fresh=true#15.99/43.452543/-76.543031/-39.3)
   - Create a pull-request and link a copy of your Mapbox style for consideration in the comments
-
 ### :ladder: Steps to Contribute :ladder:
 1. Fork the Main Repository
 2. Commit and push any changes to forked repository
@@ -110,7 +104,6 @@ needs.
    - First time contributors will likely have contribution examined in depth before acceptance
 5. If Accepted, repo owner will merge in main repository
 6. Update forked repository accordingly
-
 ## :building_construction: Project Structure :building_construction:
 ```
 ├── Procfile
@@ -261,7 +254,6 @@ needs.
 │                       └── MapDataServerApplicationTests.java
 └── system.properties
 ```
-
 ## Credits
 #### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
 #### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/nullwulf)
