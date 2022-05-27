@@ -183,7 +183,7 @@ function populateBuildingContext(assetData, property) {
   build_context.innerHTML = ` 
     <h2 class="header">${property.building_name}</h2>
     <div id="building-sub-context" class="smalltext">
-      <div id="build-left-sub">
+      <div id="build-left-sub" class="build-sub">
         <div><strong>Building No: </strong>${property.building_code}</div>
         <div><strong>Ft<sup>2</sup>: </strong>${property.square_ft}</div>
         <div><strong>Asset Count: </strong>${assetsAvailable}</div>
@@ -204,6 +204,7 @@ function populateBuildingContext(assetData, property) {
 function populateBuildingAssetList(assetData) {
   let filtering = document.createElement("div");
   filtering.id = "build-right-sub";
+  filtering.className = "build-sub";
 
   if (assetData) {
     // if assetData has some length populates dropdown list
