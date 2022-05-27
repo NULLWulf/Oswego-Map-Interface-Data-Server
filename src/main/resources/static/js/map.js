@@ -202,23 +202,13 @@ function populateBuildingAssetList(assetData) {
     let select = document.createElement("select");
     select.id = "asset-dropdown";
 
-    // loops through asset data array and adds asset elements
-    for (let i = 0; i < assetData.length; i++) {
-      let assetOption =
-        assetData[i].asset_id +
-        " : " +
-        assetData[i].description +
-        " : " +
-        assetData[i].assetType +
-        " : " +
-        assetData[i].assetGroup;
-      let assetElement = document.createElement("option");
-      assetElement.textContent = assetOption;
-      assetElement.value = assetData[i].asset_id;
-      select.appendChild(assetElement);
-    }
+    assetData.forEach((asset)=>{
+      select.innerHTML = select.innerHTML + `
+      <option value="${asset.asset_id}">${asset.asset_id} ${asset.description} ${asset.assetType} ${asset.assetGroup}</option>
+      `;
+    })
 
-    // attaches event listener to drop down that populates asset context based on selection
+    // // attaches event listener to drop down that populates asset context based on selection
     select.addEventListener("change", () => {
       getAssetFromDropDown(select.value);
     });
@@ -306,6 +296,9 @@ function setBuildingImage(building_code) {
 
 ////////////////////// JSON Data ////////////////////////////////////
 
+window.onload = () => {
+  console.log("Page is loaded")
+}
 
 // Fixed Region and Bearing Data
 const regions = [
