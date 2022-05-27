@@ -169,3 +169,8 @@ h2 {
   bottom: 5px;
   left: 100px;
 }
+
+#building-sub-context{
+  display: flex;
+  flex-direction: row;
+}

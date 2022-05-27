@@ -178,14 +178,19 @@ function populateBuildingContext(assetData, property) {
 
   // Sets building-context HTML with building data
   // Asset Count will be either actual asset context array count or "No Assets Available"
-  document.getElementById("building-context").innerHTML = ` 
-    <div><h2 class="header">${property.building_name}</h2></div>
-    <div class="smalltext">
-    <div><strong>Building No: </strong>${property.building_code}</div>
-    <div><strong>Ft<sup>2</sup>: </strong>${property.square_ft}</div>
-    <div><strong>Asset Count: </strong>${assetsAvailable}</div>
-    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.asset_id}" target="_blank">
-    <strong>AIM Asset Property</strong></a></div>
+  let build_context = document.getElementById("building-context");
+  build_context.innerHTML = "";
+  build_context.innerHTML = ` 
+    <h2 class="header">${property.building_name}</h2>
+    <div id="building-sub-context" class="smalltext">
+      <div id="build-left-sub">
+        <div><strong>Building No: </strong>${property.building_code}</div>
+        <div><strong>Ft<sup>2</sup>: </strong>${property.square_ft}</div>
+        <div><strong>Asset Count: </strong>${assetsAvailable}</div>
+        <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.asset_id}" target="_blank">
+        <strong>AIM Asset Property</strong></a></div>
+      </div>
+    </div>
     `;
 
   // Attempts to set building image header with respective building
@@ -197,27 +202,30 @@ function populateBuildingContext(assetData, property) {
 // If asset data is available will populate asset dropdown list
 // otherwise produces an error message
 function populateBuildingAssetList(assetData) {
+  let filtering = document.createElement("div");
+  filtering.id = "build-right-sub";
+
   if (assetData) {
     // if assetData has some length populates dropdown list
     let select = document.createElement("select");
     select.id = "asset-dropdown";
-
     assetData.forEach((asset)=>{
       select.innerHTML = select.innerHTML + `
       <option value="${asset.asset_id}">${asset.asset_id} ${asset.description} ${asset.assetType} ${asset.assetGroup}</option>
       `;
     })
-
     // Attaches event listener to drop-down that populates asset context based on selection
     select.addEventListener("change", () => {
       getAssetFromDropDown(select.value);
     });
-    document.getElementById("building-context").appendChild(select);
+    filtering.appendChild(select);
   } else {
     let errorMessageAsset = document.createElement("div");
     errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Asset Data</h3</div>`;
-    document.getElementById("building-context").appendChild(errorMessageAsset);
+    filtering.appendChild(errorMessageAsset);
   }
+
+  document.getElementById("building-sub-context").appendChild(filtering);
 }
 
 // Populates asset context box html
