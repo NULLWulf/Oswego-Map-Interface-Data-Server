@@ -208,7 +208,7 @@ function populateBuildingAssetList(assetData) {
       `;
     })
 
-    // // attaches event listener to drop down that populates asset context based on selection
+    // Attaches event listener to drop-down that populates asset context based on selection
     select.addEventListener("change", () => {
       getAssetFromDropDown(select.value);
     });
