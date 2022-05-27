@@ -62,16 +62,16 @@ by a Spring Boot web server API for serving web content as well as data from a S
 ### 🌱 Environment 🌱
 - Frontend
   - [Javascript ES5+](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/js/map.js), [HTML5](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/index.html), [CSS3](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/css/style.css) (Project Files)
-  - [Mapbox-GL-JS Vector Map Framework](https://docs.mapbox.com/mapbox-gl-js/api/)
-  - [NPM](https://www.npmjs.com/)
+  - [Mapbox-GL-JS Vector Map Framework 2.7.0](https://docs.mapbox.com/mapbox-gl-js/api/)
+  - [NPM 8.5.1](https://www.npmjs.com/)
     - [package.json](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package.json)
     - [package-lock.json](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package-lock.json)
 - Backend
   - [Java SE 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
     - [src](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/tree/main/src)
-  - [Maven](https://maven.apache.org/)
+  - [Maven 4.0.0](https://maven.apache.org/)
     - [pom.xml](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/pom.xml)
-  - [Spring Boot](https://spring.io/projects/spring-boot)
+  - [Spring Boot 2.6.7](https://spring.io/projects/spring-boot)
     - Spring JPA
     - Spring MVC
     - Spring Rest Controller
