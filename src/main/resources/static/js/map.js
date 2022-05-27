@@ -17,14 +17,15 @@ const map = new mapboxgl.Map({
   pitch: 0, // Initially top-down view of map
 });
 
+
+////////////////////// Map Functions ////////////////////////////////////
+// Direct interactions and manipulations of the map /////////////////////
+
 // Add Map Zoom and Rotation Control buttons
 const nav = new mapboxgl.NavigationControl({
   compass: true,
 });
 map.addControl(nav, "bottom-left");
-
-////////////////////// Map Functions ////////////////////////////////////
-// Direct interactions and manipulations of the map /////////////////////
 
 // When clicking on the map attempts to get features at clicked point
 map.on("click", (event) => {
@@ -82,7 +83,9 @@ map.on("mousemove", (event) => {
 });
 
 // Fly to region as selected from dropdown menu
-function flyToRegionDropdown(id) {
+const region_dropdown = document.getElementById("region-dropdown");
+region_dropdown.onchange = () => {
+  let id = region_dropdown.value;
   map.flyTo({
     center: regions[id].center,
     zoom: regions[id].zoom,
@@ -91,8 +94,9 @@ function flyToRegionDropdown(id) {
   });
 }
 
-// Toggles between Default Style and Satellite Raster view
-function toggleMapStyle() {
+// // Toggles between Default Style and Satellite Raster view
+const style_toggle = document.getElementById("style-toggle");
+style_toggle.onclick = () => {
   // If currentStyle is 0 , changed to satellite view
   if (currentStyle === 0) {
     map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
@@ -190,31 +194,21 @@ function populateBuildingContext(assetData, property) {
   populateBuildingAssetList(assetData);
 }
 
-// If asset data is avaiable will populate asset dropdown list
-// otherwise producces an error message
+// If asset data is available will populate asset dropdown list
+// otherwise produces an error message
 function populateBuildingAssetList(assetData) {
   if (assetData) {
     // if assetData has some length populates dropdown list
     let select = document.createElement("select");
     select.id = "asset-dropdown";
 
-    // loops through asset data array and adds asset elements
-    for (let i = 0; i < assetData.length; i++) {
-      let assetOption =
-        assetData[i].asset_id +
-        " : " +
-        assetData[i].description +
-        " : " +
-        assetData[i].assetType +
-        " : " +
-        assetData[i].assetGroup;
-      let assetElement = document.createElement("option");
-      assetElement.textContent = assetOption;
-      assetElement.value = assetData[i].asset_id;
-      select.appendChild(assetElement);
-    }
+    assetData.forEach((asset)=>{
+      select.innerHTML = select.innerHTML + `
+      <option value="${asset.asset_id}">${asset.asset_id} ${asset.description} ${asset.assetType} ${asset.assetGroup}</option>
+      `;
+    })
 
-    // attaches event listener to dropdown that populates asset context based on selection
+    // Attaches event listener to drop-down that populates asset context based on selection
     select.addEventListener("change", () => {
       getAssetFromDropDown(select.value);
     });
@@ -301,6 +295,10 @@ function setBuildingImage(building_code) {
 }
 
 ////////////////////// JSON Data ////////////////////////////////////
+
+window.onload = () => {
+  console.log("Page is loaded")
+}
 
 // Fixed Region and Bearing Data
 const regions = [

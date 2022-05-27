@@ -163,11 +163,9 @@ h2 {
   margin-bottom: 0px;
 }
 
-#dialog {
-  z-index: 5;
-}
-
-#asset-context-subcontainer {
-  display: flex;
-  flex-direction: row;
+#credits{
+  text-align: center;
+  position: absolute;
+  bottom: 5px;
+  left: 100px;
 }

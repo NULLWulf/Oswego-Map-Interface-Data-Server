@@ -61,17 +61,17 @@ by a Spring Boot web server API for serving web content as well as data from a S
 
 ### 🌱 Environment 🌱
 - Frontend
-  - [Javascript](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/js/map.js), [HTML](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/index.html), [CSS](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/css/style.css) (Project Files)
-  - [Mapbox-GL-JS Vector Map Framework](https://docs.mapbox.com/mapbox-gl-js/api/)
-  - [NPM](https://www.npmjs.com/)
+  - [Javascript ES5+](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/js/map.js), [HTML5](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/index.html), [CSS3](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/css/style.css) (Project Files)
+  - [Mapbox-GL-JS Vector Map Framework 2.7.0](https://docs.mapbox.com/mapbox-gl-js/api/)
+  - [NPM 8.5.1](https://www.npmjs.com/)
     - [package.json](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package.json)
     - [package-lock.json](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/src/main/resources/static/package-lock.json)
 - Backend
   - [Java SE 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
     - [src](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/tree/main/src)
-  - [Maven](https://maven.apache.org/)
+  - [Maven 4.0.0](https://maven.apache.org/)
     - [pom.xml](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/pom.xml)
-  - [Spring Boot](https://spring.io/projects/spring-boot)
+  - [Spring Boot 2.6.7](https://spring.io/projects/spring-boot)
     - Spring JPA
     - Spring MVC
     - Spring Rest Controller
@@ -83,6 +83,9 @@ by a Spring Boot web server API for serving web content as well as data from a S
   - Heroku dyno with continuous integration handled through Heroku-20 Java Buildpack
 
 For a full list of dependencies visit the [Dependency Graph](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/network/dependencies).
+
+### :building_construction: [Project Directory Structure](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/docs/structure.md) :building_construction:
+
 ## :handshake: Contributing :handshake:
 There are numerous ways for this project to be improved upon.  We feel one of the best ways to see this project
 fleshed out and actualized over time is to open it up to open-source contributing in addition to whomever may be working
@@ -106,7 +109,16 @@ needs.
    - First time contributors will likely have contribution examined in depth before acceptance
 5. If Accepted, repo owner will merge in main repository
 6. Update forked repository accordingly
-## :building_construction: [Project Directory Structure](https://github.com/dmpippin/Oswego-Map-Interface-Data-Server/blob/main/docs/structure.md) :building_construction:
-## Credits
+
+### ⚖️ Contribution Guidelines ⚖️
+- The content of contributions must comply with the [SUNY Oswego Code of Conduct](https://www.oswego.edu/policies)
+- Other SUNY Oswego policies as applicable
+- Must add some sort of measurable value to the project
+- May not contain any sort of intentionally malfunction causing or malicious code
+- May not be re-used for commercial use
+
+## 🎗️ Credits 🎗️
 #### :copyright: 2022 [SUNY Oswego Facility Services](https://www.oswego.edu/facilities-services/facilities-services-0)
 #### :writing_hand: Project Originator [Nathaniel Wolf](https://github.com/nullwulf)
+
+#### ***Last Updated: 5/27/2022***

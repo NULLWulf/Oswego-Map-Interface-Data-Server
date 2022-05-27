@@ -50,10 +50,8 @@
           <hr />
 
           <div class="dropdown">
-            <select
-              id="region-dropdown"
-              onchange="flyToRegionDropdown(this.value)"
-            >
+            <label for="region-dropdown"></label><select
+              id="region-dropdown">
               <option value="none" selected disabled hidden>
                 Campus Regions
               </option>
@@ -77,9 +75,13 @@
             class="live-map-info context-box smalltext"
           ></div>
           <div>
-            <button id="style-toggle" class="button" onclick="toggleMapStyle()">
+            <button id="style-toggle" class="button">
               Satellite View
             </button>
+          </div>
+          <div class="smalltext" id="credits">
+            <div>© 2022 <a href="https://www.oswego.edu/facilities-services/facilities-services-0" target="_blank">SUNY Oswego Facility Services</a></div>
+            <div><a href="https://github.com/dmpippin/Oswego-Map-Interface-Data-Server" target="_blank">Main Repository</a> - <a href="https://github.com/nullwulf" target="_blank">Project Originator</a></div>
           </div>
         </div>
       </div>
